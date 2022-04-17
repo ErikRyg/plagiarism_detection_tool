@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Moodle Quiz XHTML Export</title>
+<style type="text/css">
+body {
+     font-family: verdana, helvetica, sans-serif;
+     background-color: #fff;
+     color: #000;
+ }
+ 
+ .question {
+     border: 1px solid #ddd;
+     margin: 5px;
+     padding: 3px;
+ }
+ 
+ .question h3 {
+     font-weight: normal;
+     font-size: 125%;
+ }
+ 
+ .question ul {
+     list-style-type: none;
+ }
+</style>
+</head>
+<body>
+<form action="...REPLACE ME..." method="post">
+
+
+
+
+<!-- question: 2554874  name: Hand #1 (arrays, pointer) -->
+<div class="question">
+<h3>Hand #1 (arrays, pointer)</h3>
+<p class="questiontext"><p><b>Aufgabe</b></p>Führt eine 
+Handsimulation für folgendes Programm durch. Schreibt also in die 
+Tabelle, welche Zeilen nacheinander ausgeführt werden (erste Spalte), 
+und welche Werte die Variablen nach Ausführung dieser Zeile jeweils 
+haben (die anderen Spalten).<br>
+<ul>
+    <li>Variablen, die zu diesem Zeitpunkt noch nicht existieren, werden mit - markiert</li>
+    <li>Variablen, deren Wert undefiniert ist, werden mit <b>undef</b> markiert</li>
+    <li>Füllt Felder von Variablen, die sich <b>nicht</b>&nbsp;ändern, mit&nbsp;<b>%</b>&nbsp;(in
+ einer schriftlichen Klausur könnt ihr diese leer lassen). Dies wird 
+also
+        interpretiert als “gleicher Wert wie in der Zeile davor”. 
+Solltet ihr den Wert nochmals aufschreiben, zählt das als falsch (Wir 
+entschuldigen uns hierfür, jedoch gibt es in ISIS keine Möglichkeit, 
+dass das Leerlassen einer Stelle "richtig" ist).</li>
+    <li>Die erste ausgeführte Zeile einer Funktion ist <b>immer</b> die öffnende Klammer</li>
+    <li>Die letzte ausgeführte Zeile einer Funktion ist <b>immer</b> die schließende Klammer</li><li>Nach einem <b>break</b> wird anschließend direkt in die nächste Zeile <i>nach </i>der Schleife gesprungen<br></li>
+    <li>Beim Sprung in eine Funktion wird hinter die aktuelle Zeile in 
+Klammern die Zeile, aus der der Sprung stattgefunden hat, geschrieben 
+(z.B: 3(14); Achtung: Bitte <b>nur</b> die Zahlen und die Klammern. Sollten Leerzeichen dazwischen kommen, erkennt
+        ISIS die Lösung als falsch an).</li>
+    <li>Die Anzahl der Zeilen in der Tabelle ist abgezählt, die Vorgaben sind korrekt.</li>
+</ul><p><b>Programm</b></p>
+<pre><table cellspacing="0" border="0">
+	<colgroup width="439"></colgroup>
+	<tbody></tbody></table>1     #include &lt;stdio.h&gt;<br>2     <br>3     unsigned char orderAndReturnBiggestIdx(int* p_n1, int* p_n2)<br>4     {<br>5        if ( *p_n1 &gt; *p_n2 )<br>6        {<br>7           int tmp = *p_n1;<br>8           *p_n1 = *p_n2;<br>9           *p_n2 = tmp;<br>10          return 1;<br>11       }<br>12       return 2;<br>13    }<br>14    <br>15    void main()<br>16    {<br>17       int a = 100;<br>18       int b = 10;<br>19       unsigned char biggestIdx = orderAndReturnBiggestIdx(&amp;a, &amp;b);<br>20       switch ( biggestIdx )<br>21       {<br>22          case 1:<br>23             printf("Fall 1. a: %i, b: %i \n", a, b);<br>24             break;<br>25          case 2:<br>26             printf("Fall 2. a: %i, b: %i \n", a, b);<br>27             break;<br>28       }<br>29    }<br><br><b>a</b> liege bei der Ausführung im Speicher an Adresse <b>1024</b>, <b>b</b> an Adresse <b>1028</b>.<br>&nbsp;<pre></pre><b>Tabelle</b></pre><p></p><table cellspacing="0" border="0">
+	<colgroup width="85" span="4"></colgroup>
+	<colgroup width="132"></colgroup>
+	<colgroup width="180"></colgroup>
+	<colgroup width="85"></colgroup>
+	<tbody><tr>
+		<td height="17" align="center"><b>Zeile</b></td>
+		<td align="center"><b>p_n1</b></td>
+		<td align="center"><b>p_n2</b></td>
+		<td align="center"><b>tmp</b></td>
+		<td align="center"><b>a</b></td>
+		<td align="center"><b>b</b></td>
+		<td align="center"><b>biggestIdx</b></td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#1}</td>
+		<td align="center">{#2}</td>
+		<td align="center">{#3}</td>
+		<td align="center">{#4}</td>
+		<td align="center">{#5}</td>
+		<td align="center">{#6}</td>
+		<td align="center">{#7}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#8}</td>
+		<td align="center">{#9}</td>
+		<td align="center">{#10}</td>
+		<td align="center">{#11}</td>
+		<td align="center">{#12}</td>
+		<td align="center">{#13}</td>
+		<td align="center">{#14}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#15}</td>
+		<td align="center">{#16}</td>
+		<td align="center">{#17}</td>
+		<td align="center">{#18}</td>
+		<td align="center">{#19}</td>
+		<td align="center">{#20}</td>
+		<td align="center">{#21}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#22}</td>
+		<td align="center">{#23}</td>
+		<td align="center">{#24}</td>
+		<td align="center">{#25}</td>
+		<td align="center">{#26}</td>
+		<td align="center">{#27}</td>
+		<td align="center">{#28}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#29}</td>
+		<td align="center">{#30}</td>
+		<td align="center">{#31}</td>
+		<td align="center">{#32}</td>
+		<td align="center">{#33}</td>
+		<td align="center">{#34}</td>
+		<td align="center">{#35}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#36}</td>
+		<td align="center">{#37}</td>
+		<td align="center">{#38}</td>
+		<td align="center">{#39}</td>
+		<td align="center">{#40}</td>
+		<td align="center">{#41}</td>
+		<td align="center">{#42}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#43}</td>
+		<td align="center">{#44}</td>
+		<td align="center">{#45}</td>
+		<td align="center">{#46}</td>
+		<td align="center">{#47}</td>
+		<td align="center">{#48}</td>
+		<td align="center">{#49}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#50}</td>
+		<td align="center">{#51}</td>
+		<td align="center">{#52}</td>
+		<td align="center">{#53}</td>
+		<td align="center">{#54}</td>
+		<td align="center">{#55}</td>
+		<td align="center">{#56}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#57}</td>
+		<td align="center">{#58}</td>
+		<td align="center">{#59}</td>
+		<td align="center">{#60}</td>
+		<td align="center">{#61}</td>
+		<td align="center">{#62}</td>
+		<td align="center">{#63}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#64}</td>
+		<td align="center">{#65}</td>
+		<td align="center">{#66}</td>
+		<td align="center">{#67}</td>
+		<td align="center">{#68}</td>
+		<td align="center">{#69}</td>
+		<td align="center">{#70}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#71}</td>
+		<td align="center">{#72}</td>
+		<td align="center">{#73}</td>
+		<td align="center">{#74}</td>
+		<td align="center">{#75}</td>
+		<td align="center">{#76}</td>
+		<td align="center">{#77}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#78}</td>
+		<td align="center">{#79}</td>
+		<td align="center">{#80}</td>
+		<td align="center">{#81}</td>
+		<td align="center">{#82}</td>
+		<td align="center">{#83}</td>
+		<td align="center">{#84}</td>
+	</tr>
+	<tr>
+		<td sdval="20" sdnum="2057;" height="17" align="center">20</td>
+		<td align="center">{#85}</td>
+		<td align="center">{#86}</td>
+		<td align="center">{#87}</td>
+		<td align="center">{#88}</td>
+		<td align="center">{#89}</td>
+		<td align="center">{#90}</td>
+	</tr>
+	<tr>
+		<td sdval="21" sdnum="2057;" height="17" align="center">21</td>
+		<td align="center">{#91}</td>
+		<td align="center">{#92}</td>
+		<td align="center">{#93}</td>
+		<td align="center">{#94}</td>
+		<td align="center">{#95}</td>
+		<td align="center">{#96}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#97}</td>
+		<td align="center">{#98}</td>
+		<td align="center">{#99}</td>
+		<td align="center">{#100}</td>
+		<td align="center">{#101}</td>
+		<td align="center">{#102}</td>
+		<td align="center">{#103}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#104}</td>
+		<td align="center">{#105}</td>
+		<td align="center">{#106}</td>
+		<td align="center">{#107}</td>
+		<td align="center">{#108}</td>
+		<td align="center">{#109}</td>
+		<td align="center">{#110}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#111}</td>
+		<td align="center">{#112}</td>
+		<td align="center">{#113}</td>
+		<td align="center">{#114}</td>
+		<td align="center">{#115}</td>
+		<td align="center">{#116}</td>
+		<td align="center">{#117}</td>
+	</tr>
+	<tr>
+		<td sdval="28" sdnum="2057;" height="17" align="center">28</td>
+		<td align="center">{#118}</td>
+		<td align="center">{#119}</td>
+		<td align="center">{#120}</td>
+		<td align="center">{#121}</td>
+		<td align="center">{#122}</td>
+		<td align="center">{#123}</td>
+	</tr>
+	<tr>
+		<td sdval="29" sdnum="2057;" height="17" align="center">29</td>
+		<td align="center">{#124}</td>
+		<td align="center">{#125}</td>
+		<td align="center">{#126}</td>
+		<td align="center">{#127}</td>
+		<td align="center">{#128}</td>
+		<td align="center">{#129}</td>
+	</tr>
+</tbody></table><br><p></p></p>
+<!-- export of multianswer type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555159  name: Caesar-Chiffre -->
+<div class="question">
+<h3>Caesar-Chiffre</h3>
+<p class="questiontext"><p>Nach Angaben des römischen Schriftstellers Sueton <br>"verschlüsselte" Julius Caesar seine militärische Korrespondenz<br>mittels einer nach ihm benannten Methode: <br>Jedes Zeichen aus dem Klartext wird um eine konstante<br>Anzahl von Zeichen im Alphabet verschoben.<br>Das Chiffrieren mit einer <b>Verschiebung von 3</b> Zeichen bedeutet<br>für Zeichen aus dem ASCII-Code also:</p><p><img src="https://isis.tu-berlin.de/pluginfile.php/1875223/question/questiontext/preview/1875223/qformat_xhtml/2555159/2555159/Caesar3.jpg?time=1585920634803" alt="Caesar-Chiffre im Alphabet" class="img-responsive atto_image_button_text-bottom" width="600" height="253"></p><p>Schreiben Sie zuerst eine Funktion "void shiftChar(char* p_char, int shift)",<br>welche das Zeichen, auf welches <b>p_char</b> zeige, um <b>shift</b> Zeichen <br>im Alphabet verschiebt. <br>Der Einfachheit halber nehmen wir an, dass wir nur große und kleine lateinische Buchstaben verschieben.<br>Zeichen, welche nicht zwischen 'a' und 'z' bzw. 'A' und 'Z' liegen (zum Beispiel '!'),<br>sollen nicht verändert werden.<br><br><span class="" style="color: rgb(255, 207, 53);">Hinweis</span>: An der oberen Grenze soll umgebrochen werden, also soll beispielsweise <i>y</i> geshiftet um (+3) <i>b</i> sein, <i>Y</i> geshiftet um (+3) ergebe <i>B</i>.<br><br>Schreiben Sie weiterhin eine Funktion "void cipher(char str[], int shift, int maxlength)", welche alle im Array <b>str</b> enthaltenen Zeichen mit dem Caesar-Ciffre chiffriert, indem sie auf jedes Zeichen in <b>str</b> die <b>shiftChar</b>-Funktion anwendet.<br><br>Die <b>cipher</b>-Funktion wird in der <b>main</b>-Funktion der Vorgabe zum Chiffrieren aufgerufen. Zum Dechiffrieren dient die gleiche Funktion mit negativem Verschiebungsparameter.<br><br><span class="" style="color: rgb(255, 207, 53);">Hinweis</span>: Gehen Sie davon aus, dass <b>shift</b> immer im Bereich von (-25) bis (+25) liegt.<br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2690343  name: Caesar-Chiffre (Neu; FERTIG) -->
+<div class="question">
+<h3>Caesar-Chiffre (Neu; FERTIG)</h3>
+<p class="questiontext"><p>Nach Angaben des römischen Schriftstellers Sueton <br>"verschlüsselte" Julius Caesar seine militärische Korrespondenz<br>mittels einer nach ihm benannten Methode: <br>Jedes Zeichen aus dem Klartext wird um eine konstante<br>Anzahl von Zeichen im Alphabet verschoben.<br>Das Chiffrieren mit einer <strong>Verschiebung von 3</strong> Zeichen bedeutet<br>für Zeichen aus dem ASCII-Code also:</p><p><img src="https://isis.tu-berlin.de/pluginfile.php/1875223/question/questiontext/preview/1875223/qformat_xhtml/2690343/2690343/Caesar3.jpg?time=1585920634803" alt="Caesar-Chiffre im Alphabet" class="img-responsive atto_image_button_text-bottom" width="600" height="253"></p><p>Schreiben Sie zuerst eine Funktion "<strong>void shiftChar(char* p_char, int shift)</strong>",<br>welche das Zeichen, auf welches <strong>p_char</strong> zeige, um <strong>shift</strong> Zeichen <br>im Alphabet verschiebt. <br>Der Einfachheit halber nehmen wir an, dass wir nur große und kleine lateinische Buchstaben verschieben.<br>Zeichen, welche nicht zwischen 'a' und 'z' bzw. 'A' und 'Z' liegen (zum Beispiel '!'),<br>sollen nicht verändert werden.<br><br><span class="" style="color: rgb(197, 14, 31);">Hinweis</span>: An der oberen Grenze soll umgebrochen werden, also soll beispielsweise <i>y</i> geshiftet um (+3) <i>b</i> sein, <i>Y</i> geshiftet um (+3) ergebe <i>B</i>.<br><br>Schreiben Sie weiterhin eine Funktion "<strong>void cipher(char str[], int shift, int maxlength)</strong>", welche alle im Array <strong>str</strong> enthaltenen Zeichen mit dem Caesar-Ciffre chiffriert, indem sie auf jedes Zeichen in <strong>str</strong> die <strong>shiftChar</strong>-Funktion anwendet.<br><br>Die <strong>cipher</strong>-Funktion wird in der <strong>main</strong>-Funktion der Vorgabe zum Chiffrieren aufgerufen. Zum Dechiffrieren dient die gleiche Funktion mit negativem Verschiebungsparameter.<br><br><span class="" style="color: rgb(197, 14, 31);">Hinweis</span>: Gehen Sie davon aus, dass <strong>shift</strong> immer im Bereich von (-25) bis (+25) liegt.<br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555165  name: Versandkosten -->
+<div class="question">
+<h3>Versandkosten</h3>
+<p class="questiontext"><p>Ein Paketdienst soll fünf Artikel möglichst kostengünstig an einen Kunden versenden. Der Dienst berechnet für Pakete bis zu einem Gewicht von (inklusive) 10 Kilo 3 € Versandkosten. Darüber hinaus sind für jedes zusätzliche Kilo 45 Cent zu bezahlen.<br><br>Vervollständigt das gegebene Programm, das die Artikel auf Päckchen verteilt, indem ihr die Funktion <b>packePakete</b> und die Funktion <b>berechnePaketKosten</b> implementiert:<br></p><ol><li>in <b>packePakete</b> müsst ihr über die Artikel (Gewichte) iterieren. Jeder Artikel mit mehr als zehn kg bekommt ein eigenes, neues Paket. Von den Artikeln, die nicht mehr als zehn kg wiegen, werden so viele wie möglich zusammengepackt, so dass dabei einzelne Pakete nicht mehr als zehn kg wiegen. Pakete können <b>unbenutzt</b> bleiben, indem ihr Gewicht auf 0 bleibt.</li><li>in <b>berechnePaketKosten</b> müsst ihr über die Paket (Gewichte) iterieren, und die Kosten nach obigem Schema summieren. Missachtet Pakete mit Gewicht 0.</li></ol><p><b>main</b> soll nicht verändert werden.<br><br><b>Achtung:</b><br></p><div>Die Funktion&nbsp;<b>packePackete()&nbsp;</b>soll eine "einfache" Funktion sein. Das heißt, wenn mehrere kleine Gewichte&nbsp;<b>hintereinander</b>&nbsp;im Array gespeichert sind,&nbsp;<b>sollt</b>&nbsp;ihr diese&nbsp;<b>zusammenfassen</b>.<br></div><div>Wenn jedoch immer ein größeres Gewicht dazwischen liegt, wie zum Beispiel bei dem Fall "int array[3] = {6,9,4};", dann kommen die Gewichte alle in einzelne Packete, weil wir weder 6 mit 9, noch 9 mit 4 zu einem Packet, was maximal 10kg wiegen soll, zusammen packen können.</div><br><br><p></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2690342  name: Versandkosten (Neu; FERTIG) -->
+<div class="question">
+<h3>Versandkosten (Neu; FERTIG)</h3>
+<p class="questiontext"><p>Ein Paketdienst soll fünf Artikel möglichst kostengünstig an einen Kunden versenden. Der Dienst berechnet für Pakete bis zu einem Gewicht von (inklusive) 10 Kilo 3 € Versandkosten. Darüber hinaus sind für jedes zusätzliche Kilo 45 Cent zu bezahlen.<br><br>Vervollständigt das gegebene Programm, das die Artikel auf Päckchen verteilt, indem ihr die Funktion <b>packePakete</b> und die Funktion <b>berechnePaketKosten</b> implementiert:<br></p><ol><li>in <b>packePakete</b> müsst ihr über die Artikel (Gewichte) iterieren. Jeder Artikel mit mehr als zehn kg bekommt ein eigenes, neues Paket. Von den Artikeln, die nicht mehr als zehn kg wiegen, werden so viele wie möglich zusammengepackt, so dass dabei einzelne Pakete nicht mehr als zehn kg wiegen. Pakete können <b>unbenutzt</b> bleiben, indem ihr Gewicht auf 0 bleibt.</li><li>in <b>berechnePaketKosten</b> müsst ihr über die Paket (Gewichte) iterieren, und die Kosten nach obigem Schema summieren. Missachtet Pakete mit Gewicht 0.</li></ol><p><b>main</b> soll nicht verändert werden.<br><br><b>Achtung:</b><br></p><div>Die Funktion&nbsp;<b>packePackete()&nbsp;</b>soll eine "einfache" Funktion sein. Das heißt, wenn mehrere kleine Gewichte&nbsp;<b>hintereinander</b>&nbsp;im Array gespeichert sind,&nbsp;<b>sollt</b>&nbsp;ihr diese&nbsp;<b>zusammenfassen</b>.<br></div><div>Wenn jedoch immer ein größeres Gewicht dazwischen liegt, wie zum Beispiel bei dem Fall "int array[3] = {6,9,4};", dann kommen die Gewichte alle in einzelne Packete, weil wir weder 6 mit 9, noch 9 mit 4 zu einem Packet, was maximal 10kg wiegen soll, zusammen packen können.</div><br><br><p></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675743  name: Versandkosten (THomas Test) -->
+<div class="question">
+<h3>Versandkosten (THomas Test)</h3>
+<p class="questiontext"><p>Ein Paketdienst soll fünf Artikel möglichst kostengünstig an einen Kunden versenden. Der Dienst berechnet für Pakete bis zu einem Gewicht von (inklusive) 10 Kilo 3 € Versandkosten. Darüber hinaus sind für jedes zusätzliche Kilo 45 Cent zu bezahlen.<br><br>Vervollständigt das gegebene Programm, das die Artikel auf Päckchen verteilt, indem ihr die Funktion <b>packePakete</b> und die Funktion <b>berechnePaketKosten</b> implementiert:<br></p><ol><li>in <b>packePakete</b> müsst ihr über die Artikel (Gewichte) iterieren. Jeder Artikel mit mehr als zehn kg bekommt ein eigenes, neues Paket. Von den Artikeln, die nicht mehr als zehn kg wiegen, werden so viele wie möglich zusammengepackt, so dass dabei einzelne Pakete nicht mehr als zehn kg wiegen. Pakete können <b>unbenutzt</b> bleiben, indem ihr Gewicht auf 0 bleibt.</li><li>in <b>berechnePaketKosten</b> müsst ihr über die Paket (Gewichte) iterieren, und die Kosten nach obigem Schema summieren. Missachtet Pakete mit Gewicht 0.</li></ol><p><b>main</b> soll nicht verändert werden.<br><br><b>Achtung:</b><br></p><div>Die Funktion&nbsp;<b>packePackete()&nbsp;</b>soll eine "einfache" Funktion sein. Das heißt, wenn mehrere kleine Gewichte&nbsp;<b>hintereinander</b>&nbsp;im Array gespeichert sind,&nbsp;<b>sollt</b>&nbsp;ihr diese&nbsp;<b>zusammenfassen</b>.<br></div><div>Wenn jedoch immer ein größeres Gewicht dazwischen liegt, wie zum Beispiel bei dem Fall "int array[3] = {6,9,4};", dann kommen die Gewichte alle in einzelne Packete, weil wir weder 6 mit 9, noch 9 mit 4 zu einem Packet, was maximal 10kg wiegen soll, zusammen packen können.</div><br><br><p></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555255  name: Call-by-Reference -->
+<div class="question">
+<h3>Call-by-Reference</h3>
+<p class="questiontext"><p>Was ist die Ausgabe des folgenden C-Codes?&nbsp;</p>
+<p><br></p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">#include &lt;stdio.h&gt;
+
+void func(int *a, int b) {
+	*a += 1;
+	b += 1;
+}
+
+int main() {
+	int a = 0;
+	int b = 0;
+	func(&amp;a, b);
+	printf("%d, %d\n", a, b);
+}</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2555255" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;0, 0&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">0, 0</span></p></li>
+  <li><input name="quest_2555255" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;0, 1&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">0, 1</span></p></li>
+  <li><input name="quest_2555255" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;1, 0&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">1, 0</span></p></li>
+  <li><input name="quest_2555255" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;1, 1&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">1, 1</span></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2555260  name: Call-by-Reference 2 -->
+<div class="question">
+<h3>Call-by-Reference 2</h3>
+<p class="questiontext"><p>Was ist die Ausgabe des folgenden C-Codes? <br></p><p><br></p><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">#include &lt;stdio.h&gt;
+
+void func(int *a, int b) {
+	*a += 1;
+	b += 1;
+}
+
+int main() {
+	int a = 0;
+	int b = 0;
+	func(&amp;a, b);
+	printf("%d, %d\n", b, a);
+}</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2555260" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;0, 0&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">0, 0</span></p></li>
+  <li><input name="quest_2555260" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;0, 1&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">0, 1</span></p></li>
+  <li><input name="quest_2555260" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;1, 0&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">1, 0</span></p></li>
+  <li><input name="quest_2555260" type="radio" value="&lt;p&gt;&lt;span style=&quot;font-family: courier new,courier,monospace;&quot;&gt;1, 1&lt;/span&gt;&lt;/p&gt;" /><p><span style="font-family: courier new,courier,monospace;">1, 1</span></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2690345  name: De- und Referenzieren -->
+<div class="question">
+<h3>De- und Referenzieren</h3>
+<p class="questiontext"><p dir="ltr" style="text-align: left;">Kreuzen Sie die <strong>wahren </strong>Aussagen an<br></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Der &#039;&amp;amp;&#039; Operator wird bei Pointer und Variablen für das Referenzieren verwendet&lt;br&gt;&lt;/p&gt;" /><p>Der '&amp;' Operator wird bei Pointer und Variablen für das Referenzieren verwendet<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Der &#039;&amp;amp;&#039; Operator wird bei Pointer und Variablen für das Dereferenzieren verwendet&lt;br&gt;&lt;/p&gt;" /><p>Der '&amp;' Operator wird bei Pointer und Variablen für das Dereferenzieren verwendet<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Mit dem &#039;&amp;amp;&#039; Operator kann man auf Adressen von Pointern und Variablen zugreifen&lt;br&gt;&lt;/p&gt;" /><p>Mit dem '&amp;' Operator kann man auf Adressen von Pointern und Variablen zugreifen<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Mit dem &#039;&amp;amp;&#039; Operator kann man auf den Inhalt von Adressen, die in Pointern gespeichert sind, zugreifen&lt;br&gt;&lt;/p&gt;" /><p>Mit dem '&amp;' Operator kann man auf den Inhalt von Adressen, die in Pointern gespeichert sind, zugreifen<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Mit dem &#039;*&#039; Operator kann man auf Adressen von Pointern und Variablen zugreifen&lt;br&gt;&lt;/p&gt;" /><p>Mit dem '*' Operator kann man auf Adressen von Pointern und Variablen zugreifen<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Mit dem &#039;*&#039; Operator kann man auf den Inhalt von Adressen, die in Pointern gespeichert sind, zugreifen&lt;br&gt;&lt;/p&gt;" /><p>Mit dem '*' Operator kann man auf den Inhalt von Adressen, die in Pointern gespeichert sind, zugreifen<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Der &#039;*&#039; Operator wird bei Pointer und Variablen für das Referenzieren verwendet&lt;br&gt;&lt;/p&gt;" /><p>Der '*' Operator wird bei Pointer und Variablen für das Referenzieren verwendet<br></p></li>
+  <li><input name="quest_2690345" type="checkbox" value="&lt;p&gt;Der &#039;*&#039; Operator wird bei Pointer und Variablen für das Dereferenzieren verwendet&lt;br&gt;&lt;/p&gt;" /><p>Der '*' Operator wird bei Pointer und Variablen für das Dereferenzieren verwendet<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2555259  name: Pointer und Arrays -->
+<div class="question">
+<h3>Pointer und Arrays</h3>
+<p class="questiontext"><p>Arrays und Pointers sind exakt das gleiche.</p></p>
+<ul class="multichoice">
+  <li><input name="quest_2555259" type="radio" value="&lt;p&gt;Ja&lt;/p&gt;" /><p>Ja</p></li>
+  <li><input name="quest_2555259" type="radio" value="&lt;p&gt;Nein&lt;/p&gt;" /><p>Nein</p></li>
+  <li><input name="quest_2555259" type="radio" value="&lt;p&gt;Vielleicht&lt;/p&gt;" /><p>Vielleicht</p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2555261  name: Zeiger Zuweisungen -->
+<div class="question">
+<h3>Zeiger Zuweisungen</h3>
+<p class="questiontext">Folgender Code ist gegeben:
+
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">int zahl = 43;
+int **pp;
+int* pointer;
+</pre> Welche der Antworten kompiliert ohne Warnungen?</p>
+<ul class="multichoice">
+  <li><input name="quest_2555261" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;pointer = &amp;amp;zahl;
+pp = &amp;amp;pointer;
+**pp = 42;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">pointer = &amp;zahl;
+pp = &amp;pointer;
+**pp = 42;</pre></li>
+  <li><input name="quest_2555261" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;pp = &amp;amp;zahl;
+pointer = &amp;amp;pp;
+*pointer = 42;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">pp = &amp;zahl;
+pointer = &amp;pp;
+*pointer = 42;</pre></li>
+  <li><input name="quest_2555261" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;pointer = &amp;amp;zahl;
+**pp = 42;
+pp = &amp;amp;pointer;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">pointer = &amp;zahl;
+**pp = 42;
+pp = &amp;pointer;</pre></li>
+  <li><input name="quest_2555261" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;pp = &amp;amp;zahl;
+pointer = &amp;amp;pp;
+**pointer = 42;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">pp = &amp;zahl;
+pointer = &amp;pp;
+**pointer = 42;</pre></li>
+</ul>
+</div>
+
+
+
+
+<!-- question: 2555457  name: Größte gemeinsame Teiler -->
+<div class="question">
+<h3>Größte gemeinsame Teiler</h3>
+<p class="questiontext"><p></p><p>Unten ist ein <b>fast</b> 
+vollständiges Programm gegeben. Das Programm erwartet zwei Zahlen die vom Nutzer eingegeben werden, errechnet dann den größten gemeinsamen Teiler und gibt anschließend das Ergebnis auf der Konsole aus. <br></p><p></p><p>Eure Aufgabe ist lediglich jeweils einen Pointer für die erste und die zweite Zahl zu erstellen, welcher auf die jeweilige Adresse der Variable zeigt. Diese Adressen werden dann der Funktion <i>groesste_gemeinsame_teiler() übergeben, welche dann mit den ürsprünglichen Variablen diesen Teiler errechnet.</i><br></p><p>Ihr müsst also nur in Zeile 16 und 17 jeweils einen Pointer (mit den Namen "p1" und "p2") deklarieren und mit den jeweiligen Adressen initialisieren (achtet auf den entsprechenden Datentypen).<br></p><p></p><p></p><br><p></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675741  name: Größte gemeinsame Teiler (Neu; FERTIG) -->
+<div class="question">
+<h3>Größte gemeinsame Teiler (Neu; FERTIG)</h3>
+<p class="questiontext"><p></p><p>Unten ist ein <strong>fast</strong> 
+vollständiges Programm gegeben. Das Programm erwartet zwei Zahlen die vom Nutzer eingegeben werden, errechnet dann den größten gemeinsamen Teiler und gibt anschließend das Ergebnis auf der Konsole aus. <br></p><p></p><p>Eure Aufgabe ist lediglich jeweils einen Pointer für die erste und die zweite Zahl zu erstellen, welcher auf die jeweilige Adresse der Variable zeigt. Diese Adressen werden dann der Funktion <strong>{{ cr_random.funktionsname }}</strong><strong>()</strong><em> </em>übergeben, welche dann mit den ürsprünglichen Variablen diesen Teiler errechnet.<br></p><p>Ihr müsst also nur in Zeile 16 und 17 jeweils einen Pointer (mit den Namen <em>"</em><strong>{{ cr_random.P1 }}</strong><em>"</em> und "<strong>{{ cr_random.P2 }}</strong>") deklarieren und mit den jeweiligen Adressen initialisieren (achtet auf den entsprechenden Datentypen).<br></p><p></p><p></p><br><p></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2555456  name: Pointer und Switch -->
+<div class="question">
+<h3>Pointer und Switch</h3>
+<p class="questiontext">Vervollständigt den Quellcode des Programms, sodass das Programm Temperaturen umrechnet.<br><br>Die Funktionen zur Umrechnung sind bereits gegeben. <strong>Eure Aufgabe</strong> ist es die Funktion <strong><em>temperatur()</em></strong> zu ergänzen.<br>Es gibt drei Temperaturskalen. Für <strong>eine Skala</strong> wird der <strong>Wert eingegeben. </strong>Die Werte der beiden anderen müssen von eurem Programm mithilfe der gegebenen Funktionen berechnet werden.<br><br><p>Eure Funktion <em>temperatur(</em>) erwartet dementsprechend drei Pointer auf die Variablen aus der main() um deren Werte anpassen zu können. Testet nach validen Zeigern<br></p><p>Zusätzlich benötigt eure Funktion noch einen <strong>4en Parameter</strong>, welcher aussagt, welche <strong>Temperatureinheit </strong>vom Nutzer <strong>ausgesucht wurde</strong>.<br></p>Der <strong>Rückgabewert </strong>eurer Funktion soll lediglich dafür benutzt werden um zu zeigen, dass die Umwandlung legitim ist. Eine legitime Umwandlung ist für Temperaturen, die über den absoluten Nullpunkt (-273.15°C) liegen. Die <em>main()</em> erwartet <strong>diesen Wahrheitswert </strong>und gibt eine entsprechende Warnung heraus, falls die Temperatur unter dem absoluten Nullpunkt liegt. Falls nicht, werden die Umwandlungen ausgegeben.<br><br><p>Die Ausgabe des Programms ist bereits vorgegeben.<br></p><p><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675742  name: Pointer und Switch (Neu; FERTIG) -->
+<div class="question">
+<h3>Pointer und Switch (Neu; FERTIG)</h3>
+<p class="questiontext">Vervollständigt den Quellcode des Programms, sodass das Programm Temperaturen umrechnet.<br><br>Die Funktionen zur Umrechnung sind bereits gegeben. <strong>Eure Aufgabe</strong> ist es die Funktion <strong>{{ cr_random.funktionsname }}</strong> zu ergänzen.<br>Es gibt drei Temperaturskalen. Für <strong>eine Skala</strong> wird der <strong>Wert eingegeben. </strong>Die Werte der beiden anderen müssen von eurem Programm mithilfe der gegebenen Funktionen berechnet werden.<br><br><p>Eure Funktion <strong>{{ cr_random.funktionsname }}</strong> erwartet dementsprechend drei Pointer auf die Variablen aus der main() um deren Werte anpassen zu können. Testet nach validen Zeigern und <strong>behaltet </strong>die <strong>Reihenfolge der Parameter </strong>ein. Bei invaliden Zeiger(n) soll die Funktion eine -1 zurückgeben und eine entsprechende Ausgabe soll in der main stattfinden.<br></p><p>Zusätzlich benötigt eure Funktion noch einen <strong>4en Parameter</strong>, welcher aussagt, welche <strong>Temperatureinheit </strong>vom Nutzer <strong>ausgesucht wurde</strong>. Falls der Parameter einen nicht zulässigen Wert enthält, sollt ihr eine Warnung ausgeben (siehe Test).<br></p>Der <strong>Rückgabewert </strong>eurer Funktion soll lediglich dafür benutzt werden um zu zeigen, dass die Umwandlung legitim ist. Eine legitime Umwandlung ist für Temperaturen, die über den absoluten Nullpunkt (-273.15°C) liegen. Die <em>main()</em> erwartet <strong>diesen Wahrheitswert </strong>und gibt eine entsprechende Warnung heraus, falls die Temperatur unter dem absoluten Nullpunkt liegt oder die Adressen in den Zeigern ungültig waren. Falls nicht, werden die Umwandlungen ausgegeben.<br><p><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555265  name: Speicherabbild - Pointer -->
+<div class="question">
+<h3>Speicherabbild - Pointer</h3>
+<p class="questiontext"><p>Werte den untenstehenden Code aus und schreibe anschließend <strong>alle Werte</strong> der gegebenen Variablen <strong>nach </strong><strong>Ausführung </strong>des Programms in das <strong>Speicherabbild</strong>.</p>
+<p><br></p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">int a;
+int main() {
+	int b = 10;
+	int c[2] = {4, 8};
+	int* p_1;
+	int* p_2 = &amp;b;
+	int** p_p_3 = &amp;p_1;
+	*p_2 += 1;
+	p_1 = &amp;a;
+	a = 4;
+	**p_p_3 = 7 - *p_1;
+	*p_p_3 = &amp;c[0];
+	p_2 = p_1 + 1;
+	*p_1 += 22;
+	*p_2 += 43;
+}
+</pre>
+
+<table style="border-width: 2px; border-style: solid; border-color: rgb(125, 159, 211); width: 50%;">
+    <caption>Speicherabbild</caption>
+    <thead>
+        <tr>
+            <th scope="col" style="text-align: center;">Adressen<br></th>
+            <th scope="col" style="text-align: center;">Inhalt<br></th>
+            <th scope="col" style="text-align: center;">Variablen <br></th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;"><strong>200</strong></td>
+            <td style="text-align: center;">[[1]]</td>
+            <td style="text-align: center;">&nbsp;<strong>a</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>204</strong><br></td>
+            <td style="text-align: center;">[[2]]<br></td>
+            <td style="text-align: center;">&nbsp;<strong>b</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>208</strong></td>
+            <td style="text-align: center;">[[3]]</td>
+            <td style="text-align: center;">&nbsp;<strong>c[0]</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>212</strong></td>
+            <td style="text-align: center;">[[4]]</td>
+            <td style="text-align: center;">&nbsp;<strong>c[1]</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>216</strong></td>
+            <td style="text-align: center;">[[5]]</td>
+            <td style="text-align: center;"><strong>p_1</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>220</strong></td>
+            <td style="text-align: center;">[[6]]</td>
+            <td style="text-align: center;">&nbsp;<strong>p_2</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>224</strong></td>
+            <td style="text-align: center;">[[7]]</td>
+            <td style="text-align: center;">&nbsp;<strong>p_p_3</strong></td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>228</strong></td>
+            <td style="text-align: left;"><br></td>
+            <td>&nbsp;</td>
+
+        </tr>
+        <tr>
+            <td style="text-align: center;"><strong>...</strong><br></td>
+            <td></td>
+            <td>&nbsp;</td>
+
+        </tr>
+    </tbody>
+</table>
+<br><br>
+<p></p></p>
+<!-- export of ddwtos type is not supported  -->
+</div>
+
+
+
+<!-- question: 2555264  name: Größe von Datentypen -->
+<div class="question">
+<h3>Größe von Datentypen</h3>
+<p class="questiontext"><strong>Ordnen </strong>Sie die Code-Schnipsel den <strong>passenden Kommentaren</strong> zur neuen Größe der Variable <em>groesse </em>zu.<br></p>
+<ul class="match"><li><p dir="ltr" style="text-align: left;">int groesse = (int) ((char*) 100 - 4 );<br></p></li><label class="accesshide" for="quest_2555264_0">Antwort 1</label><select id="quest_2555264_0" class="select custom-select menuquest_2555264_0" name="quest_2555264_0"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select><li><p dir="ltr" style="text-align: left;">int groesse = (int) ((long*) 200 - (long*) 100);<br></p></li><label class="accesshide" for="quest_2555264_1">Antwort 2</label><select id="quest_2555264_1" class="select custom-select menuquest_2555264_1" name="quest_2555264_1"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select><li><p dir="ltr" style="text-align: left;">char groesse = (char) ((int*) 324 - (int*) 124);<br></p></li><label class="accesshide" for="quest_2555264_2">Antwort 3</label><select id="quest_2555264_2" class="select custom-select menuquest_2555264_2" name="quest_2555264_2"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select><li><p dir="ltr" style="text-align: left;">long groesse = (long) ((char*) 400 - (int) 200);<br></p></li><label class="accesshide" for="quest_2555264_3">Antwort 4</label><select id="quest_2555264_3" class="select custom-select menuquest_2555264_3" name="quest_2555264_3"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select><li><p dir="ltr" style="text-align: left;">int groesse = (int) ((long) 376 - (char) 32);<br></p></li><label class="accesshide" for="quest_2555264_4">Antwort 5</label><select id="quest_2555264_4" class="select custom-select menuquest_2555264_4" name="quest_2555264_4"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select><li><p dir="ltr" style="text-align: left;">int groesse = (int) ((long*) 376 - 32);<br></p></li><label class="accesshide" for="quest_2555264_5">Antwort 6</label><select id="quest_2555264_5" class="select custom-select menuquest_2555264_5" name="quest_2555264_5"><option value="// groesse = 200">// groesse = 200</option><option value="// groesse = 12">// groesse = 12</option><option value="// groesse = 344">// groesse = 344</option><option value="// groesse = 50">// groesse = 50</option><option value="// groesse = 120">// groesse = 120</option><option value="// groesse = 96">// groesse = 96</option></select></ul></div>
+
+
+
+<!-- question: 2555266  name: Untypisierte Pointer -->
+<div class="question">
+<h3>Untypisierte Pointer</h3>
+<p class="questiontext"><p>Welche Aussagen zu <strong>untypisierten Pointern</strong>, also Pointer die mit void deklariert werden, sind wahr? <strong>Kreuzen </strong>Sie die <strong>richtigen </strong>Antworten an<br></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2555266" type="checkbox" value="Es gibt keine untypisierten Pointer." />Es gibt keine untypisierten Pointer.</li>
+  <li><input name="quest_2555266" type="checkbox" value="Es gibt untypisierte Pointer." />Es gibt untypisierte Pointer.</li>
+  <li><input name="quest_2555266" type="checkbox" value="Man kann untypisierte Pointer nicht dereferenzieren." />Man kann untypisierte Pointer nicht dereferenzieren.</li>
+  <li><input name="quest_2555266" type="checkbox" value="Man kann untypisierte Pointer inkrementieren, aber nicht dekrementieren." />Man kann untypisierte Pointer inkrementieren, aber nicht dekrementieren.</li>
+  <li><input name="quest_2555266" type="checkbox" value="Man kann untypisierte Pointer inkrementieren, aber auch dekrementieren." />Man kann untypisierte Pointer inkrementieren, aber auch dekrementieren.</li>
+  <li><input name="quest_2555266" type="checkbox" value="Man kann untypisierte Pointer weder inkrementieren noch dekrementieren." />Man kann untypisierte Pointer weder inkrementieren noch dekrementieren.</li>
+</ul>
+</div>
+
+
+
+<p class="submit">
+  <input type="submit" />
+</p>
+</form>
+</body>
+</html>

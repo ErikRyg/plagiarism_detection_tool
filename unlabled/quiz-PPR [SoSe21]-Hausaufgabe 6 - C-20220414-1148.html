@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Moodle Quiz XHTML Export</title>
+<style type="text/css">
+body {
+     font-family: verdana, helvetica, sans-serif;
+     background-color: #fff;
+     color: #000;
+ }
+ 
+ .question {
+     border: 1px solid #ddd;
+     margin: 5px;
+     padding: 3px;
+ }
+ 
+ .question h3 {
+     font-weight: normal;
+     font-size: 125%;
+ }
+ 
+ .question ul {
+     list-style-type: none;
+ }
+</style>
+</head>
+<body>
+<form action="...REPLACE ME..." method="post">
+
+
+
+
+<!-- question: 2554275  name: alternative Darstellungen -->
+<div class="question">
+<h3>alternative Darstellungen</h3>
+<p class="questiontext">Es sei der folgende Ausdruck gegeben:<br><br><pre>((x &gt; y)||(x == y))</pre>Welche der folgenden Ausdrücke ist mit dem genannten Ausdruck identisch?<br>(x und y sind Variablen vom Typ int)<br><p><br></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2554275" type="radio" value="&lt;p&gt;x &amp;lt;= y&lt;br&gt;&lt;/p&gt;" /><p>x &lt;= y<br></p></li>
+  <li><input name="quest_2554275" type="radio" value="&lt;p&gt;!(x &amp;lt; y)&lt;br&gt;&lt;/p&gt;" /><p>!(x &lt; y)<br></p></li>
+  <li><input name="quest_2554275" type="radio" value="&lt;p&gt;!x &amp;lt; y&lt;br&gt;&lt;/p&gt;" /><p>!x &lt; y<br></p></li>
+  <li><input name="quest_2554275" type="radio" value="&lt;p&gt;x &amp;lt; y &amp;amp;&amp;amp; x == y&lt;br&gt;&lt;/p&gt;" /><p>x &lt; y &amp;&amp; x == y<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554266  name: for-Schleife -->
+<div class="question">
+<h3>for-Schleife</h3>
+<p class="questiontext">Betrachten Sie den folgenden Codeausschnitt:<br><br>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">1	int counter = 100;
+2	for( counter = 10; counter &gt; 0; --counter ) {
+3		printf( "%d... ", counter );
+4	}
+5	printf( "\nCounter gestoppt bei %d.\n", counter );
+</pre><br>Welche Ausgabe erzeugt dieser Codeausschnitt?<br></p>
+<ul class="multichoice">
+  <li><input name="quest_2554266" type="radio" value="&lt;p&gt;10... 9... 8... 7... 6... 5... 4... 3... 2... 1...&lt;br&gt;Counter gestoppt bei 0.&lt;br&gt;&lt;/p&gt;" /><p>10... 9... 8... 7... 6... 5... 4... 3... 2... 1...<br>Counter gestoppt bei 0.<br></p></li>
+  <li><input name="quest_2554266" type="radio" value="&lt;p&gt;10... 9... 8... 7... 6... 5... 4... 3... 2... 1...&lt;br&gt;Counter gestoppt bei 1.&lt;br&gt;&lt;/p&gt;" /><p>10... 9... 8... 7... 6... 5... 4... 3... 2... 1...<br>Counter gestoppt bei 1.<br></p></li>
+  <li><input name="quest_2554266" type="radio" value="&lt;p&gt;1... 2... 3... 4... 5... 6... 7... 8... 9... 10...&lt;br&gt;Counter gestoppt bei 10.&lt;br&gt;&lt;/p&gt;" /><p>1... 2... 3... 4... 5... 6... 7... 8... 9... 10...<br>Counter gestoppt bei 10.<br></p></li>
+  <li><input name="quest_2554266" type="radio" value="&lt;p&gt;&lt;p&gt;1... 2... 3... 4... 5... 6... 7... 8... 9... 10...&lt;br&gt;Counter gestoppt bei 100.&lt;br&gt;&lt;/p&gt;&lt;br&gt;&lt;/p&gt;" /><p><p>1... 2... 3... 4... 5... 6... 7... 8... 9... 10...<br>Counter gestoppt bei 100.<br></p><br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554269  name: for-Schleifen -->
+<div class="question">
+<h3>for-Schleifen</h3>
+<p class="questiontext"><p>Betrachten Sie folgenden Code-Ausschnitt:
+</p><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">1	int x = 0;
+2	int i;
+3	for(i=1; i&lt;2*n; i=i+2){
+4		x+=i;
+5	}
+</pre>
+Welche Reihe wird hier umgesetzt und in der Variable x gespeichert?<p></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2554269" type="radio" value="&lt;p&gt;x = 1 + 2 + 3 +...+ (n-1) + n = n(n+1)/2&lt;/p&gt;" /><p>x = 1 + 2 + 3 +...+ (n-1) + n = n(n+1)/2</p></li>
+  <li><input name="quest_2554269" type="radio" value="&lt;p&gt;x = 1 + 3 + 5 + ... + (2n-3) + (2n-1) = n&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;" /><p>x = 1 + 3 + 5 + ... + (2n-3) + (2n-1) = n<sup>2</sup></p></li>
+  <li><input name="quest_2554269" type="radio" value="&lt;p&gt;x = 2 + 4 + 6 + ... + (2n-2) + 2n = n(n+1)&lt;/p&gt;" /><p>x = 2 + 4 + 6 + ... + (2n-2) + 2n = n(n+1)</p></li>
+  <li><input name="quest_2554269" type="radio" value="&lt;p&gt;x = 1&lt;sup&gt;2&lt;/sup&gt; + 2&lt;sup&gt;2&lt;/sup&gt; + 3&lt;sup&gt;2&lt;/sup&gt; + ...+ (n-1)&lt;sup&gt;2&lt;/sup&gt; + n&lt;sup&gt;2&lt;/sup&gt; = n(n+1)(2n+1)/6&lt;/p&gt;" /><p>x = 1<sup>2</sup> + 2<sup>2</sup> + 3<sup>2</sup> + ...+ (n-1)<sup>2</sup> + n<sup>2</sup> = n(n+1)(2n+1)/6</p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554267  name: for-Schleifen Iterationen -->
+<div class="question">
+<h3>for-Schleifen Iterationen</h3>
+<p class="questiontext"><p>Betrachten Sie folgenden Code-Ausschnitt:
+</p><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">1	int x = 0;
+2	int i = 1;
+3	for(; i&lt;3; i+=2){
+4		x+=2;
+5	}
+</pre>
+Wie oft wird die Anweisung <span style="color: rgb(51, 51, 51); font-family: 'courier new', courier, monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: 15px; orphans: auto; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px; display: inline !important; float: none; background-color: rgb(255, 255, 255);">x+=2;&nbsp;</span>ausgeführt?<p></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2554267" type="radio" value="&lt;p&gt;0 mal&lt;/p&gt;" /><p>0 mal</p></li>
+  <li><input name="quest_2554267" type="radio" value="&lt;p&gt;1 mal&lt;/p&gt;" /><p>1 mal</p></li>
+  <li><input name="quest_2554267" type="radio" value="&lt;p&gt;unendlich viele male&lt;/p&gt;" /><p>unendlich viele male</p></li>
+  <li><input name="quest_2554267" type="radio" value="&lt;p&gt;3 mal&lt;/p&gt;" /><p>3 mal</p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554274  name: if-Bedingung -->
+<div class="question">
+<h3>if-Bedingung</h3>
+<p class="questiontext"><p>Betrachten Sie den boolschen Ausdruck in der folgenden if-Bedingung:</p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">if (a &lt;= 7 &amp;&amp; b &gt;= 5 &amp;&amp; a - b == 0 &amp;&amp; a % 2 == 0) {<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; printf("true");<br>}</pre>
+<p>Für welche Werte von a und b wird der boolsche Ausdruck wahr, damit auf der Konsole "true" ausgegeben wird?<br></p></p>
+<ul class="multichoice">
+  <li><input name="quest_2554274" type="radio" value="&lt;p&gt;a = 6 und b = 6&lt;br&gt;&lt;/p&gt;" /><p>a = 6 und b = 6<br></p></li>
+  <li><input name="quest_2554274" type="radio" value="&lt;p&gt;a = 7 und b = 5&lt;br&gt;&lt;/p&gt;" /><p>a = 7 und b = 5<br></p></li>
+  <li><input name="quest_2554274" type="radio" value="&lt;p&gt;a = 7 und b = 7&lt;br&gt;&lt;/p&gt;" /><p>a = 7 und b = 7<br></p></li>
+  <li><input name="quest_2554274" type="radio" value="&lt;p&gt;Es existiert kein Paar für a und b&lt;br&gt;&lt;/p&gt;" /><p>Es existiert kein Paar für a und b<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554270  name: if-else -->
+<div class="question">
+<h3>if-else</h3>
+<p class="questiontext"><p><span style="font-family: courier new,courier,monospace;">a</span> und <span style="font-family: courier new,courier,monospace;">b</span> seien zwei Variablen vom Typ <span style="font-family: courier new,courier,monospace;">int</span>. Welche Konsolenausgabe
+    ist mit folgendem Programm <strong>unmöglich</strong>?</p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">1	if (a &lt; 17){
+2		printf("Hallo");
+3	} else {
+4		if (b &lt;= 14) {
+5			if (a &lt; 10) {
+6				printf("Bonjour");
+7			} else {
+8				printf("Ciao");
+9			}
+10		} else {
+11			printf("Hey");
+12		}
+13	}
+</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554270" type="radio" value="&lt;p&gt;Hallo&lt;/p&gt;" /><p>Hallo</p></li>
+  <li><input name="quest_2554270" type="radio" value="&lt;p&gt;Bonjour&lt;/p&gt;" /><p>Bonjour</p></li>
+  <li><input name="quest_2554270" type="radio" value="&lt;p&gt;Ciao&lt;/p&gt;" /><p>Ciao</p></li>
+  <li><input name="quest_2554270" type="radio" value="&lt;p&gt;Hey&lt;/p&gt;" /><p>Hey</p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554272  name: inRange? -->
+<div class="question">
+<h3>inRange?</h3>
+<p class="questiontext">Betrachten Sie den folgenden Codeausschnitt:
+<p>
+</p><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">char c;
+printf("Bitte Zahl eingeben!\n");<br>scanf("%hhd", &amp;c); // Zahl in char c einlesen
+char inRange = (125 &gt;= c &amp;&amp; c &gt;= 32 &amp;&amp; c != 94) || c == 9;
+</pre>
+<p>Welchen Wert hat die Variable <tt>inRange</tt> nach Ausführung des Codeblocks, wenn der Benutzer per <tt>scanf</tt> den Wert von c auf <tt>65</tt> gesetzt hat?</p><br></p>
+<ul class="multichoice">
+  <li><input name="quest_2554272" type="radio" value="&lt;p&gt;1&lt;br&gt;&lt;/p&gt;" /><p>1<br></p></li>
+  <li><input name="quest_2554272" type="radio" value="&lt;p&gt;0&lt;br&gt;&lt;/p&gt;" /><p>0<br></p></li>
+  <li><input name="quest_2554272" type="radio" value="&lt;p&gt;65&lt;br&gt;&lt;/p&gt;" /><p>65<br></p></li>
+  <li><input name="quest_2554272" type="radio" value="&lt;p&gt;9&lt;br&gt;&lt;/p&gt;" /><p>9<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554273  name: Rekursion -->
+<div class="question">
+<h3>Rekursion</h3>
+<p class="questiontext"><p>Was ist das Ergebnis des Aufrufs von<span style="font-family: courier new,courier,monospace;"> f</span><span style="font-family: courier new,courier,monospace;">&nbsp;</span>mit der Zahl 5 als Argument (<span style="font-family: courier new,courier,monospace;"> f(5)</span>    )?</p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">int f (int n) {
+	if (n == 0) return 0;
+  return f(n-1) + n;
+}</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554273" type="radio" value="&lt;p&gt;5&lt;/p&gt;" /><p>5</p></li>
+  <li><input name="quest_2554273" type="radio" value="&lt;p&gt;0&lt;/p&gt;" /><p>0</p></li>
+  <li><input name="quest_2554273" type="radio" value="&lt;p&gt;15&lt;/p&gt;" /><p>15</p></li>
+  <li><input name="quest_2554273" type="radio" value="&lt;p&gt;17&lt;/p&gt;" /><p>17</p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554265  name: while-Schleife -->
+<div class="question">
+<h3>while-Schleife</h3>
+<p class="questiontext"><p>Betrachten Sie den folgenden Codeausschnitt. Wie oft wird die Schleife ausgeführt?</p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">int p = 0;
+while (p &lt; 10) {
+	q++;
+}</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554265" type="radio" value="&lt;p&gt;10 mal&lt;/p&gt;" /><p>10 mal</p></li>
+  <li><input name="quest_2554265" type="radio" value="&lt;p&gt;9 mal&lt;/p&gt;" /><p>9 mal</p></li>
+  <li><input name="quest_2554265" type="radio" value="&lt;p&gt;11 mal&lt;/p&gt;" /><p>11 mal</p></li>
+  <li><input name="quest_2554265" type="radio" value="&lt;p&gt;unendlich oft&lt;/p&gt;" /><p>unendlich oft</p></li>
+</ul>
+</div>
+
+
+
+
+<!-- question: 2554542  name: Schaltjahr -->
+<div class="question">
+<h3>Schaltjahr</h3>
+<p class="questiontext"><p>Schreibt ein Programm, dass feststellen kann, ob eine eingegebene Zahl einem Schaltjahr entspricht. Ein Jahr sei ein Schaltjahr, wenn die Jahreszahl durch 400 teilbar ist, oder wenn es durch 4, aber nicht durch 100 teilbar ist.<br></p><p>Die <span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(125, 159, 211);">Ausgaben</span> </span>sollen <b>exakt </b>wie in den Beispieltests ausgegeben werden. Also:</p><p>"<span class="" style="color: rgb(125, 159, 211);">Das Programm kann Schaltjahre bestimmen - welches Jahr soll getestet werden?</span>"</p><p>Und eine weitere <span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(125, 159, 211);">Ausgabe</span> </span>mit der <span class="" style="color: rgb(247, 163, 161);">Eingabe </span>vom Nutzer und dem anschließend Erebnis mit<br>"<span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(247, 163, 161);">[Zahl]</span> <span class="" style="color: rgb(125, 159, 211);">ist ein</span><span class="" style="color: rgb(125, 159, 211);">/</span><span class="" style="color: rgb(125, 159, 211);">kein Schaltjahr</span>.</span>"<br><span><span class="" style="color: rgb(255, 207, 53);">Hinweis</span><span>: 0 &lt; eingegebene Jahr</span></span><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675726  name: Schaltjahr (Neu; FERTIG) -->
+<div class="question">
+<h3>Schaltjahr (Neu; FERTIG)</h3>
+<p class="questiontext"><p>Schreibt ein Programm, dass feststellen kann, ob eine eingegebene Zahl einem Schaltjahr entspricht. Ein Jahr sei ein Schaltjahr, wenn die Jahreszahl durch 400 teilbar ist, oder wenn es durch 4, aber nicht durch 100 teilbar ist.<br></p><p>Die <span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(125, 159, 211);">Ausgaben</span> </span>sollen <b>exakt </b>wie in den Beispieltests ausgegeben werden. Also:</p><p>"<span class="" style="color: rgb(125, 159, 211);">Das Programm kann Schaltjahre bestimmen - welches Jahr soll getestet werden?</span>"</p><p>Und eine weitere <span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(125, 159, 211);">Ausgabe</span> </span>mit der <span class="" style="color: rgb(247, 163, 161);">Eingabe </span>vom Nutzer und dem anschließend Erebnis mit<br>"<span class="" style="color: rgb(126, 255, 126);"><span class="" style="color: rgb(247, 163, 161);">[Zahl]</span> <span class="" style="color: rgb(125, 159, 211);">ist ein</span><span class="" style="color: rgb(125, 159, 211);">/</span><span class="" style="color: rgb(125, 159, 211);">kein Schaltjahr</span>.</span>"<br><span><span class="" style="color: rgb(197, 14, 31);">Hinweis</span><span><span class="" style="color: rgb(197, 14, 31);">:</span> 0 &lt; eingegebene Jahr</span></span><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2554544  name: Ersetze if/switch -->
+<div class="question">
+<h3>Ersetze if/switch</h3>
+<p class="questiontext"><p>Das folgende Programm gibt dem/der BenutzerIn verschiedene Optionen zur Auswahl -- also eine Art Menü, aus dem man einzelne Funktionen aufruft. <br><br>Das Programm funktioniert so wie gegeben, der Code für die Auswahl ginge aber auch ein klein bisschen kompakter mit einem <b>switch</b>-Konstrukt. Ersetzt das <b>if</b>-Konstrukt entsprechend. Die Funktionalität soll sich dadurch nicht verändern.<br></p><p><span class="" style="color: rgb(255, 207, 53);">Hinweis</span>: Ihr dürft keine main-Funktion in eurer Lösung haben, da euch sonst ein Syntaxfehler angezeigt wird. Beim Testen wird eine (für euch) versteckte main erstellt, die eure Funktion menue() aufruft und testet.<br><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675724  name: Ersetze if/switch (Neu; FERTIG) -->
+<div class="question">
+<h3>Ersetze if/switch (Neu; FERTIG)</h3>
+<p class="questiontext"><p>Das folgende Programm gibt dem/der BenutzerIn verschiedene Optionen zur Auswahl -- also eine Art Menü, aus dem man einzelne Funktionen aufruft. <br><br>Das Programm funktioniert so wie gegeben, der Code für die Auswahl ginge aber auch ein klein bisschen <strong>kompakter </strong>mit einem <strong>switch</strong>-Konstrukt. Ersetzt das <strong>if</strong>-Konstrukt entsprechend. Die Funktionalität soll sich dadurch nicht verändern.<br></p><p><span class="" style="color: rgb(197, 14, 31);">Hinweis</span><span class="" style="color: rgb(197, 14, 31);">:</span> Ihr könnt, wenn ihr wollt, bei dieser Aufgabe eine main-Funktion in eurer Lösung haben. Beim Testen wird jedoch eine (für euch) versteckte <strong>main erstellt</strong>, die eure Funktion menue() aufruft und testet.<br><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2554739  name: Hand #1 (if,else,for,break) -->
+<div class="question">
+<h3>Hand #1 (if,else,for,break)</h3>
+<p class="questiontext"><p><strong>Aufgabe</strong></p>Führt eine 
+Handsimulation für folgendes Programm durch. Schreibt also in die 
+Tabelle, welche Zeilen nacheinander ausgeführt werden (erste Spalte), 
+und welche Werte die Variablen nach Ausführung dieser Zeile jeweils 
+haben (die anderen Spalten).<br>
+<ul>
+    <li>Variablen, die zu diesem Zeitpunkt noch <strong>nicht existieren</strong>, werden mit <strong>- </strong>markiert</li>
+    <li>Variablen, deren Wert undefiniert ist, werden mit <strong>undef</strong> markiert</li>
+    <li>Füllt Felder von Variablen, die sich <strong>nicht</strong>&nbsp;ändern, mit&nbsp;<strong>%</strong>&nbsp;(in
+ einer schriftlichen Klausur könnt ihr diese leer lassen). Dies wird 
+also
+        interpretiert als “gleicher Wert wie in der Zeile davor”. 
+Solltet ihr den Wert nochmals aufschreiben, zählt das als falsch (Wir 
+entschuldigen uns hierfür, jedoch gibt es in ISIS keine Möglichkeit, 
+dass das Leerlassen einer Stelle "richtig" ist).</li>
+    <li>Die erste ausgeführte Zeile einer Funktion ist <strong>immer</strong> die öffnende Klammer</li>
+    <li>Die letzte ausgeführte Zeile einer Funktion ist <strong>immer</strong> die schließende Klammer</li><li>Nach einem <strong>break</strong> wird die Schleife beendet und anschließend direkt in die nächste Zeile <i>nach </i>der Schleife gesprungen<br></li>
+    <li>Beim Sprung in eine Funktion wird hinter die aktuelle Zeile in 
+Klammern die Zeile, aus der der Sprung stattgefunden hat, geschrieben 
+(z.B: 3(14); <span class="" style="color: rgb(239, 69, 64);">Achtung</span><span class="" style="color: rgb(239, 69, 64);">:</span> Bitte <strong>nur</strong> die Zahlen und die Klammern. Sollten Leerzeichen dazwischen kommen, erkennt
+        ISIS die Lösung als falsch an).</li><li>Bei <strong>for-Schleifen</strong> wird die Inkrementierung in der schließenden geschweiften Klammer ausgeführt und danach die Schleifenbedingung erneut getestet<br></li>
+    <li>Die Anzahl der Zeilen in der Tabelle ist abgezählt, die Vorgaben sind korrekt.</li>
+</ul><p><strong>Programm</strong></p>
+<pre>1     #include &lt;stdio.h&gt;<br>2     int main()<br>3     {<br>4         unsigned int zahl;<br>5         unsigned char teilbar = 0;<br>6         printf("Welche zahl testen? ");<br>7         scanf("%u",&amp;zahl);<br>8         for(int i = 2; i &lt;= zahl/2; i++)<br>9         {<br>10            if(zahl%i==0)<br>11            {<br>12                teilbar = 1;<br>13                break;<br>14            }<br>15        }<br>16        if (!teilbar) <br>17            printf("%u ist Primzahl.",zahl);<br>18        else <br>19            printf("%u ist keine Primzahl.",zahl);<br>20    }<br><br>&nbsp;<br><p>Der Nutzer gibt bei der <strong>Eingabeaufforderung </strong>die Zahl <strong>9</strong> ein.</p><pre></pre><strong>Tabelle</strong></pre><p></p><table cellspacing="0" border="0">
+	<colgroup width="85" span="4"></colgroup>
+	<tbody><tr>
+		<td height="17" align="center"><strong>Zeile </strong></td>
+		<td align="center"><strong> zahl </strong></td>
+		<td align="center"><strong> teilbar </strong></td>
+		<td align="center"><strong>i</strong></td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#1}</td>
+		<td align="center">{#2}</td>
+		<td align="center">{#3}</td>
+		<td align="center">{#4}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#5}</td>
+		<td align="center">{#6}</td>
+		<td align="center">{#7}</td>
+		<td align="center">{#8}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#9}</td>
+		<td align="center">{#10}</td>
+		<td align="center">{#11}</td>
+		<td align="center">{#12}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#13}</td>
+		<td align="center">{#14}</td>
+		<td align="center">{#15}</td>
+		<td align="center">{#16}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#17}</td>
+		<td align="center">{#18}</td>
+		<td align="center">{#19}</td>
+		<td align="center">{#20}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#21}</td>
+		<td align="center">{#22}</td>
+		<td align="center">{#23}</td>
+		<td align="center">{#24}</td>
+	</tr>
+	<tr>
+		<td sdval="9" sdnum="2057;" height="17" align="center">9</td>
+		<td align="center">{#25}</td>
+		<td align="center">{#26}</td>
+		<td align="center">{#27}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#28}</td>
+		<td align="center">{#29}</td>
+		<td align="center">{#30}</td>
+		<td align="center">{#31}</td>
+	</tr>
+	<tr>
+		<td sdval="15" sdnum="2057;" height="17" align="center">15</td>
+		<td align="center">{#32}</td>
+		<td align="center">{#33}</td>
+		<td align="center">{#34}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#35}</td>
+		<td align="center">{#36}</td>
+		<td align="center">{#37}</td>
+		<td align="center">{#38}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#39}</td>
+		<td align="center">{#40}</td>
+		<td align="center">{#41}</td>
+		<td align="center">{#42}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#43}</td>
+		<td align="center">{#44}</td>
+		<td align="center">{#45}</td>
+		<td align="center">{#46}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#47}</td>
+		<td align="center">{#48}</td>
+		<td align="center">{#49}</td>
+		<td align="center">{#50}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#51}</td>
+		<td align="center">{#52}</td>
+		<td align="center">{#53}</td>
+		<td align="center">{#54}</td>
+	</tr>
+	<tr>
+		<td sdval="13" sdnum="2057;" height="17" align="center">13</td>
+		<td align="center">{#55}</td>
+		<td align="center">{#56}</td>
+		<td align="center">-</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#57}</td>
+		<td align="center">{#58}</td>
+		<td align="center">{#59}</td>
+		<td align="center">{#60}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#61}</td>
+		<td align="center">{#62}</td>
+		<td align="center">{#63}</td>
+		<td align="center">{#64}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#65}</td>
+		<td align="center">{#66}</td>
+		<td align="center">{#67}</td>
+		<td align="center">{#68}</td>
+	</tr>
+	<tr>
+		<td height="17" align="center">{#69}</td>
+		<td align="center">{#70}</td>
+		<td align="center">{#71}</td>
+		<td align="center">{#72}</td>
+	</tr>
+</tbody></table><br><p></p></p>
+<!-- export of multianswer type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555236  name: for/while (leicht) -->
+<div class="question">
+<h3>for/while (leicht)</h3>
+<p class="questiontext"><p>Implementieren Sie ein Programm HelloLoop, das 10-mal <span class="" style="color: rgb(152, 202, 62);">Hello Loop!</span> auf der Konsole <span class="" style="color: rgb(152, 202, 62);">ausgibt.</span> Verwenden Sie für die ersten fünf Ausgaben eine for-Schleife und für die zweiten fünf Ausgaben eine while-Schleife.<br><br><br><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675728  name: for/while (leicht) (Neu; FERTIG) -->
+<div class="question">
+<h3>for/while (leicht) (Neu; FERTIG)</h3>
+<p class="questiontext"><p>Implementieren Sie ein Programm HelloLoop, das 10-mal <span class="" style="color: rgb(152, 202, 62);">Hello Loop!</span> auf der Konsole <span class="" style="color: rgb(152, 202, 62);">ausgibt.</span> Verwenden Sie für die ersten fünf Ausgaben eine for-Schleife und für die zweiten fünf Ausgaben eine while-Schleife.<br><br><br><br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2555238  name: Ersetze while/if -->
+<div class="question">
+<h3>Ersetze while/if</h3>
+<p class="questiontext"><p>Ersetze <b>if</b>, <b>do...while</b> durch eine <b>for</b>-Konstruktion.<br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+<!-- question: 2675725  name: Ersetze while/if (Neu, FERTIG) -->
+<div class="question">
+<h3>Ersetze while/if (Neu, FERTIG)</h3>
+<p class="questiontext"><p>Ersetze <b>if</b>, <b>do...while</b> durch eine <b>for</b>-Konstruktion.<br></p></p>
+<!-- export of coderunner type is not supported  -->
+</div>
+
+
+
+
+<!-- question: 2554276  name: Boolesche Algebra in C -->
+<div class="question">
+<h3>Boolesche Algebra in C</h3>
+<p class="questiontext">Welcher der folgenden Ausdrücke liefert als Ergebnis eine 0?<br></p>
+<ul class="multichoice">
+  <li><input name="quest_2554276" type="radio" value="&lt;p&gt;(5 &amp;amp;&amp;amp; 4)&lt;br&gt;&lt;/p&gt;" /><p>(5 &amp;&amp; 4)<br></p></li>
+  <li><input name="quest_2554276" type="radio" value="&lt;p&gt;(!1 &amp;amp;&amp;amp; 1) || (1)&lt;/p&gt;" /><p>(!1 &amp;&amp; 1) || (1)</p></li>
+  <li><input name="quest_2554276" type="radio" value="&lt;p&gt;!3&lt;br&gt;&lt;/p&gt;" /><p>!3<br></p></li>
+  <li><input name="quest_2554276" type="radio" value="&lt;p&gt;(a &amp;amp;&amp;amp; b) || (!(a &amp;amp;&amp;amp; b))&lt;br&gt;&lt;/p&gt;" /><p>(a &amp;&amp; b) || (!(a &amp;&amp; b))<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554277  name: Boolescher Datentyp -->
+<div class="question">
+<h3>Boolescher Datentyp</h3>
+<p class="questiontext"><p>Was wird der folgende Code ausgeben:</p><pre><span style="color: rgb(0, 0, 0);" class="">printf("%d\n", </span><span class="" style="color: rgb(0, 0, 0);">1</span><span style="color: rgb(0, 0, 0);" class=""> &amp;&amp; </span><span class="" style="color: rgb(0, 0, 0);">2</span><span style="color: rgb(0, 0, 0);" class=""> &amp;&amp; </span><span class="" style="color: rgb(0, 0, 0);">2</span><span style="color: rgb(0, 0, 0);" class=""> &gt; </span><span class="" style="color: rgb(0, 0, 0);">0</span><span style="color: rgb(0, 0, 0);" class=""> &amp;&amp; </span><span class="" style="color: rgb(0, 0, 0);">0</span><span style="color: rgb(0, 0, 0);" class="">);</span></pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554277" type="radio" value="&lt;p&gt;True&lt;br&gt;&lt;/p&gt;" /><p>True<br></p></li>
+  <li><input name="quest_2554277" type="radio" value="&lt;p&gt;False&lt;br&gt;&lt;/p&gt;" /><p>False<br></p></li>
+  <li><input name="quest_2554277" type="radio" value="&lt;p&gt;1&lt;br&gt;&lt;/p&gt;" /><p>1<br></p></li>
+  <li><input name="quest_2554277" type="radio" value="&lt;p&gt;0&lt;br&gt;&lt;/p&gt;" /><p>0<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554271  name: Boolsche Operatorpräzidenz -->
+<div class="question">
+<h3>Boolsche Operatorpräzidenz</h3>
+<p class="questiontext">Was ist der Wert der Variablen x und y nach dem folgenden Codesegment?<br><br><pre>int a = 1, b = 2;<br>int x =&nbsp; a + !++b &gt;&nbsp; a;<br>int y = -b - !--a &lt; -b;<br></pre><br></p>
+<ul class="multichoice">
+  <li><input name="quest_2554271" type="radio" value="&lt;p&gt;x == 0 und y == 0&lt;br&gt;&lt;/p&gt;" /><p>x == 0 und y == 0<br></p></li>
+  <li><input name="quest_2554271" type="radio" value="&lt;p&gt;x == 0 und y == 1&lt;br&gt;&lt;/p&gt;" /><p>x == 0 und y == 1<br></p></li>
+  <li><input name="quest_2554271" type="radio" value="&lt;p&gt;x == 1 und y == 0&lt;br&gt;&lt;/p&gt;" /><p>x == 1 und y == 0<br></p></li>
+  <li><input name="quest_2554271" type="radio" value="&lt;p&gt;x == 1 und y == 1&lt;br&gt;&lt;/p&gt;" /><p>x == 1 und y == 1<br></p></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554264  name: if-else umformen -->
+<div class="question">
+<h3>if-else umformen</h3>
+<p class="questiontext"><p>Wie lässt sich das folgende if-else-Konstrukt noch schreiben?</p>
+<pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">if (a * b &gt;= 0) {
+	if (b &gt;= 0 &amp;&amp; a &gt;= 0) {
+  		printf("a und b sind positiv!\n");
+	} else {
+		printf("a und b sind negativ!\n");
+	}
+} else if (a &lt; 0)
+	printf("a ist negativ und b ist positiv!\n");
+else
+	printf("a ist positiv und b ist negativ!\n");</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554264" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;if (a * b &amp;gt;= 0 &amp;amp;&amp;amp; b &amp;gt;= 0 &amp;amp;&amp;amp; a &amp;gt;= 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind positiv!\n&quot;);&lt;br&gt;if (a * b &amp;gt;= 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind negativ!\n&quot;);&lt;br&gt;if (a &amp;lt; 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a ist negativ und b ist positiv!\n&quot;);&lt;br&gt;if (a &amp;gt;= 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a ist positiv und b ist negativ!\n&quot;);&lt;br&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">if (a * b &gt;= 0 &amp;&amp; b &gt;= 0 &amp;&amp; a &gt;= 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind positiv!\n");<br>if (a * b &gt;= 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind negativ!\n");<br>if (a &lt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a ist negativ und b ist positiv!\n");<br>if (a &gt;= 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a ist positiv und b ist negativ!\n");<br></pre></li>
+  <li><input name="quest_2554264" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;switch (a,b) {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; case &amp;gt;=0, &amp;gt;=0:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;printf(&quot;a und b sind positiv!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;break;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; case &amp;lt;=0, &amp;lt;=0:&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;printf(&quot;a und b sind negativ!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;break;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; case &amp;gt;0, &amp;lt;0: &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;printf(&quot;a ist positiv und b ist negativ!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;break;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; case &amp;lt;0, &amp;gt;0: &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;printf(&quot;a ist negativ und b ist positiv!\n&quot;);&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">switch (a,b) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &gt;=0, &gt;=0:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("a und b sind positiv!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &lt;=0, &lt;=0:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("a und b sind negativ!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &gt;0, &lt;0: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("a ist positiv und b ist negativ!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; case &lt;0, &gt;0: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("a ist negativ und b ist positiv!\n");<br>}<br></pre></li>
+  <li><input name="quest_2554264" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;if (a &amp;gt;= 0 &amp;amp;&amp;amp; b &amp;gt;= 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind positiv!\n&quot;);&lt;br&gt;if (a &amp;lt;= 0 &amp;amp;&amp;amp; b &amp;lt;= 0 &amp;amp;&amp;amp; a+b != 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind negativ!\n&quot;);&lt;br&gt;if (a &amp;gt; 0 &amp;amp;&amp;amp; b &amp;lt; 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a ist positiv und b ist negativ!\n&quot;);&lt;br&gt;if (a &amp;lt; 0 &amp;amp;&amp;amp; b &amp;gt; 0)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a ist negativ und b ist positiv!\n&quot;);&lt;br&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">if (a &gt;= 0 &amp;&amp; b &gt;= 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind positiv!\n");<br>if (a &lt;= 0 &amp;&amp; b &lt;= 0 &amp;&amp; a+b != 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind negativ!\n");<br>if (a &gt; 0 &amp;&amp; b &lt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a ist positiv und b ist negativ!\n");<br>if (a &lt; 0 &amp;&amp; b &gt; 0)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a ist negativ und b ist positiv!\n");<br></pre></li>
+  <li><input name="quest_2554264" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;if (a &amp;gt;= 0) {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (b &amp;gt;= 0) {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind positiv!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; } else {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a und b sind negativ!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br&gt;} else {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; if (b &amp;lt; 0) {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; printf(&quot;a ist positiv und b ist negativ!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; } else {&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;printf(&quot;a ist negativ und b ist positiv!\n&quot;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; }&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">if (a &gt;= 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (b &gt;= 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind positiv!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a und b sind negativ!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (b &lt; 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf("a ist positiv und b ist negativ!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; } else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf("a ist negativ und b ist positiv!\n");<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>}<br></pre></li>
+</ul>
+</div>
+
+
+
+<!-- question: 2554268  name: Schleifenkonversion -->
+<div class="question">
+<h3>Schleifenkonversion</h3>
+<p class="questiontext">Welche <b>while</b> oder <b>do-while</b> Schleife erzeugt <b>exakt</b> die gleiche Ausgabe wie die folgende <b>for</b>-Scheife?<br>
+<p>
+</p><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;">for (int i = 0; i = (i+1) % 7; printf("%d ", i));</pre></p>
+<ul class="multichoice">
+  <li><input name="quest_2554268" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;&lt;pre&gt;&lt;b&gt;int&lt;/b&gt; i = 1; &lt;br&gt;&lt;b&gt;while&lt;/b&gt; (i){&lt;br&gt;	printf(&quot;%d &quot;, i);&lt;br&gt;	i = (i+1) % 7;&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;"><pre><b>int</b> i = 1; <br><b>while</b> (i){<br>	printf("%d ", i);<br>	i = (i+1) % 7;<br>}<br></pre></pre></li>
+  <li><input name="quest_2554268" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;&lt;pre&gt;&lt;b&gt;int&lt;/b&gt; i = 0; &lt;br&gt;&lt;b&gt;while&lt;/b&gt; (i){&lt;br&gt;	i = (i+1) % 7;&lt;br&gt;	printf(&quot;%d &quot;, i);&lt;br&gt;}&lt;br&gt;&lt;/pre&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;"><pre><b>int</b> i = 0; <br><b>while</b> (i){<br>	i = (i+1) % 7;<br>	printf("%d ", i);<br>}<br></pre></pre></li>
+  <li><input name="quest_2554268" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;&lt;pre&gt;&lt;b&gt;int&lt;/b&gt; i = 0; &lt;br&gt;&lt;b&gt;do&lt;/b&gt; {&lt;br&gt;	printf(&quot;%d &quot;, i);&lt;br&gt;} &lt;b&gt;while&lt;/b&gt; (i = (i+1) % 7);&lt;br&gt;&lt;/pre&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;"><pre><b>int</b> i = 0; <br><b>do</b> {<br>	printf("%d ", i);<br>} <b>while</b> (i = (i+1) % 7);<br></pre></pre></li>
+  <li><input name="quest_2554268" type="radio" value="&lt;pre style=&quot;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;&quot;&gt;&lt;pre&gt;&lt;b&gt;int&lt;/b&gt; i = 0; &lt;br&gt;&lt;b&gt;do&lt;/b&gt; {&lt;br&gt;	i = (i+1) % 7;&lt;br&gt;	printf(&quot;%d &quot;, i);&lt;br&gt;} &lt;b&gt;while&lt;/b&gt; (i);&lt;br&gt;&lt;/pre&gt;&lt;/pre&gt;" /><pre style="-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;-o-user-select: none;user-select: none;background-color: white;"><pre><b>int</b> i = 0; <br><b>do</b> {<br>	i = (i+1) % 7;<br>	printf("%d ", i);<br>} <b>while</b> (i);<br></pre></pre></li>
+</ul>
+</div>
+
+
+
+<p class="submit">
+  <input type="submit" />
+</p>
+</form>
+</body>
+</html>
