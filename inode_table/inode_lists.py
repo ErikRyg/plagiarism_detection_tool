@@ -1,6 +1,4 @@
 import json
-# from tokenize import String
-import numpy as np
 
 student_answer = [["55", "d", "20,21,22", "|", "20", "\".\" id 55"], ["600", "d", "41,42,43,44", "|", "21", "\"..\" id 55"], ["700", "-", "31", "|", "22", "\"Schreibtisch\" id 600"], ["800", "-", "36", "|", "31", "Hirn"],
                   ["", "", "", "|", "36", "Petrus"], ["", "", "", "|", "41", "\".\" id 600"], ["", "", "", "|", "42", "\"..\" id 20"], ["", "", "", "|", "43", "\"Notitzen\" id 700"], ["", "", "", "|", "44", "\"Programmieren\" id 800"]]
@@ -16,8 +14,8 @@ given_fields.append('Hirn')
 given_fields.append('Petrus')
 
 
-def print_out(got, comment, fraction):
-    print(json.dumps({'got': got, 'comment': comment, 'fraction': fraction}))
+def print_out(expected, got, comment, fraction):
+    print(json.dumps({'expected': expected, 'got': got, 'comment': comment, 'fraction': fraction}))
 
 
 def seperate_tables(data):
@@ -66,31 +64,62 @@ def remove_given_rows(inode, datablock):
     return new_inode, new_data
 
 
+#TODO order of the rows should be unimportant
+#TODO too much rows must give a penalty
 def evaluate_inode(inode_stud, inode_must, score):
-    for x, y in zip(inode_stud, inode_must):
-        for i, j in zip(x, y):
-            if i is j:
+    for y in inode_stud:
+        if y[0] == given_fields[1]:
+            score += 1
+            if y[1] == 'd':
+                score += 1
+            n_adresses = len(y[2].split(","))
+            score += 4 - abs(4-n_adresses)
+        else:
+            if y[0] != '':
+                score += 1
+            if y[1] == '-':
+                score += 1
+            if y[2] != '':
                 score += 1
     return score
-    # for y in inode_stud:
-    #     if y[0] == given_fields[0]:
-    #         score += 1
-    #         if y[1] == 'd':
-    #             score += 1
-    # return score
 
 
-def evaluate_datablock(datablock_stud, datablock_must, score):
-    for x, y in zip(datablock_stud, datablock_must):
-        for i, j in zip(x, y):
-            if i is j:
-                print(i, score)
-                score += 1
+#TODO order of the rows should be unimportant
+def evaluate_datablock(inode_stud, datablock_stud, score):
+    inode_with_content = get_content_of_ids(inode_stud, datablock_stud)
+    for adress in inode_with_content:
+        for j in range(3, len(adress)):
+            if '"."' in adress[j] and given_fields[1] in adress[j]:
+                score += 2
+            if '".."' in adress[j] and given_fields[2] in adress[j]:
+                score += 2
+            if given_fields[4] in adress[j]:
+                score += 2
+            if given_fields[5] in adress[j]:
+                score += 2
+            found_in_data1 = [True for i in inode_with_content[0] if adress[0] in i and given_fields[4] in i]
+            if given_fields[6] in adress[j] and found_in_data1:
+                score += 2
+            found_in_data2 = [True for i in inode_with_content[0] if adress[0] in i and given_fields[5] in i]
+            if given_fields[7] in adress[j] and found_in_data2:
+                score += 2
     return score
+
+
+def get_content_of_ids(inode_stud, datablock_stud):
+    complete_inode_stud = []
+    for id_entry in inode_stud:
+        adresses = id_entry[2].split(',')
+        for adress in adresses:
+            for data_entry in datablock_stud:
+                if adress == data_entry[0]:
+                    id_entry.append(data_entry[1])
+                    break
+        complete_inode_stud.append(id_entry)
+    return complete_inode_stud
 
 
 def test_student_answer():
-    #    got = "Hier in der Variable sollst du ausgeben, was der Student in etwa in die Tabelle eingegeben hat. Inodeliste und Datenblock bitte trennen und einfach in ASCII schön ausgeben. Erwähne auch dass die Zahlen flexibel sind"
     got = ''
     inode_stud, datablock_stud = seperate_tables(student_answer)
     inode_must, datablock_must = seperate_tables(solution)
@@ -98,30 +127,22 @@ def test_student_answer():
     inode_stud, datablock_stud = remove_given_rows(inode_stud, datablock_stud)
     inode_must, datablock_must = remove_given_rows(inode_must, datablock_must)
 
-    earned_score = 2
-    total_score = 26
-    earned_score += evaluate_inode(inode_stud, inode_must, earned_score)
-    print(f'earned score: {earned_score}')
-    earned_score += evaluate_datablock(datablock_stud,
-                                       datablock_must, earned_score)
-    print(f'earned score: {earned_score}')
+    print((len(inode_must), inode_must, len(datablock_must), datablock_must))
+    total_score = 24
+    score = evaluate_inode(inode_stud, inode_must, score=0)
+    score = evaluate_datablock(inode_stud, datablock_stud, score)
 
     table_stud = create_tables_string(inode_stud, datablock_stud)
 
-    # Wie viel Prozent der Gesamtpunktzahl du dem Studierenden gibst: von 0 bis 1
-    fraction = earned_score / total_score
-    got += f"Inode-Liste und Dateblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
-    # got += f"Inode-Liste der Musterlösung:\n{inode_must}\nDateblock der Musterlösung:\n{datablock_must}"
-    print(got)
-
-    # comment = "hier sollen die Punkte kommentiert werden"
+    fraction = score / total_score
+    got += f"Inode-Liste und Datenblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
+    #TODO Kommentare zur Bewertung schreiben
+    comment = f'{score} / {total_score} = {fraction}'
 
     table_must = create_tables_string(inode_must, datablock_must)
-    comment = f"Inode-Liste und Dateblock der Musterlösung:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
+    expected = f"Inode-Liste und Dateblock der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
 
-    # Ganz viel Magie wie aus der Liste dann Punkte werden
-
-    return print_out(got, comment, fraction)
+    return print_out(expected, got, comment, fraction)
 
 
 if __name__ == '__main__':
