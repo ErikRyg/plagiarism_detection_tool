@@ -71,6 +71,8 @@ def evaluate_inode(inode_stud, inode_must, score):
     if len(inode_stud) > len(inode_must):
         score -= 2
         comment += '- too much rows in inode table\n'
+    elif len(inode_stud) == 0:
+        comment += '- inode table is empty\n'
     for y in inode_stud:
         if y[0].lower() == given_fields[1].lower():
             score += 1
@@ -103,7 +105,12 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
     if len(datablock_stud) > len(datablock_must):
         score -= 2
         comment += '- too much rows in datablock table\n'
+    elif len(datablock_stud) == 0:
+        comment += '- datablock table is empty\n'
     #TODO add comments for missing points
+    index = get_index_of_directory(inode_stud)
+    if index == -1:
+        comment += '- could not find a directory in inode table\n'
     for row in inode_with_content:
         for j in range(3, len(row)):
             # check self and parent id
@@ -118,12 +125,12 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
                 score += 2
             #TODO is not always inode_with_content[0] --> get parent row
             # check content, corresponding inode_row and if the inode_row is in the right file
-            elif given_fields[6].lower() in row[j].lower():
-                found_in_data1 = [True for i in inode_with_content[0] if row[0] in i and given_fields[4].lower() in i.lower()]
+            elif index != -1 and given_fields[6].lower() in row[j].lower():
+                found_in_data1 = [True for i in inode_with_content[index] if row[0] in i and given_fields[4].lower() in i.lower()]
                 if found_in_data1:
                     score += 2
-            elif given_fields[7].lower() in row[j].lower():
-                found_in_data2 = [True for i in inode_with_content[0] if row[0] in i and given_fields[5].lower() in i.lower()]
+            elif index != -1 and given_fields[7].lower() in row[j].lower():
+                found_in_data2 = [True for i in inode_with_content[index] if row[0] in i and given_fields[5].lower() in i.lower()]
                 if found_in_data2:
                     score += 2
     return score, comment
@@ -140,6 +147,14 @@ def get_content_of_ids(inode_stud, datablock_stud):
                     break
         complete_inode_stud.append(id_entry)
     return complete_inode_stud
+
+#TODO does not work with multiple directorys in task so far
+def get_index_of_directory(inode_stud):
+    index = -1
+    for i, elem in enumerate(inode_stud):
+        if elem[1] == 'd':
+            index = i
+    return index
 
 
 def test_student_answer():
@@ -159,6 +174,8 @@ def test_student_answer():
     score, comment_datablock = evaluate_datablock(inode_stud, datablock_stud, datablock_must, score)
     if comment_datablock == '':
         comment += '- datablock table is correct\n'
+    else:
+        comment += comment_datablock
     print(('comment_datablock', comment_datablock))
 
     table_stud = create_tables_string(inode_stud, datablock_stud)
