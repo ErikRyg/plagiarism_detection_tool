@@ -35,27 +35,27 @@ def remove_empty_coloums(matrix):
     return removed
 
 
-def create_tables_string(inode, datablock):
-    header_inode = ['Inode-ID', 'Dateityp',
-                    'Speicheradressen']
-    header_data = ['Speicheradresse', 'Inhalt']
+def create_inode_string(inode):
+    header = ['Inode-ID', 'Dateityp', 'Speicheradressen']
     string = ''
-    fill = ''
-
-    # print header of the tables
-    for elem in header_inode:
-        string += elem.ljust(20)
-    string += fill.ljust(20)
-    for elem in header_data:
+    for elem in header:
         string += elem.ljust(20)
     string += '\n'
-
-    # print data of the tables
-    for i, inode in enumerate(inode):
-        string += f'{inode[0].ljust(20)}{inode[1].ljust(20)}{inode[2].ljust(40)}{datablock[i][0].ljust(20)}{datablock[i][1].ljust(20)}\n'
-    for j in range(i+1, len(datablock)):
-        string += f'{fill.ljust(80)}{datablock[j][0].ljust(20)}{datablock[j][1]}\n'
+    for inode in inode:
+        string += f'{inode[0].ljust(20)}{inode[1].ljust(20)}{inode[2].ljust(40)}\n'
     return string
+
+
+def create_datablock_string(datablock):
+    header = ['Speicheradresse', 'Inhalt']
+    string = ''
+    for elem in header:
+        string += elem.ljust(20)
+    string += '\n'
+    for data in datablock:
+        string += f'{data[0].ljust(20)}{data[1]}\n'
+    return string
+
 
 
 #TODO should be more generic, maybe with locked cells? -> more complex to calculate points
@@ -90,11 +90,20 @@ def evaluate_inode(inode_stud, inode_must, score):
             if y[1] == '-':
                 score += 1
             else:
-                comment += '- first coloum cannot be empty\n'
+                comment += '- second coloum must be "-" when its not a directory\n'
             if y[2] != '':
                 score += 1
             else:
-                comment += '- first coloum cannot be empty\n'
+                comment += '- third coloum cannot be empty\n'
+    return score, comment
+
+
+def find_elem_in_datablock(elem, datablock, score, comment):
+    for row in datablock:
+        if elem.lower() in row[1].lower() and row[0] != '':
+            score += 1
+            return score, comment
+    comment += f'- could not find element {elem} in datablock'
     return score, comment
 
 
@@ -107,32 +116,38 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
         comment += '- too much rows in datablock table\n'
     elif len(datablock_stud) == 0:
         comment += '- datablock table is empty\n'
-    #TODO add comments for missing points
     index = get_index_of_directory(inode_stud)
     if index == -1:
         comment += '- could not find a directory in inode table\n'
+    # simple check for entries in datablock
+    score, comment = find_elem_in_datablock('"."', datablock_stud, score, comment)
+    score, comment = find_elem_in_datablock('".."', datablock_stud, score, comment)
+    score, comment = find_elem_in_datablock(given_fields[4], datablock_stud, score, comment)
+    score, comment = find_elem_in_datablock(given_fields[5], datablock_stud, score, comment)
+    score, comment = find_elem_in_datablock(given_fields[6], datablock_stud, score, comment)
+    score, comment = find_elem_in_datablock(given_fields[7], datablock_stud, score, comment)
+    # more complex check for entries in inode with the corresponding content
     for row in inode_with_content:
         for j in range(3, len(row)):
             # check self and parent id
             if '"."' in row[j] and given_fields[1] in row[j]:
-                score += 2
+                score += 1
             elif '".."' in row[j] and given_fields[2] in row[j]:
-                score += 2
+                score += 1
             # check file names and parent id
             elif given_fields[4].lower() in row[j].lower() and given_fields[1] is row[0]:
-                score += 2
+                score += 1
             elif given_fields[5].lower() in row[j].lower() and given_fields[1] is row[0]:
-                score += 2
-            #TODO is not always inode_with_content[0] --> get parent row
+                score += 1
             # check content, corresponding inode_row and if the inode_row is in the right file
             elif index != -1 and given_fields[6].lower() in row[j].lower():
                 found_in_data1 = [True for i in inode_with_content[index] if row[0] in i and given_fields[4].lower() in i.lower()]
                 if found_in_data1:
-                    score += 2
+                    score += 1
             elif index != -1 and given_fields[7].lower() in row[j].lower():
                 found_in_data2 = [True for i in inode_with_content[index] if row[0] in i and given_fields[5].lower() in i.lower()]
                 if found_in_data2:
-                    score += 2
+                    score += 1
     return score, comment
 
 
@@ -148,6 +163,7 @@ def get_content_of_ids(inode_stud, datablock_stud):
         complete_inode_stud.append(id_entry)
     return complete_inode_stud
 
+
 #TODO does not work with multiple directorys in task so far
 def get_index_of_directory(inode_stud):
     index = -1
@@ -157,7 +173,7 @@ def get_index_of_directory(inode_stud):
     return index
 
 
-def test_student_answer():
+def test_inode_table():
     got = ''
     inode_stud, datablock_stud = seperate_tables(student_answer)
     inode_must, datablock_must = seperate_tables(solution)
@@ -165,33 +181,55 @@ def test_student_answer():
     inode_stud, datablock_stud = remove_given_rows(inode_stud, datablock_stud)
     inode_must, datablock_must = remove_given_rows(inode_must, datablock_must)
 
-    print((len(inode_must), inode_must, len(datablock_must), datablock_must))
     #TODO get total_score generic
-    total_score = 24
+    total_score = 12
     score, comment = evaluate_inode(inode_stud, inode_must, score=0)
     if comment == '':
         comment += '- inode table is correct\n'
-    score, comment_datablock = evaluate_datablock(inode_stud, datablock_stud, datablock_must, score)
-    if comment_datablock == '':
-        comment += '- datablock table is correct\n'
-    else:
-        comment += comment_datablock
-    print(('comment_datablock', comment_datablock))
 
-    table_stud = create_tables_string(inode_stud, datablock_stud)
+    table_stud = create_inode_string(inode_stud)
 
-    print(('comment', comment))
     fraction = score / total_score
-    got += f"Inode-Liste und Datenblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
-    #TODO Kommentare zur Bewertung schreiben
-    comment += f'{score} / {total_score} = {fraction}'
-    print(('comment', comment))
+    got += f"Inode-Liste des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
+    comment += f'{score} / {total_score} = {fraction*100}%'
 
-    table_must = create_tables_string(inode_must, datablock_must)
-    expected = f"Inode-Liste und Dateblock der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
+    table_must = create_inode_string(inode_must)
+    expected = f"Inode-Liste der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
 
     return print_out(expected, got, comment, fraction)
 
 
+# 1pt for existing element and 1pt for right connection to inode
+def compute_total_points_for_datablock(datablock_must):
+    return len(datablock_must) * 2
+
+
+def test_datablock_table():
+    got = ''
+    inode_stud, datablock_stud = seperate_tables(student_answer)
+    inode_must, datablock_must = seperate_tables(solution)
+
+    inode_stud, datablock_stud = remove_given_rows(inode_stud, datablock_stud)
+    inode_must, datablock_must = remove_given_rows(inode_must, datablock_must)
+
+    total_score = compute_total_points_for_datablock(datablock_must)
+    score, comment = evaluate_datablock(inode_stud, datablock_stud, datablock_must, score=0)
+    if comment == '':
+        comment += '- datablock table is correct\n'
+
+    table_stud = create_datablock_string(datablock_stud)
+
+    fraction = score / total_score
+    got += f"Datenblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
+    comment += f'{score} / {total_score} = {fraction*100}%'
+
+    table_must = create_datablock_string(datablock_must)
+    expected = f"Datenblock der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
+
+    return print_out(expected, got, comment, fraction)
+
+
+
 if __name__ == '__main__':
-    test_student_answer()
+    test_inode_table()
+    test_datablock_table()
