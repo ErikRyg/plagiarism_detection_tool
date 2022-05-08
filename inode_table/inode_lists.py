@@ -73,6 +73,7 @@ def evaluate_inode(inode_stud, inode_must, score):
         comment += '- too much rows in inode table\n'
     elif len(inode_stud) == 0:
         comment += '- inode table is empty\n'
+        return score, comment
     for y in inode_stud:
         if y[0].lower() == given_fields[1].lower():
             score += 1
@@ -103,7 +104,7 @@ def find_elem_in_datablock(elem, datablock, score, comment):
         if elem.lower() in row[1].lower() and row[0] != '':
             score += 1
             return score, comment
-    comment += f'- could not find element {elem} in datablock'
+    comment += f'- could not find element {elem} in datablock\n'
     return score, comment
 
 
@@ -116,6 +117,7 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
         comment += '- too much rows in datablock table\n'
     elif len(datablock_stud) == 0:
         comment += '- datablock table is empty\n'
+        return score, comment
     index = get_index_of_directory(inode_stud)
     if index == -1:
         comment += '- could not find a directory in inode table\n'
