@@ -1,8 +1,11 @@
 import json
+import re
 
-student_answer = [["55", "d", "20,21,22", "|", "20", "\".\" id 55"], ["600", "d", "41,42,43,44", "|", "21", "\"..\" id 55"], ["700", "-", "31", "|", "22", "\"Schreibtisch\" id 600"], ["800", "-", "36", "|", "31", "Hirn"],
-                  ["", "", "", "|", "36", "Petrus"], ["", "", "", "|", "41", "\".\" id 600"], ["", "", "", "|", "42", "\"..\" id 20"], ["", "", "", "|", "43", "\"Notitzen\" id 700"], ["", "", "", "|", "44", "\"Programmieren\" id 800"]]
-solution = student_answer
+solution = [["55", "d", "20,21,22", "|", "20", "\".\" id 55"], ["600", "d", "41, 42,43,44", "|", "21", "\"..\" id 2"], ["700", "-", "31", "|", "22", "\"Schreibtisch\" id 600"], ["800", "-", "36", "|", "31", "Hirn"],
+                  ["", "", "", "|", "36", "Petrus"], ["", "", "", "|", "41 ", " \".\" id 600 "], ["", "", "", "|", "42", "\"..\" id 55"], ["", "", "", "|", "43", "\"Notitzen\" id 700"], ["", "", "", "|", "44", "\"Programmieren\" id 800"]]
+student_answer = []
+for string in solution:
+    student_answer.append(string.copy())
 given_fields = []
 given_fields.append('55')               #starting_id
 given_fields.append('600')              #second_id
@@ -65,6 +68,22 @@ def remove_given_rows(inode, datablock):
     return new_inode, new_data
 
 
+def remove_white_spaces(inode, datablock):
+    new_inode = []
+    for elem in inode:
+        tmp = []
+        for string in elem:
+            tmp.append(string.strip(' '))
+        new_inode.append(tmp)
+    new_data = []
+    for elem in datablock:
+        tmp = []
+        for string in elem:
+            tmp.append(string.strip(' '))
+        new_data.append(tmp)
+    return new_inode, new_data
+
+
 def evaluate_inode(inode_stud, inode_must, score):
     #TODO too much rows must give a penalty, negative point possible?!
     comment = ''
@@ -124,39 +143,56 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
     # simple check for entries in datablock
     score, comment = find_elem_in_datablock('"."', datablock_stud, score, comment)
     score, comment = find_elem_in_datablock('".."', datablock_stud, score, comment)
-    score, comment = find_elem_in_datablock(given_fields[4], datablock_stud, score, comment)
-    score, comment = find_elem_in_datablock(given_fields[5], datablock_stud, score, comment)
-    score, comment = find_elem_in_datablock(given_fields[6], datablock_stud, score, comment)
-    score, comment = find_elem_in_datablock(given_fields[7], datablock_stud, score, comment)
+    for x in range(4, 8):
+        score, comment = find_elem_in_datablock(given_fields[x], datablock_stud, score, comment)
     # more complex check for entries in inode with the corresponding content
     for row in inode_with_content:
         for j in range(3, len(row)):
             # check self and parent id
-            if '"."' in row[j] and given_fields[1] in row[j]:
-                score += 1
-            elif '".."' in row[j] and given_fields[2] in row[j]:
-                score += 1
+            if '"."' in row[j]:
+                if given_fields[1] in row[j]:
+                    score += 1
+                else:
+                    id = re.search('\d*', row[j]).group()
+                    comment += f'- self-reference: "." id {id} is false; should be: "." id {given_fields[1]}\n'
+            elif '".."' in row[j]:
+                if given_fields[0] in row[j]:
+                    score += 1
+                else:
+                    id = re.search('\d*', row[j]).group()
+                    comment += f'- reference to parent_id: ".." id {id} is false; should be: ".." id {given_fields[0]}\n'
             # check file names and parent id
-            elif given_fields[4].lower() in row[j].lower() and given_fields[1] is row[0]:
-                score += 1
-            elif given_fields[5].lower() in row[j].lower() and given_fields[1] is row[0]:
-                score += 1
+            elif given_fields[4].lower() in row[j].lower():
+                if given_fields[1] is row[0]:
+                    score += 1
+                else:
+                    comment += f'- file {given_fields[4]} has wrong memory address. This file belongs to the Inode-ID {row[0]}, but should belong to the Inode-ID {given_fields[1]}\n'
+            elif given_fields[5].lower() in row[j].lower():
+                if given_fields[1] is row[0]:
+                    score += 1
+                else:
+                    comment += f'- file {given_fields[5]} has wrong memory address. This file belongs to the Inode-ID {row[0]}, but should belong to the Inode-ID {given_fields[1]}\n'
             # check content, corresponding inode_row and if the inode_row is in the right file
-            elif index != -1 and given_fields[6].lower() in row[j].lower():
-                found_in_data1 = [True for i in inode_with_content[index] if row[0] in i and given_fields[4].lower() in i.lower()]
-                if found_in_data1:
-                    score += 1
-            elif index != -1 and given_fields[7].lower() in row[j].lower():
-                found_in_data2 = [True for i in inode_with_content[index] if row[0] in i and given_fields[5].lower() in i.lower()]
-                if found_in_data2:
-                    score += 1
+            elif index != -1:
+                if given_fields[6].lower() in row[j].lower():
+                    found_in_data = [True for i in inode_with_content[index] if row[0] in i and given_fields[4].lower() in i.lower()]
+                    if found_in_data:
+                        score += 1
+                    else:
+                        comment += f'- the content "{given_fields[6]}" belongs to the Inode-ID {row[0]}, which should belong to the file {given_fields[4]}\n'
+                if given_fields[7].lower() in row[j].lower():
+                    found_in_data = [True for i in inode_with_content[index] if row[0] in i and given_fields[5].lower() in i.lower()]
+                    if found_in_data:
+                        score += 1
+                    else:
+                        comment += f'- the content "{given_fields[7]}" belongs to the Inode-ID {row[0]}, which should belong to the file {given_fields[4]}\n'
     return score, comment
 
 
 def get_content_of_ids(inode_stud, datablock_stud):
     complete_inode_stud = []
     for id_entry in inode_stud:
-        adresses = id_entry[2].split(',')
+        adresses = id_entry[2].replace(' ', '').split(',')
         for adress in adresses:
             for data_entry in datablock_stud:
                 if adress == data_entry[0]:
@@ -176,6 +212,10 @@ def get_index_of_directory(inode_stud):
 
 
 def test_inode_table():
+    """
+    Gibt pro Eintrag in einer Zelle einen Punkt.
+    Bei Ordner gibt es hingegen für jede richtige Speicheradresse einen Punkt.
+    """
     got = ''
     inode_stud, datablock_stud = seperate_tables(student_answer)
     inode_must, datablock_must = seperate_tables(solution)
@@ -193,7 +233,7 @@ def test_inode_table():
 
     fraction = score / total_score
     got += f"Inode-Liste des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
-    comment += f'{score} / {total_score} = {fraction*100}%'
+    comment += f'{score} / {total_score} = {round(fraction*100, 2)}%'
 
     table_must = create_inode_string(inode_must)
     expected = f"Inode-Liste der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
@@ -201,18 +241,24 @@ def test_inode_table():
     return print_out(expected, got, comment, fraction)
 
 
-# 1pt for existing element and 1pt for right connection to inode
 def compute_total_points_for_datablock(datablock_must):
     return len(datablock_must) * 2
 
 
 def test_datablock_table():
+    """
+    Gibt pro Zelle in der Spalte Inhalt zwei Punkte.
+    Einen Punkt wenn die Zeile im Datenblock richtig ist.
+    Zweiter Punkt wenn diese Adresse auch in der richtigen Inode Zeile steht.
+    Jedoch gibt es Abzug, wenn keine Adresse zu dem Inhalt angegeben wird.
+    """
     got = ''
     inode_stud, datablock_stud = seperate_tables(student_answer)
     inode_must, datablock_must = seperate_tables(solution)
 
     inode_stud, datablock_stud = remove_given_rows(inode_stud, datablock_stud)
     inode_must, datablock_must = remove_given_rows(inode_must, datablock_must)
+    inode_stud, datablock_stud = remove_white_spaces(inode_stud, datablock_stud)
 
     total_score = compute_total_points_for_datablock(datablock_must)
     score, comment = evaluate_datablock(inode_stud, datablock_stud, datablock_must, score=0)
@@ -223,13 +269,12 @@ def test_datablock_table():
 
     fraction = score / total_score
     got += f"Datenblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
-    comment += f'{score} / {total_score} = {fraction*100}%'
+    comment += f'{score} / {total_score} = {round(fraction*100, 2)}%'
 
     table_must = create_datablock_string(datablock_must)
     expected = f"Datenblock der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
 
     return print_out(expected, got, comment, fraction)
-
 
 
 if __name__ == '__main__':
