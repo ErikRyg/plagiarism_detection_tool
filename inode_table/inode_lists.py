@@ -185,7 +185,7 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
                     if found_in_data:
                         score += 1
                     else:
-                        comment += f'- the content "{given_fields[7]}" belongs to the Inode-ID {row[0]}, which should belong to the file {given_fields[4]}\n'
+                        comment += f'- the content "{given_fields[7]}" belongs to the Inode-ID {row[0]}, which should belong to the file {given_fields[5]}\n'
     return score, comment
 
 
