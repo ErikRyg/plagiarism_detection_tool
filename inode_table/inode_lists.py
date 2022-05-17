@@ -6,6 +6,7 @@ solution = [["55", "d", "20,21,22", "|", "20", "\".\" id 55"], ["600", "d", "41,
 student_answer = []
 for string in solution:
     student_answer.append(string.copy())
+# student_answer[6][5] = "\"..\" id "
 given_fields = []
 given_fields.append('55')               #starting_id
 given_fields.append('600')              #second_id
@@ -102,6 +103,8 @@ def evaluate_inode(inode_stud, inode_must, score):
                 comment += f'- "{given_fields[1]}" is a directory\n'
             n_adresses = len(y[2].split(","))
             score += 4 - abs(4-n_adresses)
+            if n_adresses != 4:
+                comment += f'- the directory should have 4 adresses, but yours have {n_adresses}\n'
         else:
             if y[0] != '':
                 score += 1
@@ -153,13 +156,17 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
                 if given_fields[1] in row[j]:
                     score += 1
                 else:
-                    id = re.search('\d*', row[j]).group()
+                    id = re.search('\d+', row[j])
+                    if id:
+                        id = id.group(0)
                     comment += f'- self-reference: "." id {id} is false; should be: "." id {given_fields[1]}\n'
             elif '".."' in row[j]:
                 if given_fields[0] in row[j]:
                     score += 1
                 else:
-                    id = re.search('\d*', row[j]).group()
+                    id = re.search('\d+', row[j])
+                    if id:
+                        id = id.group(0)
                     comment += f'- reference to parent_id: ".." id {id} is false; should be: ".." id {given_fields[0]}\n'
             # check file names and parent id
             elif given_fields[4].lower() in row[j].lower():
@@ -192,7 +199,7 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
 def get_content_of_ids(inode_stud, datablock_stud):
     complete_inode_stud = []
     for id_entry in inode_stud:
-        adresses = id_entry[2].replace(' ', '').split(',')
+        adresses = id_entry[2].replace(' ', '').split(',') #TODO adressen könnten auch mit 22-25 und nicht mit 22,23,24,25 angegeben werden
         for adress in adresses:
             for data_entry in datablock_stud:
                 if adress == data_entry[0]:
@@ -230,10 +237,12 @@ def test_inode_table():
         comment += '- inode table is correct\n'
 
     table_stud = create_inode_string(inode_stud)
+    print(table_stud)
 
     fraction = score / total_score
     got += f"Inode-Liste des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
     comment += f'{score} / {total_score} = {round(fraction*100, 2)}%'
+    print(comment)
 
     table_must = create_inode_string(inode_must)
     expected = f"Inode-Liste der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
@@ -266,10 +275,12 @@ def test_datablock_table():
         comment += '- datablock table is correct\n'
 
     table_stud = create_datablock_string(datablock_stud)
+    print(table_stud)
 
     fraction = score / total_score
     got += f"Datenblock des Studenten:\n{table_stud}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Musterlösung unterscheiden"
     comment += f'{score} / {total_score} = {round(fraction*100, 2)}%'
+    print(comment)
 
     table_must = create_datablock_string(datablock_must)
     expected = f"Datenblock der Musterlösung:\n{table_must}\n\nDie freigewählten Inode-IDs und Speicheradressen können sich von der Studentenlösung unterscheiden"
