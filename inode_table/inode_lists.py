@@ -89,7 +89,7 @@ def evaluate_inode(inode_stud, inode_must, score):
     #TODO too much rows must give a penalty, negative point possible?!
     comment = ''
     if len(inode_stud) > len(inode_must):
-        score -= 2
+        score -= (len(inode_stud) - len(inode_must)) * 4 # 3 Punkte Abzug um plus Punkte zu negieren; 1 Punkt Abzug als Strafe pro zusätzliche Zeile
         comment += '- too much rows in inode table\n'
     elif len(inode_stud) == 0:
         comment += '- inode table is empty\n'
@@ -135,7 +135,7 @@ def evaluate_datablock(inode_stud, datablock_stud, datablock_must, score):
     #TODO too much coloumns must give a penalty, negative point possible?!
     comment = ''
     if len(datablock_stud) > len(datablock_must):
-        score -= 2
+        score -= (len(datablock_stud) - len(datablock_must)) # 1 Punkt Abzug als Strafe pro zusätzliche Zeile
         comment += '- too much rows in datablock table\n'
     elif len(datablock_stud) == 0:
         comment += '- datablock table is empty\n'
@@ -211,11 +211,10 @@ def get_content_of_ids(inode_stud, datablock_stud):
 
 #TODO does not work with multiple directorys in task so far
 def get_index_of_directory(inode_stud):
-    index = -1
     for i, elem in enumerate(inode_stud):
         if elem[1] == 'd':
-            index = i
-    return index
+            return i
+    return -1
 
 
 def test_inode_table():
