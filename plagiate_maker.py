@@ -5,17 +5,79 @@ import random
 from bs4 import BeautifulSoup
 import argparse
 
+"""
+    1. dataframe mit texten ohne sonderzeichen ergänzen
+    2. dataframe mit texten ohne sonderzeichen und ohne vorgabe ergänzen
+    3. corr matrix mit lcs, n=1-gramm und n=6-gramm erstellen
+    4. matrixen plotten
+    5. pipeline so automatisieren, dass das alles nur mithilfe der eingabe der csv datei funktioniert
+    6. thomas eine mail schreiben, wegen der funktion des neuronalen netztes --> gibt es neuronale netzte mit 2 eingabe (texte)?
+        --> aws projekt trainiert das model nur auf die wiki texte und arbeitet dann nur mit einem input und label
+"""
+
+
+
 def read_and_store_from_csv(file):
     df = pd.read_csv(f'{file}.csv', delimiter=',')
     semester = re.search("\[(\S+)\]", file).group(1)
     ha_number = re.search("-(\d{1,2})", file).group(1)
     for i, row in enumerate(df.values):
+        #TODO always 3 programming tasks?
         for j in range(0, 3):
             # "unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten"
             with open(f'unlabled/{semester}/HA{ha_number}C-{j}_{i}.c', 'w') as file:
+                #TODO is task 16. in every homework first programming task?
                 file.write(row[15+j])
 
 
+def dataframe_from_csv(file):
+    df = pd.read_csv(f'{file}.csv', delimiter=',')
+    #TODO always 3 programming tasks?
+    for j in range(0, 3):
+        #TODO is task 16. in every homework first programming task?
+        # file.write(row[15+j])
+        df = create_text_column(df, (15+j))
+    return df
+
+
+def process_file(file):
+    all_text = file.lower()
+
+    # remove all non-alphanumeric chars
+    #TODO sonderzeichen sind alle noch drinne
+    all_text = re.sub(r"[^a-zA-Z0-9]", " ", all_text)
+    all_text = re.sub(r"\t", " ", all_text)
+    all_text = re.sub(r"\n", " ", all_text)
+    all_text = re.sub("  ", " ", all_text)
+    all_text = re.sub("   ", " ", all_text)
+
+    return all_text
+
+
+def create_text_column(df, index):
+    '''Reads in the files, listed in a df and returns that df with an additional column, `Text`.
+       :param df: A dataframe of file information including a column for `File`
+       :param file_directory: the main directory where files are stored
+       :return: A dataframe with processed text '''
+
+    # create copy to modify
+    text_df = df.copy()
+    # store processed text
+    text = []
+    # for each file (row) in the df, read in the file
+    for row in df.values:
+        if type(row[index]) == float:
+            text.append("")
+        else:
+            code_text = process_file(row[index])
+            text.append(code_text)
+
+    # add column to the copied dataframe
+    text_df[f'Aufgabe {15+index} Text'] = text
+    return text_df
+
+
+#TODO catboost anschauen
 def find_functions(code):
     no_functions = ['if', 'else', 'while', 'for', 'main', 'printf', 'scanf']
     result = []
@@ -109,8 +171,8 @@ def check_similarity(elem, list):
 
 def initialize_argparser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-src', type=str, help='Source file')
-    parser.add_argument('-dest', type=str, help='Destination file')
+    parser.add_argument('-src', type=str, help='Source file', default='./unlabled/SoSe21/HA9C-0_0.c')
+    parser.add_argument('-dest', type=str, help='Destination file', default='./unlabled/SoSe21/HA9C-0.xml')
     return parser.parse_args()
 
 
@@ -118,9 +180,18 @@ if __name__ == "__main__":
     args = initialize_argparser()
     # print(args.src, args.dest)
     # read_and_store_from_csv(sys.argv[1])
-    result = remove_given_code(args.src, args.dest)
-    for i in result:
-        print(i)
-    plagiate = create_plagiate_from_source(args.dest)
-    for i in plagiate:
-        print(i)
+
+    # result = remove_given_code(args.src, args.dest)
+    # for i in result:
+    #     print(i)
+    # plagiate = create_plagiate_from_source(args.dest)
+    # for i in plagiate:
+    #     print(i)
+    df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
+    for i in range(0,3):
+        # print(df.values[i][15])
+        # print(df.values[i][16])
+        # print(df.values[i][17])
+        print(df.values[i][18])
+        print(df.values[i][19])
+        print(df.values[i][20])
