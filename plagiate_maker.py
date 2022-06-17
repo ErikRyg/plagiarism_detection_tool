@@ -11,8 +11,10 @@ import argparse
     3. corr matrix mit lcs, n=1-gramm und n=6-gramm erstellen
     4. matrixen plotten
     5. pipeline so automatisieren, dass das alles nur mithilfe der eingabe der csv datei funktioniert
-    6. thomas eine mail schreiben, wegen der funktion des neuronalen netztes --> gibt es neuronale netzte mit 2 eingabe (texte)?
-        --> aws projekt trainiert das model nur auf die wiki texte und arbeitet dann nur mit einem input und label
+    6. siames network implementieren
+    7. paare aus lösungen erstellen und labeln
+    8. network mit paaren trainieren und vll ein zweites modell mit daten aus der challenge quora-question-pairs
+    9. modelle evaluieren und miteinander und mit rudimentären lösungen vergleichen
 """
 
 
