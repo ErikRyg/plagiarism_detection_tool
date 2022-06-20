@@ -4,10 +4,11 @@ import re
 import random
 from bs4 import BeautifulSoup
 import argparse
+import matplotlib.pyplot as plt
 
 """
     1. dataframe mit texten ohne sonderzeichen ergänzen
-    2. dataframe mit texten ohne sonderzeichen und ohne vorgabe ergänzen
+    2. dataframe mit PLOTtexten ohne sonderzeichen und ohne vorgabe ergänzen
     3. corr matrix mit lcs, n=1-gramm und n=6-gramm erstellen
     4. matrixen plotten
     5. pipeline so automatisieren, dass das alles nur mithilfe der eingabe der csv datei funktioniert
@@ -178,6 +179,54 @@ def initialize_argparser():
     return parser.parse_args()
 
 
+# Compute the normalized LCS given an answer text and a source text
+def lcs_norm_word(answer_text, source_text):
+    '''Computes the longest common subsequence of words in two texts; returns a normalized value.
+       :param answer_text: The pre-processed text for an answer text
+       :param source_text: The pre-processed text for an answer's associated source text
+       :return: A normalized LCS value'''
+
+    answer_list = answer_text.split()
+    source_list = source_text.split()
+    # return lcs(answer_list, source_list)/len(answer_list)
+    rows = len(answer_list)
+    columns = len(source_list)
+    if rows == 0 or columns == 0:
+        return 0
+    matrix = [[0 for _ in range(columns+1)] for _ in range(rows+1)]
+
+    for i, a in enumerate(answer_list, start=1):
+        for j, s in enumerate(source_list, start=1):
+            if(a == s):
+                matrix[i][j] = 1 + matrix[i-1][j-1]
+            else:
+                matrix[i][j] = max(matrix[i-1][j], matrix[i][j-1])
+
+    return matrix[rows][columns] / rows
+
+
+def create_lcs_matrix(df, coloum):
+    matrix = [[lcs_norm_word(row_i, row_j) for row_i in df[coloum]] for row_j in df[coloum]]
+    return pd.DataFrame(matrix)
+
+
+def plot_correlation(matrix):
+    plt.matshow(matrix)
+    plt.show()
+
+# for interactive console
+# import importlib
+# import plagiate_maker
+# from plagiate_maker import *
+# importlib.reload(plagiate_maker)
+def init():
+    df = dataframe_from_csv("./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten")
+    # df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
+    matrix = create_lcs_matrix(df, coloum="Antwort 10")
+    plot_correlation(matrix)
+
+
+
 if __name__ == "__main__":
     args = initialize_argparser()
     # print(args.src, args.dest)
@@ -189,11 +238,8 @@ if __name__ == "__main__":
     # plagiate = create_plagiate_from_source(args.dest)
     # for i in plagiate:
     #     print(i)
-    df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
-    for i in range(0,3):
-        # print(df.values[i][15])
-        # print(df.values[i][16])
-        # print(df.values[i][17])
-        print(df.values[i][18])
-        print(df.values[i][19])
-        print(df.values[i][20])
+    df = dataframe_from_csv("./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten")
+    # df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
+    matrix = create_lcs_matrix(df, coloum="Antwort 10")
+    plot_correlation(matrix)
+
