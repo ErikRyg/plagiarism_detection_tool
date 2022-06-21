@@ -206,12 +206,20 @@ def lcs_norm_word(answer_text, source_text):
 
 
 def create_lcs_matrix(df, coloum):
-    matrix = [[lcs_norm_word(row_i, row_j) for row_i in df[coloum]] for row_j in df[coloum]]
+    # matrix = [[lcs_norm_word(row_i, row_j) for row_i in df[coloum]] for row_j in df[coloum]]
+    matrix = []
+    for i, row_i in enumerate(df[coloum]):
+        coloum = []
+        for j, row_j in enumerate(df[coloum]):
+            print((i,j))
+            coloum.append(lcs_norm_word(row_i, row_j))
+        matrix.append(coloum)
     return pd.DataFrame(matrix)
 
 
-def plot_correlation(matrix):
+def plot_correlation(matrix, title):
     plt.matshow(matrix)
+    plt.title(title)
     plt.show()
 
 # for interactive console
@@ -219,11 +227,13 @@ def plot_correlation(matrix):
 # import plagiate_maker
 # from plagiate_maker import *
 # importlib.reload(plagiate_maker)
-def init():
-    df = dataframe_from_csv("./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten")
+def init(csv_file_path="./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten", coloum="Antwort 10"):
+    df = dataframe_from_csv(csv_file_path)
     # df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
-    matrix = create_lcs_matrix(df, coloum="Antwort 10")
-    plot_correlation(matrix)
+    semester = re.search("\[(\S+)\]", csv_file_path).group(1)
+    ha_number = re.search("-(\d{1,2})", csv_file_path).group(1)
+    matrix = create_lcs_matrix(df, coloum=coloum)
+    plot_correlation(matrix, f"{semester} - Aufgabe {ha_number}")
 
 
 
@@ -238,8 +248,5 @@ if __name__ == "__main__":
     # plagiate = create_plagiate_from_source(args.dest)
     # for i in plagiate:
     #     print(i)
-    df = dataframe_from_csv("./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten")
-    # df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
-    matrix = create_lcs_matrix(df, coloum="Antwort 10")
-    plot_correlation(matrix)
+    init()
 
