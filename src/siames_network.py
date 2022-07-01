@@ -80,8 +80,10 @@ def auroc(y_true, y_pred):
     return tf.py_func(roc_auc_score, (y_true, y_pred), tf.double)
 
 if __name__ == '__main__':
-    train_data = pd.read_csv("train.csv")
-    test_data = pd.read_csv("test.csv")
+    # import nltk
+    # nltk.download('punkt')
+    train_data = pd.read_csv("../data/question_pairs/train.csv")
+    test_data = pd.read_csv("../data/question_pairs/test.csv")
     test_data.fillna(value = " ",inplace = True)
     clean_stemmed_q1 = []
     clean_stemmed_q2 = []
