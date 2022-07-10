@@ -45,6 +45,14 @@ def build_first_attempt_model():
     return model
 
 
+def write_summary_to_file(file='model_summary.txt'):
+    with open(file, mode='a') as file:
+        model.summary(print_fn=lambda x: file.write(x + '\n'))
+
+def plot_model_structure(self, to_file='model_plot.png'):
+    from keras.utils.vis_utils import plot_model
+    plot_model(self.model, to_file=to_file, show_shapes=True, show_layer_names=True)
+
 
 if __name__ == '__main__':
     model = Model()
