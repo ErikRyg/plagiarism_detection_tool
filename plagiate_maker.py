@@ -236,11 +236,11 @@ if __name__ == "__main__":
     # print(args.src, args.dest)
     # read_and_store_from_csv(sys.argv[1])
 
-    # result = remove_given_code(args.src, args.dest)
+    result = remove_given_code(args.src, args.dest)
     # for i in result:
     #     print(i)
     # plagiate = create_plagiate_from_source(args.dest)
     # for i in plagiate:
     #     print(i)
-    init()
+    # init()
 
