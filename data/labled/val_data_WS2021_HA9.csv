@@ -1,0 +1,4486 @@
+code1,code2,label
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",0.0
+"{  
+	for(int i = 0; src[i] != '\0' && dest[i] != '\0' && i < zahl; i++)		dest[i] = src[i];
+void umdrehen( char* str)
+	int length_str = 0;
+	for( int i = 0; str[i] != '\0'; i++)
+		length_str = i;
+	char temp_string[length_str];
+	for( int i = 0; i <= length_str; i++)
+		temp_string[i] = str[length_str-i];
+	for( int i = 0; i <= length_str; i++)
+		str[i] = temp_string[i];
+{  
+  char test[11] = ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test);
+  ersetzen(test , atoi(argv[1]), argv[2]);
+  printf( ""Ersetzt : %s \n"", test);
+  }","{  
+	for(int tfqnx = 0; src[tfqnx] != '\0' && dest[tfqnx] != '\0' && tfqnx < zahl; tfqnx++)		dest[tfqnx] = src[tfqnx];
+void obzhw( char* str)
+	int uyhlk = 0;
+	for( int tfqnx = 0; str[tfqnx] != '\0'; tfqnx++)
+		uyhlk = tfqnx;
+	char hkred[uyhlk];
+	for( int tfqnx = 0; tfqnx <= uyhlk; tfqnx++)
+		hkred[tfqnx] = str[uyhlk-tfqnx];
+	for( int tfqnx = 0; tfqnx <= uyhlk; tfqnx++)
+		str[tfqnx] = hkred[tfqnx];
+{  
+  char pkazt[11] = ""0123456789"";
+  printf( ""Das Original ist: %s \n"", pkazt);
+  ersetzen(pkazt , atoi(argv[1]), argv[2]);
+  printf( ""Ersetzt : %s \n"", pkazt);
+  }",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int mvuac, char* argv[52])
+{
+   int nkwow = 0;
+   int* p_zahl = &nkwow;
+   int thwgq = 1;
+   int* p_counter = &thwgq;
+   char vbcja[30];
+   for(int cypew = 0; cypew < mvuac-1 ; cypew++)
+   {
+      for(int nbqst = 0; argv[thwgq][nbqst] != '\0'; nbqst++)
+      {
+         vbcja[nkwow] = argv[thwgq][nbqst];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   vbcja[nkwow+1] = '\0';
+   int pegof = 0;
+   int* p_nummer = &pegof;
+   char suvpr[25];
+   for(int cypew = 0; ; cypew++)
+   {
+      if((vbcja[cypew] != 'x') && (vbcja[cypew] != 'y') && (vbcja[cypew] != 'q') && (vbcja[cypew] != 'X') && (vbcja[cypew] != 'Y') && (vbcja[cypew] != 'Q'))
+      {
+         suvpr[pegof] = vbcja[cypew];
+         if(vbcja[cypew] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   char gsnfd[35];
+   for(int cypew = 0; cypew < 57; cypew +=3)
+   {
+      gsnfd[cypew/3] = suvpr[cypew];  
+      gsnfd[cypew/3+1] = '\0'  ;
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", suvpr, gsnfd);
+}",1.0
+"int length(char *p)
+ int i = 0; 
+    while (p[i] != '\0')
+      i++;
+  return i; 
+{  
+  int sizeS = length(src);
+  int sizeD = length(dest);
+ /*     char temp[sizeS]; 
+    for (int i = 0; i <= sizeS-1; i++) 
+        temp [i] = src[i];
+  for (int i = 0; i <= zahl-1; i++) {
+    if (i <= sizeD && i <= sizeS) {
+        //dest[i] = temp[i];
+        *dest = temp[i]; 
+      }*/
+  int i = 1;
+   while(*src && i <= sizeS && i <= sizeD && i <= zahl) {
+    *dest++ = *src++;
+    i++;
+ }
+void swap(char* a, char* b){
+    char c = *a;
+    *a = *b;
+    *b = c;
+}
+{
+    if (!*str) 
+        return;
+    char* i = str;
+    char* j = i + length(str) - 1;
+    while (i < j) {
+        swap(i, j);
+        i++;
+        j--;
+    }
+}
+{  
+      }","#include <stdio.h>
+int main(int argc, char* argv[] )
+{  
+	char str[100];
+	char str2[100];
+	int j = 0;
+	for (int i = 0; i < argc -1; i++)
+	{
+		int lange = 0;
+		for (lange; *(*(argv+1+i)+lange) != '\0'; lange++)
+		{
+			str[j] = *(*(argv+1+i)+lange);
+			j++;
+		}
+	}
+	str[j] = '\0';
+	for (int i = 0; i < j+1; i++)
+	{
+		if ((str[i] == 'x') || (str[i] == 'y') || (str[i] == 'q') || (str[i] == 'X') || (str[i] == 'Y') || (str[i] == 'Q'))
+		{
+			while (1)
+			{
+				str[i] = str[i+1];
+				i++;
+				if (str[i] == '\0')
+				{	
+					break;
+				}
+			}
+			j--;
+			i = 0;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+	for (int i = 0, z = 0; i < ((j/2)-2); i++, z += 3)
+	{
+		str2[i] = str[z];
+	}
+	int lange = 0;
+	for (lange; str[lange] != '\0'; lange++)
+		;
+	str2[lange] = '\0';
+	printf(""Der neue String lautet: %s"",str2);
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",0.0
+"    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }","#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}",0.0
+"{  
+    int x;
+    for(x = 0; x < zahl && *dest != '\0' && *src != '\0'; x++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int y = 0;
+    int count = 0;
+    int tmp = 0;
+    for(count=0; str[count] != 0; count++);
+    for(y = 0; y <count/2; y++)
+    {
+        tmp = str[y];
+        str[y]=str[count - 1 - y];
+        str[count - 1 - y] = tmp;
+        for(y = 0; y < count; y++);
+}
+{  
+      }","{  
+    int gbuma;
+    for(gbuma = 0; gbuma < zahl && *dest != '\0' && *src != '\0'; gbuma++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int wqrlt = 0;
+    int wepkg = 0;
+    int bixba = 0;
+    for(wepkg=0; str[wepkg] != 0; wepkg++);
+    for(wqrlt = 0; wqrlt <wepkg/2; wqrlt++)
+    {
+        bixba = str[wqrlt];
+        str[wqrlt]=str[wepkg - 1 - wqrlt];
+        str[wepkg - 1 - wqrlt] = bixba;
+        for(wqrlt = 0; wqrlt < wepkg; wqrlt++);
+}
+{  
+      }",1.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","{  
+   for(int i=0; i<zahl && *src!='\0' && *dest!='\0'; i++)
+        *dest = *src;
+      dest++;
+      src++;
+  } 
+{
+    char temp[100] = """";
+    char* ptemp = temp;
+    for(int i=0; str[i]!=0; i++)
+        temp[i] = str[i]; 
+    while(*ptemp != '\0')
+        ptemp++;
+    ptemp--;
+    while(*str!='\0')
+    {
+        *str = *ptemp;       
+        ptemp--;
+        str++;       
+    }
+{  
+      }",0.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","	for (int mgyso=0;((mgyso<zahl)&&((dest[mgyso])!=('\0')))&&((src[mgyso])!=('\0'));mgyso++)
+dest[mgyso]=src[mgyso];
+{	char tgfhf[30]="""";
+	int mgyso=0;
+	for(;(str[mgyso+1])!=('\0');mgyso++){	for(int vkrio=0;(str[vkrio])!=('\0');vkrio++) {tgfhf[vkrio]=str[mgyso-vkrio];	for(int vkrio=0;(str[vkrio])!=('\0');vkrio++) {str[vkrio]=tgfhf[(vkrio)];	char pyqvl[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", pyqvl );
+	ersetzen( pyqvl , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", pyqvl );
+	umdrehen( pyqvl );
+	printf( ""Rückwärts : %s \n"", pyqvl );
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char** argv)
+{
+    char text[100] = ""lasse roland max ivo"";
+    char temp[100];
+    char NeuString[100];
+    int J = 0;
+    int K = 0;
+    int a = 1;
+    int i;
+    for ( i = 0; *(argv+i) != '\0'; i++)
+    {
+        if (*(argv+i) == ' ' || *(argv+i) == 'x' || *(argv+i) == 'y' || *(argv+i) == 'q'|| *(argv+i) == 'X'|| *(argv+i) == 'Y'|| *(argv+i) == 'Q')
+            a++;
+            continue;
+        temp[J++] = *(argv+i);
+    }
+    temp[J] = 0;
+    printf( ""x,y,q und X,Y,Q aussortiert: %s \n"", temp );
+    for ( i = 0; temp[i] != '\0'; i++)
+    {
+        if (i == 0 || i % 3 == 0)
+        NeuString[K++] = temp[i];
+        continue;
+    }
+    NeuString[K] = 0;
+    printf( ""Der neue String lautet: %s \n"", NeuString);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",0.0
+"#include <stdio.h>
+void xyqentfernen(char* str1){
+	int i;
+	int j;
+	for ( i = 0,  j = 0;j<100; ++j){
+	if ((str1[j] != 'x')&&(str1[j] != 'X')&&(str1[j] != 'y')&&(str1[j] != 'Y')&&(str1[j] != 'q')&&(str1[j] != 'Q'))
+	str1[i++] = str1[j];
+	}
+}
+void zsmfuegen(char* str1, char* str2){
+	int j=0;
+	for(;(str2[j])!=('\0');j++){}
+	for (int i=0;str1[i]!='\0';i++){
+		str2[j+i]=str1[i];
+	}	
+;}
+void neuerstring(char* str1,char* str2){
+	for (int i=0;str1[i]!='\0';i++){
+		if((i+3)%3==0)str2[((i+3)/3)-1]=str1[i];
+	}
+}
+int main(int argc,char** argv){
+	if (argc<2) return 0;
+	char zsm[100]="""";
+	char neustr[100]="""";
+	for(int i=1;i<argc;i++) {
+		zsmfuegen(argv[i],zsm);}
+		xyqentfernen(zsm);
+	neuerstring(zsm,neustr);
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",zsm);
+	printf(""Der neue String lautet: %s"",neustr);
+}","    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }",0.0
+"{  
+    int x;
+    for(x = 0; x < zahl && *dest != '\0' && *src != '\0'; x++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int y = 0;
+    int count = 0;
+    int tmp = 0;
+    for(count=0; str[count] != 0; count++);
+    for(y = 0; y <count/2; y++)
+    {
+        tmp = str[y];
+        str[y]=str[count - 1 - y];
+        str[count - 1 - y] = tmp;
+        for(y = 0; y < count; y++);
+}
+{  
+      }","#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int ckfrd, char* argv[52])
+{
+   int lvnws = 0;
+   int* p_zahl = &lvnws;
+   int lauoc = 1;
+   int* p_counter = &lauoc;
+   char lshkn[30];
+   for(int srrdv = 0; srrdv < ckfrd-1 ; srrdv++)
+   {
+      for(int zgrlf = 0; argv[lauoc][zgrlf] != '\0'; zgrlf++)
+      {
+         lshkn[lvnws] = argv[lauoc][zgrlf];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   lshkn[lvnws+1] = '\0';
+   int divhd = 0;
+   int* p_nummer = &divhd;
+   char piolc[25];
+   for(int srrdv = 0; ; srrdv++)
+   {
+      if((lshkn[srrdv] != 'x') && (lshkn[srrdv] != 'y') && (lshkn[srrdv] != 'q') && (lshkn[srrdv] != 'X') && (lshkn[srrdv] != 'Y') && (lshkn[srrdv] != 'Q'))
+      {
+         piolc[divhd] = lshkn[srrdv];
+         if(lshkn[srrdv] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   char btouf[35];
+   for(int srrdv = 0; srrdv < 57; srrdv +=3)
+   {
+      btouf[srrdv/3] = piolc[srrdv];  
+      btouf[srrdv/3+1] = '\0'  ;
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", piolc, btouf);
+}",1.0
+"    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }","    for (int wdttf = 0;(wdttf < zahl) && (wdttf < 10) && (src[wdttf] != '\0'); wdttf++)
+    {
+        dest[wdttf] = src[wdttf];
+    void fqqgt(char* str )
+{
+    int dciww;
+    for (int ujfgi = 1; str[ujfgi] != '\0'; ujfgi++)
+    {
+        dciww = ujfgi + 2;
+        char oalsb[dciww];
+    for (int wdttf = 0; wdttf < (dciww - 1); wdttf++)
+    {
+        oalsb[dciww - 2- wdttf] = str[wdttf];
+    }
+    for (int wdttf = 0; wdttf < dciww; wdttf++)
+    {
+        str[wdttf] = oalsb[wdttf];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }",1.0
+"#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",0.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","#include <stdio.h>
+char dqzle (char utxtz)
+{if (utxtz=='x'||utxtz=='y'||utxtz=='q'||
+     utxtz=='X'||utxtz=='Y'||utxtz=='Q')
+    ovcdb 1;
+else ovcdb 0;
+}
+void yqpio (char*src)
+{char kbylb[100]="""";
+ int ndkbs=0;
+ while (src[ndkbs]!='\0')
+    {kbylb[ndkbs]=src[ndkbs];ndkbs++;}
+    kbylb[ndkbs]='\0';
+    ndkbs=0;
+int bxbtw=0;
+while (kbylb[ndkbs]!='\0')
+    {if (ndkbs%3!=0)
+        {ndkbs++;}
+    else 
+        {src[bxbtw]=kbylb[ndkbs];
+         ndkbs++;
+         bxbtw++;}
+    }
+src[bxbtw]='\0';
+}
+int main (int zpqul,char*argv[])
+{char hrcpq[100]="""";
+int txblh=1;
+int fkqlq=0;
+int lzfik=0;
+while (txblh!=zpqul)
+    {while (argv[txblh][lzfik]!='\0')
+        {if (dqzle(argv[txblh][lzfik])) 
+         lzfik++;
+         else
+         {hrcpq[fkqlq]=argv[txblh][lzfik];
+          fkqlq++;
+          lzfik++;}}
+    txblh++;lzfik=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",hrcpq);
+yqpio(hrcpq);
+printf (""Der neue String lautet: %s\n"",hrcpq);
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{   
+     // char *argv[] is a array of strings, each command line arguments
+    // int argc is the amount of command line arguments
+    //loop through all command line arguements. First command line argument is always taken by default so we start at 1.
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //printf(""Current 2 %c \n"",CurrentCommandString[0]);
+        //int LengthOfString = sizeof(CurrentCommandString) / sizeof(char*);
+        //printf(""Current Size %i \n"",LengthOfString);
+        int i = 0;
+        while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+            if (CurrentCommandString[i] == 'x' 
+             || CurrentCommandString[i] == 'y' 
+             || CurrentCommandString[i] == 'q'
+             || CurrentCommandString[i] == 'X'
+             || CurrentCommandString[i] == 'Y' 
+             || CurrentCommandString[i] == 'Q')
+             {   
+                 int j = i;
+                 while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+                    CurrentCommandString[j] = CurrentCommandString[j + 1]; 
+                    ++j; 
+                 }
+             }
+            ++i;
+         }
+        //printf(""x,y,q und X,Y,Q aussortiert TEST 1: %s \n"", argv[kk]);
+    }
+    char StringXYQRemoved[5000];
+    int StringXYQRemovedIndex = 0;
+    char StringThirdRemoved[5000];
+    int StringThirdRemovedIndex = 0;
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //String 1 
+        int length, j;
+          // store length of s1 in the length variable
+          length = 0;
+          while (StringXYQRemoved[length] != '\0' && StringXYQRemoved[length] != ' ') {
+            ++length;
+          }
+          // concatenate s2 to s1
+          for (j = 0; CurrentCommandString[j] != '\0' && CurrentCommandString[length] != ' '; ++j, ++length) {
+            StringXYQRemoved[length] = CurrentCommandString[j];
+          }
+          // terminating the s1 string
+          StringXYQRemoved[length] = '\0';       
+    }
+        //String2
+        int length, j;
+        // store length of s1 in the length variable
+        length = 0;
+        while (StringThirdRemoved[length] != '\0' && StringThirdRemoved[length] != ' ') {
+        ++length;
+        }
+        // concatenate s2 to s1
+        for (j = 0; StringXYQRemoved[j] != '\0' && StringXYQRemoved[length] != ' '; ++length) {
+         StringThirdRemoved[length] = StringXYQRemoved[j];
+         //printf(""WTFFFF %c \n"",StringXYQRemoved[j]);
+         j+=3;
+        }
+        // terminating the s1 string
+        StringThirdRemoved[length] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", StringXYQRemoved);
+    printf(""Der neue String lautet: %s"", StringThirdRemoved);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int huxjc, char *oqejt[])
+{   
+    for (int schih = 1; schih < huxjc; schih++){
+        char * CurrentCommandString = oqejt[schih];  
+        int fgmcx = 0;
+        while (CurrentCommandString[fgmcx] != '\0' && CurrentCommandString[fgmcx] != ' ') {
+            if (CurrentCommandString[fgmcx] == 'x' 
+             || CurrentCommandString[fgmcx] == 'y' 
+             || CurrentCommandString[fgmcx] == 'q'
+             || CurrentCommandString[fgmcx] == 'X'
+             || CurrentCommandString[fgmcx] == 'Y' 
+             || CurrentCommandString[fgmcx] == 'Q')
+             {   
+                 int zivcc = fgmcx;
+                 while (CurrentCommandString[fgmcx] != '\0' && CurrentCommandString[fgmcx] != ' ') {
+                    CurrentCommandString[zivcc] = CurrentCommandString[zivcc + 1]; 
+                    ++zivcc; 
+                 }
+             }
+            ++fgmcx;
+         }
+    }
+    char yuvlf[5000];
+    int hmjry = 0;
+    char xkhuy[5000];
+    int ssfwu = 0;
+    for (int schih = 1; schih < huxjc; schih++){
+        char * CurrentCommandString = oqejt[schih];  
+        int hjdsl, zivcc;
+          hjdsl = 0;
+          while (yuvlf[hjdsl] != '\0' && yuvlf[hjdsl] != ' ') {
+            ++hjdsl;
+          }
+          for (zivcc = 0; CurrentCommandString[zivcc] != '\0' && CurrentCommandString[hjdsl] != ' '; ++zivcc, ++hjdsl) {
+            yuvlf[hjdsl] = CurrentCommandString[zivcc];
+          }
+          yuvlf[hjdsl] = '\0';       
+    }
+        int hjdsl, zivcc;
+        hjdsl = 0;
+        while (xkhuy[hjdsl] != '\0' && xkhuy[hjdsl] != ' ') {
+        ++hjdsl;
+        }
+        for (zivcc = 0; yuvlf[zivcc] != '\0' && yuvlf[hjdsl] != ' '; ++hjdsl) {
+         xkhuy[hjdsl] = yuvlf[zivcc];
+         zivcc+=3;
+        }
+        xkhuy[hjdsl] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", yuvlf);
+    printf(""Der neue String lautet: %s"", xkhuy);
+}",1.0
+"#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}","#include <stdlib.h>
+#include <stdio.h>
+int dgpsq(char *vodis)
+{
+    int ejmjp = 0;
+    for (int nabjm = 0; vodis[nabjm] != '\0'; nabjm++)
+    {
+        ejmjp += 1;
+    }
+    return ejmjp;
+}
+int gceuc(char *ytxhd, char *lpsdh)
+{
+    int ibrje = 0;
+    int nabjm = 0;
+    while (lpsdh[ibrje] != '\0')
+    {
+        if (lpsdh[ibrje] != 'q' && lpsdh[ibrje] != 'x' && lpsdh[ibrje] != 'y' && lpsdh[ibrje] != 'Q' && lpsdh[ibrje] != 'X' && lpsdh[ibrje] != 'Y')
+        {
+            ytxhd[nabjm++] = lpsdh[ibrje++];
+        }
+        else
+        {
+            ibrje++;
+        }
+    }
+    return nabjm;
+}
+int cvvkg(char *urxzm)
+{
+    int ibrje = 0;
+    int nabjm = 0;
+    while (urxzm[ibrje] != '\0')
+    {
+        if (ibrje % 3 == 0)
+        {
+            urxzm[nabjm++] = urxzm[ibrje++];
+        }
+        else
+        {
+            ibrje++;
+        }
+    }
+    return nabjm;
+}
+int main(int ujtqw, char *xsltb[])
+{
+    int mqtjf = 0;
+    for (int ibrje = 1; ibrje < ujtqw; ibrje++)
+    {
+        mqtjf += dgpsq(xsltb[ibrje]);
+    }
+    char psiki[mqtjf + 1];
+    char *xtufw = psiki;
+    for (int ibrje = 1; ibrje < ujtqw; ibrje++)
+    {
+        xtufw += gceuc(xtufw, xsltb[ibrje]);
+    }
+    *xtufw = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", psiki);
+    psiki[cvvkg(psiki)] = '\0';
+    printf(""Der neue String lautet: %s\n"", psiki);
+}",1.0
+"{  
+	int position = 0;
+	while(position < zahl && dest[position] != '\0' && src[position] != '\0')		dest[position] = src[position];
+		position ++;
+{
+	int groesse = 0;
+	while(str[groesse] != '\0') groesse++;
+	char kopie[groesse];
+	for(int i = 0; i < groesse; i++) kopie[i] = str[i];
+	for(int i = 0; i < groesse; i++){
+		str[i] = kopie[groesse - 1 - i];
+}
+{  
+      }","#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}",0.0
+"#include <stdio.h>
+void aussortieren (char* string)
+{
+	for(int i = 0; string[i] != '\0'; i++)
+	{
+		if(string[i] == 'x' || string[i] == 'y' || string[i] == 'q' || string[i] == 'X' || string[i] == 'Y' || string[i] == 'Q' )
+		{
+			for(int k = i; string[k] != '\0'; k++)
+			{
+				string[k] = string[k+1];
+			}
+			i = i -1;
+		}
+	}
+}
+void zeichen3 (char* string)
+{
+	int z = 0;
+	while(string[z] != '\0')
+	{
+	z++;
+	}
+	char tmp[z]; 
+	for(int j = 0; j < z; j++)
+	{
+		if(j % 3 == 0)
+		{
+			tmp[j] = string[j];
+		}
+		else tmp[j] = 0;
+	}
+	int s =0;
+	for(int i = 0; i < z; i++)
+	{
+		if(tmp[i] != 0)
+		{
+			string[s] = tmp[i];
+			s++;
+		}
+	}
+	string[s] = '\0';
+}
+int main(int argc, char* argv[])
+{
+	int z = 0;
+	for(int k=1; k < argc; k++)
+	{
+		for(int i = 0; argv[k][i] != '\0'; i++)
+		{
+			z++;		
+		}				
+	}
+	char string[z+1];
+	string[z] = '\0';
+	int s = 0;
+	for(int k=1; k < argc; k++)
+	{
+		for(int i = 0; argv[k][i] != '\0'; i++)
+		{
+			string[s] = argv[k][i];
+			s++;
+		}
+	}
+	aussortieren(string);
+	printf(""x,y,q und X,Y,Q aussortiert: %s \n"",&string[0]);
+	zeichen3(string);
+	printf(""Der neue String lautet: %s \n"",&string[0]);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",0.0
+"#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}","#include <stdlib.h>
+#include <stdio.h>
+int sjqwj(char *uzkrm)
+{
+    int cilji = 0;
+    for (int masam = 0; uzkrm[masam] != '\0'; masam++)
+    {
+        cilji += 1;
+    }
+    return cilji;
+}
+int dclyu(char *yuetg, char *okntb)
+{
+    int fjmkm = 0;
+    int masam = 0;
+    while (okntb[fjmkm] != '\0')
+    {
+        if (okntb[fjmkm] != 'q' && okntb[fjmkm] != 'x' && okntb[fjmkm] != 'y' && okntb[fjmkm] != 'Q' && okntb[fjmkm] != 'X' && okntb[fjmkm] != 'Y')
+        {
+            yuetg[masam++] = okntb[fjmkm++];
+        }
+        else
+        {
+            fjmkm++;
+        }
+    }
+    return masam;
+}
+int vpnvy(char *mnxik)
+{
+    int fjmkm = 0;
+    int masam = 0;
+    while (mnxik[fjmkm] != '\0')
+    {
+        if (fjmkm % 3 == 0)
+        {
+            mnxik[masam++] = mnxik[fjmkm++];
+        }
+        else
+        {
+            fjmkm++;
+        }
+    }
+    return masam;
+}
+int main(int gbkwd, char *zerzc[])
+{
+    int kphkf = 0;
+    for (int fjmkm = 1; fjmkm < gbkwd; fjmkm++)
+    {
+        kphkf += sjqwj(zerzc[fjmkm]);
+    }
+    char urdqu[kphkf + 1];
+    char *kfude = urdqu;
+    for (int fjmkm = 1; fjmkm < gbkwd; fjmkm++)
+    {
+        kfude += dclyu(kfude, zerzc[fjmkm]);
+    }
+    *kfude = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", urdqu);
+    urdqu[vpnvy(urdqu)] = '\0';
+    printf(""Der neue String lautet: %s\n"", urdqu);
+}",1.0
+"    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }","    for (int wtqgw = 0;(wtqgw < zahl) && (wtqgw < 10) && (src[wtqgw] != '\0'); wtqgw++)
+    {
+        dest[wtqgw] = src[wtqgw];
+    void jsisu(char* str )
+{
+    int unhnc;
+    for (int gozyf = 1; str[gozyf] != '\0'; gozyf++)
+    {
+        unhnc = gozyf + 2;
+        char eetfn[unhnc];
+    for (int wtqgw = 0; wtqgw < (unhnc - 1); wtqgw++)
+    {
+        eetfn[unhnc - 2- wtqgw] = str[wtqgw];
+    }
+    for (int wtqgw = 0; wtqgw < unhnc; wtqgw++)
+    {
+        str[wtqgw] = eetfn[wtqgw];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{   
+     // char *argv[] is a array of strings, each command line arguments
+    // int argc is the amount of command line arguments
+    //loop through all command line arguements. First command line argument is always taken by default so we start at 1.
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //printf(""Current 2 %c \n"",CurrentCommandString[0]);
+        //int LengthOfString = sizeof(CurrentCommandString) / sizeof(char*);
+        //printf(""Current Size %i \n"",LengthOfString);
+        int i = 0;
+        while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+            if (CurrentCommandString[i] == 'x' 
+             || CurrentCommandString[i] == 'y' 
+             || CurrentCommandString[i] == 'q'
+             || CurrentCommandString[i] == 'X'
+             || CurrentCommandString[i] == 'Y' 
+             || CurrentCommandString[i] == 'Q')
+             {   
+                 int j = i;
+                 while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+                    CurrentCommandString[j] = CurrentCommandString[j + 1]; 
+                    ++j; 
+                 }
+             }
+            ++i;
+         }
+        //printf(""x,y,q und X,Y,Q aussortiert TEST 1: %s \n"", argv[kk]);
+    }
+    char StringXYQRemoved[5000];
+    int StringXYQRemovedIndex = 0;
+    char StringThirdRemoved[5000];
+    int StringThirdRemovedIndex = 0;
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //String 1 
+        int length, j;
+          // store length of s1 in the length variable
+          length = 0;
+          while (StringXYQRemoved[length] != '\0' && StringXYQRemoved[length] != ' ') {
+            ++length;
+          }
+          // concatenate s2 to s1
+          for (j = 0; CurrentCommandString[j] != '\0' && CurrentCommandString[length] != ' '; ++j, ++length) {
+            StringXYQRemoved[length] = CurrentCommandString[j];
+          }
+          // terminating the s1 string
+          StringXYQRemoved[length] = '\0';       
+    }
+        //String2
+        int length, j;
+        // store length of s1 in the length variable
+        length = 0;
+        while (StringThirdRemoved[length] != '\0' && StringThirdRemoved[length] != ' ') {
+        ++length;
+        }
+        // concatenate s2 to s1
+        for (j = 0; StringXYQRemoved[j] != '\0' && StringXYQRemoved[length] != ' '; ++length) {
+         StringThirdRemoved[length] = StringXYQRemoved[j];
+         //printf(""WTFFFF %c \n"",StringXYQRemoved[j]);
+         j+=3;
+        }
+        // terminating the s1 string
+        StringThirdRemoved[length] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", StringXYQRemoved);
+    printf(""Der neue String lautet: %s"", StringThirdRemoved);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int xwsve, char *znpsb[])
+{   
+    for (int qwzcw = 1; qwzcw < xwsve; qwzcw++){
+        char * CurrentCommandString = znpsb[qwzcw];  
+        int owwnc = 0;
+        while (CurrentCommandString[owwnc] != '\0' && CurrentCommandString[owwnc] != ' ') {
+            if (CurrentCommandString[owwnc] == 'x' 
+             || CurrentCommandString[owwnc] == 'y' 
+             || CurrentCommandString[owwnc] == 'q'
+             || CurrentCommandString[owwnc] == 'X'
+             || CurrentCommandString[owwnc] == 'Y' 
+             || CurrentCommandString[owwnc] == 'Q')
+             {   
+                 int kyzuu = owwnc;
+                 while (CurrentCommandString[owwnc] != '\0' && CurrentCommandString[owwnc] != ' ') {
+                    CurrentCommandString[kyzuu] = CurrentCommandString[kyzuu + 1]; 
+                    ++kyzuu; 
+                 }
+             }
+            ++owwnc;
+         }
+    }
+    char iamaf[5000];
+    int xwqnh = 0;
+    char odklj[5000];
+    int xtkvl = 0;
+    for (int qwzcw = 1; qwzcw < xwsve; qwzcw++){
+        char * CurrentCommandString = znpsb[qwzcw];  
+        int ljglw, kyzuu;
+          ljglw = 0;
+          while (iamaf[ljglw] != '\0' && iamaf[ljglw] != ' ') {
+            ++ljglw;
+          }
+          for (kyzuu = 0; CurrentCommandString[kyzuu] != '\0' && CurrentCommandString[ljglw] != ' '; ++kyzuu, ++ljglw) {
+            iamaf[ljglw] = CurrentCommandString[kyzuu];
+          }
+          iamaf[ljglw] = '\0';       
+    }
+        int ljglw, kyzuu;
+        ljglw = 0;
+        while (odklj[ljglw] != '\0' && odklj[ljglw] != ' ') {
+        ++ljglw;
+        }
+        for (kyzuu = 0; iamaf[kyzuu] != '\0' && iamaf[ljglw] != ' '; ++ljglw) {
+         odklj[ljglw] = iamaf[kyzuu];
+         kyzuu+=3;
+        }
+        odklj[ljglw] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", iamaf);
+    printf(""Der neue String lautet: %s"", odklj);
+}",1.0
+"#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{   
+     // char *argv[] is a array of strings, each command line arguments
+    // int argc is the amount of command line arguments
+    //loop through all command line arguements. First command line argument is always taken by default so we start at 1.
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //printf(""Current 2 %c \n"",CurrentCommandString[0]);
+        //int LengthOfString = sizeof(CurrentCommandString) / sizeof(char*);
+        //printf(""Current Size %i \n"",LengthOfString);
+        int i = 0;
+        while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+            if (CurrentCommandString[i] == 'x' 
+             || CurrentCommandString[i] == 'y' 
+             || CurrentCommandString[i] == 'q'
+             || CurrentCommandString[i] == 'X'
+             || CurrentCommandString[i] == 'Y' 
+             || CurrentCommandString[i] == 'Q')
+             {   
+                 int j = i;
+                 while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+                    CurrentCommandString[j] = CurrentCommandString[j + 1]; 
+                    ++j; 
+                 }
+             }
+            ++i;
+         }
+        //printf(""x,y,q und X,Y,Q aussortiert TEST 1: %s \n"", argv[kk]);
+    }
+    char StringXYQRemoved[5000];
+    int StringXYQRemovedIndex = 0;
+    char StringThirdRemoved[5000];
+    int StringThirdRemovedIndex = 0;
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //String 1 
+        int length, j;
+          // store length of s1 in the length variable
+          length = 0;
+          while (StringXYQRemoved[length] != '\0' && StringXYQRemoved[length] != ' ') {
+            ++length;
+          }
+          // concatenate s2 to s1
+          for (j = 0; CurrentCommandString[j] != '\0' && CurrentCommandString[length] != ' '; ++j, ++length) {
+            StringXYQRemoved[length] = CurrentCommandString[j];
+          }
+          // terminating the s1 string
+          StringXYQRemoved[length] = '\0';       
+    }
+        //String2
+        int length, j;
+        // store length of s1 in the length variable
+        length = 0;
+        while (StringThirdRemoved[length] != '\0' && StringThirdRemoved[length] != ' ') {
+        ++length;
+        }
+        // concatenate s2 to s1
+        for (j = 0; StringXYQRemoved[j] != '\0' && StringXYQRemoved[length] != ' '; ++length) {
+         StringThirdRemoved[length] = StringXYQRemoved[j];
+         //printf(""WTFFFF %c \n"",StringXYQRemoved[j]);
+         j+=3;
+        }
+        // terminating the s1 string
+        StringThirdRemoved[length] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", StringXYQRemoved);
+    printf(""Der neue String lautet: %s"", StringThirdRemoved);
+}",0.0
+"{  
+   for(int i=0; i<zahl && *src!='\0' && *dest!='\0'; i++)
+        *dest = *src;
+      dest++;
+      src++;
+  } 
+{
+    char temp[100] = """";
+    char* ptemp = temp;
+    for(int i=0; str[i]!=0; i++)
+        temp[i] = str[i]; 
+    while(*ptemp != '\0')
+        ptemp++;
+    ptemp--;
+    while(*str!='\0')
+    {
+        *str = *ptemp;       
+        ptemp--;
+        str++;       
+    }
+{  
+      }","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",0.0
+"int length(char *p)
+ int i = 0; 
+    while (p[i] != '\0')
+      i++;
+  return i; 
+{  
+  int sizeS = length(src);
+  int sizeD = length(dest);
+ /*     char temp[sizeS]; 
+    for (int i = 0; i <= sizeS-1; i++) 
+        temp [i] = src[i];
+  for (int i = 0; i <= zahl-1; i++) {
+    if (i <= sizeD && i <= sizeS) {
+        //dest[i] = temp[i];
+        *dest = temp[i]; 
+      }*/
+  int i = 1;
+   while(*src && i <= sizeS && i <= sizeD && i <= zahl) {
+    *dest++ = *src++;
+    i++;
+ }
+void swap(char* a, char* b){
+    char c = *a;
+    *a = *b;
+    *b = c;
+}
+{
+    if (!*str) 
+        return;
+    char* i = str;
+    char* j = i + length(str) - 1;
+    while (i < j) {
+        swap(i, j);
+        i++;
+        j--;
+    }
+}
+{  
+      }","#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}",0.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","	for (int ywyii=0;((ywyii<zahl)&&((dest[ywyii])!=('\0')))&&((src[ywyii])!=('\0'));ywyii++)
+dest[ywyii]=src[ywyii];
+{	char rqvfa[30]="""";
+	int ywyii=0;
+	for(;(str[ywyii+1])!=('\0');ywyii++){	for(int zbcry=0;(str[zbcry])!=('\0');zbcry++) {rqvfa[zbcry]=str[ywyii-zbcry];	for(int zbcry=0;(str[zbcry])!=('\0');zbcry++) {str[zbcry]=rqvfa[(zbcry)];	char kriki[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", kriki );
+	ersetzen( kriki , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", kriki );
+	umdrehen( kriki );
+	printf( ""Rückwärts : %s \n"", kriki );
+}",1.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","	for (int vlqjz=0;((vlqjz<zahl)&&((dest[vlqjz])!=('\0')))&&((src[vlqjz])!=('\0'));vlqjz++)
+dest[vlqjz]=src[vlqjz];
+{	char hwbql[30]="""";
+	int vlqjz=0;
+	for(;(str[vlqjz+1])!=('\0');vlqjz++){	for(int skrvf=0;(str[skrvf])!=('\0');skrvf++) {hwbql[skrvf]=str[vlqjz-skrvf];	for(int skrvf=0;(str[skrvf])!=('\0');skrvf++) {str[skrvf]=hwbql[(skrvf)];	char hpmpe[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", hpmpe );
+	ersetzen( hpmpe , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", hpmpe );
+	umdrehen( hpmpe );
+	printf( ""Rückwärts : %s \n"", hpmpe );
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int czmvh, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int cbdsm = 0;
+	for(int ksokm = 1; ksokm < czmvh; ksokm++){
+		int bctzo = 0;
+		while(*(argv[ksokm]+bctzo) != '\0'){
+			if((*(argv[ksokm]+bctzo) != 'x') && (*(argv[ksokm]+bctzo) != 'y') && (*(argv[ksokm]+bctzo) != 'q') && (*(argv[ksokm]+bctzo) != 'X') && (*(argv[ksokm]+bctzo) != 'Y') && (*(argv[ksokm]+bctzo) != 'Q')){
+			*(text_str+cbdsm) = *(argv[ksokm]+bctzo);
+			cbdsm++;
+			}
+			bctzo++;
+		}
+	}
+	text_str = realloc(text_str,cbdsm+1 * sizeof(char));
+	int esmkk = (cbdsm+1) / 3;
+	char* solution = malloc(esmkk * sizeof(char));
+	int mmzgk = 0;
+	for(int ksokm = 0; ksokm < cbdsm+1; ksokm++){
+		if((ksokm % 3) == 0){
+			*(solution+mmzgk) = *(text_str+ksokm);
+			mmzgk++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}",1.0
+"{  
+    int x;
+    for(x = 0; x < zahl && *dest != '\0' && *src != '\0'; x++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int y = 0;
+    int count = 0;
+    int tmp = 0;
+    for(count=0; str[count] != 0; count++);
+    for(y = 0; y <count/2; y++)
+    {
+        tmp = str[y];
+        str[y]=str[count - 1 - y];
+        str[count - 1 - y] = tmp;
+        for(y = 0; y < count; y++);
+}
+{  
+      }","#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}",0.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","#include <stdio.h>
+char iozoc (char znydi)
+{if (znydi=='x'||znydi=='y'||znydi=='q'||
+     znydi=='X'||znydi=='Y'||znydi=='Q')
+    ppuby 1;
+else ppuby 0;
+}
+void dnbmk (char*src)
+{char onven[100]="""";
+ int xgzrp=0;
+ while (src[xgzrp]!='\0')
+    {onven[xgzrp]=src[xgzrp];xgzrp++;}
+    onven[xgzrp]='\0';
+    xgzrp=0;
+int jqnot=0;
+while (onven[xgzrp]!='\0')
+    {if (xgzrp%3!=0)
+        {xgzrp++;}
+    else 
+        {src[jqnot]=onven[xgzrp];
+         xgzrp++;
+         jqnot++;}
+    }
+src[jqnot]='\0';
+}
+int main (int gkpbw,char*argv[])
+{char oqsjr[100]="""";
+int qbmjq=1;
+int aqvyt=0;
+int dhzfv=0;
+while (qbmjq!=gkpbw)
+    {while (argv[qbmjq][dhzfv]!='\0')
+        {if (iozoc(argv[qbmjq][dhzfv])) 
+         dhzfv++;
+         else
+         {oqsjr[aqvyt]=argv[qbmjq][dhzfv];
+          aqvyt++;
+          dhzfv++;}}
+    qbmjq++;dhzfv=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",oqsjr);
+dnbmk(oqsjr);
+printf (""Der neue String lautet: %s\n"",oqsjr);
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char** argv)
+{
+    char text[100] = ""lasse roland max ivo"";
+    char temp[100];
+    char NeuString[100];
+    int J = 0;
+    int K = 0;
+    int a = 1;
+    int i;
+    for ( i = 0; *(argv+i) != '\0'; i++)
+    {
+        if (*(argv+i) == ' ' || *(argv+i) == 'x' || *(argv+i) == 'y' || *(argv+i) == 'q'|| *(argv+i) == 'X'|| *(argv+i) == 'Y'|| *(argv+i) == 'Q')
+            a++;
+            continue;
+        temp[J++] = *(argv+i);
+    }
+    temp[J] = 0;
+    printf( ""x,y,q und X,Y,Q aussortiert: %s \n"", temp );
+    for ( i = 0; temp[i] != '\0'; i++)
+    {
+        if (i == 0 || i % 3 == 0)
+        NeuString[K++] = temp[i];
+        continue;
+    }
+    NeuString[K] = 0;
+    printf( ""Der neue String lautet: %s \n"", NeuString);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main( int xqqai, char** argv)
+{
+    char dfcen[100] = ""lasse roland max ivo"";
+    char jxzsn[100];
+    char grylj[100];
+    int qaosa = 0;
+    int tzerv = 0;
+    int mcejh = 1;
+    int jtkeg;
+    for ( jtkeg = 0; *(argv+jtkeg) != '\0'; jtkeg++)
+    {
+        if (*(argv+jtkeg) == ' ' || *(argv+jtkeg) == 'x' || *(argv+jtkeg) == 'y' || *(argv+jtkeg) == 'q'|| *(argv+jtkeg) == 'X'|| *(argv+jtkeg) == 'Y'|| *(argv+jtkeg) == 'Q')
+            mcejh++;
+            continue;
+        jxzsn[qaosa++] = *(argv+jtkeg);
+    }
+    jxzsn[qaosa] = 0;
+    printf( ""x,y,q und X,Y,Q aussortiert: %s \n"", jxzsn );
+    for ( jtkeg = 0; jxzsn[jtkeg] != '\0'; jtkeg++)
+    {
+        if (jtkeg == 0 || jtkeg % 3 == 0)
+        grylj[tzerv++] = jxzsn[jtkeg];
+        continue;
+    }
+    grylj[tzerv] = 0;
+    printf( ""Der neue String lautet: %s \n"", grylj);
+}",1.0
+"    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }","#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int edpxf, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int brgor = 0;
+	for(int dunhz = 1; dunhz < edpxf; dunhz++){
+		int diiyz = 0;
+		while(*(argv[dunhz]+diiyz) != '\0'){
+			if((*(argv[dunhz]+diiyz) != 'x') && (*(argv[dunhz]+diiyz) != 'y') && (*(argv[dunhz]+diiyz) != 'q') && (*(argv[dunhz]+diiyz) != 'X') && (*(argv[dunhz]+diiyz) != 'Y') && (*(argv[dunhz]+diiyz) != 'Q')){
+			*(text_str+brgor) = *(argv[dunhz]+diiyz);
+			brgor++;
+			}
+			diiyz++;
+		}
+	}
+	text_str = realloc(text_str,brgor+1 * sizeof(char));
+	int zaulv = (brgor+1) / 3;
+	char* solution = malloc(zaulv * sizeof(char));
+	int ndmtp = 0;
+	for(int dunhz = 0; dunhz < brgor+1; dunhz++){
+		if((dunhz % 3) == 0){
+			*(solution+ndmtp) = *(text_str+dunhz);
+			ndmtp++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}",1.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];}
+}
+{
+	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}",0.0
+"{  
+    int x;
+    for(x = 0; x < zahl && *dest != '\0' && *src != '\0'; x++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int y = 0;
+    int count = 0;
+    int tmp = 0;
+    for(count=0; str[count] != 0; count++);
+    for(y = 0; y <count/2; y++)
+    {
+        tmp = str[y];
+        str[y]=str[count - 1 - y];
+        str[count - 1 - y] = tmp;
+        for(y = 0; y < count; y++);
+}
+{  
+      }","{  
+    int snrzc;
+    for(snrzc = 0; snrzc < zahl && *dest != '\0' && *src != '\0'; snrzc++)
+           *dest = *src;
+       src++;
+       dest++;
+    {
+    int ikawe = 0;
+    int xasyd = 0;
+    int vvjri = 0;
+    for(xasyd=0; str[xasyd] != 0; xasyd++);
+    for(ikawe = 0; ikawe <xasyd/2; ikawe++)
+    {
+        vvjri = str[ikawe];
+        str[ikawe]=str[xasyd - 1 - ikawe];
+        str[xasyd - 1 - ikawe] = vvjri;
+        for(ikawe = 0; ikawe < xasyd; ikawe++);
+}
+{  
+      }",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}",1.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","	for (int nalhl=0;((nalhl<zahl)&&((dest[nalhl])!=('\0')))&&((src[nalhl])!=('\0'));nalhl++)
+dest[nalhl]=src[nalhl];
+{	char mzjsz[30]="""";
+	int nalhl=0;
+	for(;(str[nalhl+1])!=('\0');nalhl++){	for(int kqrzl=0;(str[kqrzl])!=('\0');kqrzl++) {mzjsz[kqrzl]=str[nalhl-kqrzl];	for(int kqrzl=0;(str[kqrzl])!=('\0');kqrzl++) {str[kqrzl]=mzjsz[(kqrzl)];	char wargu[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", wargu );
+	ersetzen( wargu , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", wargu );
+	umdrehen( wargu );
+	printf( ""Rückwärts : %s \n"", wargu );
+}",1.0
+"#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}","#include <stdlib.h>
+#include <stdio.h>
+int szzvy(char *arlxj)
+{
+    int jsnne = 0;
+    for (int hmita = 0; arlxj[hmita] != '\0'; hmita++)
+    {
+        jsnne += 1;
+    }
+    return jsnne;
+}
+int vcnvv(char *xwxqk, char *ndwpt)
+{
+    int gihzy = 0;
+    int hmita = 0;
+    while (ndwpt[gihzy] != '\0')
+    {
+        if (ndwpt[gihzy] != 'q' && ndwpt[gihzy] != 'x' && ndwpt[gihzy] != 'y' && ndwpt[gihzy] != 'Q' && ndwpt[gihzy] != 'X' && ndwpt[gihzy] != 'Y')
+        {
+            xwxqk[hmita++] = ndwpt[gihzy++];
+        }
+        else
+        {
+            gihzy++;
+        }
+    }
+    return hmita;
+}
+int qoqhm(char *smnpo)
+{
+    int gihzy = 0;
+    int hmita = 0;
+    while (smnpo[gihzy] != '\0')
+    {
+        if (gihzy % 3 == 0)
+        {
+            smnpo[hmita++] = smnpo[gihzy++];
+        }
+        else
+        {
+            gihzy++;
+        }
+    }
+    return hmita;
+}
+int main(int pcnuy, char *ubgzj[])
+{
+    int vpytz = 0;
+    for (int gihzy = 1; gihzy < pcnuy; gihzy++)
+    {
+        vpytz += szzvy(ubgzj[gihzy]);
+    }
+    char qwufn[vpytz + 1];
+    char *wcfwh = qwufn;
+    for (int gihzy = 1; gihzy < pcnuy; gihzy++)
+    {
+        wcfwh += vcnvv(wcfwh, ubgzj[gihzy]);
+    }
+    *wcfwh = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", qwufn);
+    qwufn[qoqhm(qwufn)] = '\0';
+    printf(""Der neue String lautet: %s\n"", qwufn);
+}",1.0
+"int length(char *p)
+ int i = 0; 
+    while (p[i] != '\0')
+      i++;
+  return i; 
+{  
+  int sizeS = length(src);
+  int sizeD = length(dest);
+ /*     char temp[sizeS]; 
+    for (int i = 0; i <= sizeS-1; i++) 
+        temp [i] = src[i];
+  for (int i = 0; i <= zahl-1; i++) {
+    if (i <= sizeD && i <= sizeS) {
+        //dest[i] = temp[i];
+        *dest = temp[i]; 
+      }*/
+  int i = 1;
+   while(*src && i <= sizeS && i <= sizeD && i <= zahl) {
+    *dest++ = *src++;
+    i++;
+ }
+void swap(char* a, char* b){
+    char c = *a;
+    *a = *b;
+    *b = c;
+}
+{
+    if (!*str) 
+        return;
+    char* i = str;
+    char* j = i + length(str) - 1;
+    while (i < j) {
+        swap(i, j);
+        i++;
+        j--;
+    }
+}
+{  
+      }","int zsghy(char *cowbq)
+ int unkho = 0; 
+    while (cowbq[unkho] != '\0')
+      unkho++;
+  return unkho; 
+{  
+  int utpaj = zsghy(src);
+  int nsxql = zsghy(dest);
+ /*     char alfez[utpaj]; 
+    for (int unkho = 0; unkho <= utpaj-1; unkho++) 
+        alfez [unkho] = src[unkho];
+  for (int unkho = 0; unkho <= zahl-1; unkho++) {
+    if (unkho <= nsxql && unkho <= utpaj) {
+        *dest = alfez[unkho]; 
+      }*/
+  int unkho = 1;
+   while(*src && unkho <= utpaj && unkho <= nsxql && unkho <= zahl) {
+    *dest++ = *src++;
+    unkho++;
+ }
+void cmywp(char* a, char* b){
+    char jwvmd = *a;
+    *a = *b;
+    *b = jwvmd;
+}
+{
+    if (!*str) 
+        return;
+    char* unkho = str;
+    char* j = unkho + zsghy(str) - 1;
+    while (unkho < j) {
+        cmywp(unkho, j);
+        unkho++;
+        j--;
+    }
+}
+{  
+      }",1.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}",0.1614395887
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int tkxov, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int crpue = 0;
+for(int chdzl=1; chdzl < tkxov; chdzl++){
+	int yydzh = 0;
+while(*(argv[chdzl]+yydzh) != '\0'){
+if((*(argv[chdzl]+yydzh) != 'crpue') && (*(argv[chdzl]+yydzh)!= 'duriq') && (*(argv[chdzl]+yydzh) != 'q')&& (*(argv[chdzl]+yydzh) != 'X')&& (*(argv[chdzl]+yydzh) != 'Y')&& (*(argv[chdzl]+yydzh) != 'Q')){
+			*(compactstring+crpue) = *(argv[chdzl]+yydzh);
+			crpue++;
+	}
+	yydzh++;
+}
+}
+compactstring = (char*) realloc(compactstring,crpue+sizeof(char));
+int qthsl=(crpue+1)/3;
+char* shortend = (char*) malloc(qthsl * sizeof(char));
+int duriq = 0;
+for (int chdzl=0;chdzl<crpue+1;chdzl++){
+if((chdzl%3)==0){
+	*(shortend+duriq) = *(compactstring+chdzl);
+	duriq++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int apjxf, char* argv[52])
+{
+   int xuwii = 0;
+   int* p_zahl = &xuwii;
+   int velyk = 1;
+   int* p_counter = &velyk;
+   char uqkra[30];
+   for(int erung = 0; erung < apjxf-1 ; erung++)
+   {
+      for(int dgmxv = 0; argv[velyk][dgmxv] != '\0'; dgmxv++)
+      {
+         uqkra[xuwii] = argv[velyk][dgmxv];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   uqkra[xuwii+1] = '\0';
+   int uxqpo = 0;
+   int* p_nummer = &uxqpo;
+   char zwvwe[25];
+   for(int erung = 0; ; erung++)
+   {
+      if((uqkra[erung] != 'x') && (uqkra[erung] != 'y') && (uqkra[erung] != 'q') && (uqkra[erung] != 'X') && (uqkra[erung] != 'Y') && (uqkra[erung] != 'Q'))
+      {
+         zwvwe[uxqpo] = uqkra[erung];
+         if(uqkra[erung] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   char adylk[35];
+   for(int erung = 0; erung < 57; erung +=3)
+   {
+      adylk[erung/3] = zwvwe[erung];  
+      adylk[erung/3+1] = '\0'  ;
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", zwvwe, adylk);
+}",1.0
+"#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}","#include <stdio.h>
+int main(int vvsjz, char *hgoel[])
+{
+    int gvweb;
+    int yonkq = 0;
+    char vfryk[20];
+    char umuso[15];
+    int xmujf = 0;
+    for (int fahif = 1; fahif < vvsjz; fahif++)
+    {
+        gvweb = 0;
+        while ((hgoel[fahif][gvweb]) != '\0')
+        {
+            if (hgoel[fahif][gvweb] != 'xmujf' && hgoel[fahif][gvweb] != 'y' && hgoel[fahif][gvweb] != 'q' && hgoel[fahif][gvweb] != 'X' && hgoel[fahif][gvweb] != 'Y' && hgoel[fahif][gvweb] != 'Q')
+            {
+                vfryk[yonkq] = hgoel[fahif][gvweb];
+                yonkq++;
+            }
+            gvweb++;
+        }
+    }
+    for (int fahif = 0; fahif <= yonkq; fahif++)
+    {
+        if (xmujf > (fahif / 3) || fahif == 0)
+        {
+            if (fahif == 0)
+            {
+                umuso[xmujf] = vfryk[fahif];
+                xmujf++;
+            }
+            if (((fahif) % 3) == 0)
+            {
+                umuso[xmujf] = vfryk[fahif];
+                xmujf++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int fahif = 0; fahif < yonkq; fahif++)
+        if (vfryk[fahif] != '\0')
+        {
+            printf(""%c"", vfryk[fahif]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int fahif = 1; fahif < (yonkq / 2)-1; fahif++)
+            printf(""%c"", umuso[fahif]);
+    if (vfryk[0] == 'z')
+        printf(""z"");
+}",1.0
+"{  
+	int position = 0;
+	while(position < zahl && dest[position] != '\0' && src[position] != '\0')		dest[position] = src[position];
+		position ++;
+{
+	int groesse = 0;
+	while(str[groesse] != '\0') groesse++;
+	char kopie[groesse];
+	for(int i = 0; i < groesse; i++) kopie[i] = str[i];
+	for(int i = 0; i < groesse; i++){
+		str[i] = kopie[groesse - 1 - i];
+}
+{  
+      }","{  
+	for(int i = 0; src[i] != '\0' && dest[i] != '\0' && i < zahl; i++)		dest[i] = src[i];
+void umdrehen( char* str)
+{
+	int length_str = 0;
+	for( int i = 0; str[i] != '\0'; i++)
+		length_str = i;
+	char temp_string[length_str];
+	for( int i = 0; i <= length_str; i++)
+		temp_string[i] = str[length_str-i];
+	for( int i = 0; i <= length_str; i++)
+		str[i] = temp_string[i];
+{  
+  char test[11] = ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test);
+  ersetzen(test , atoi(argv[1]), argv[2]);
+  printf( ""Ersetzt : %s \n"", test);
+  }",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{   
+     // char *argv[] is a array of strings, each command line arguments
+    // int argc is the amount of command line arguments
+    //loop through all command line arguements. First command line argument is always taken by default so we start at 1.
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //printf(""Current 2 %c \n"",CurrentCommandString[0]);
+        //int LengthOfString = sizeof(CurrentCommandString) / sizeof(char*);
+        //printf(""Current Size %i \n"",LengthOfString);
+        int i = 0;
+        while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+            if (CurrentCommandString[i] == 'x' 
+             || CurrentCommandString[i] == 'y' 
+             || CurrentCommandString[i] == 'q'
+             || CurrentCommandString[i] == 'X'
+             || CurrentCommandString[i] == 'Y' 
+             || CurrentCommandString[i] == 'Q')
+             {   
+                 int j = i;
+                 while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+                    CurrentCommandString[j] = CurrentCommandString[j + 1]; 
+                    ++j; 
+                 }
+             }
+            ++i;
+         }
+        //printf(""x,y,q und X,Y,Q aussortiert TEST 1: %s \n"", argv[kk]);
+    }
+    char StringXYQRemoved[5000];
+    int StringXYQRemovedIndex = 0;
+    char StringThirdRemoved[5000];
+    int StringThirdRemovedIndex = 0;
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //String 1 
+        int length, j;
+          // store length of s1 in the length variable
+          length = 0;
+          while (StringXYQRemoved[length] != '\0' && StringXYQRemoved[length] != ' ') {
+            ++length;
+          }
+          // concatenate s2 to s1
+          for (j = 0; CurrentCommandString[j] != '\0' && CurrentCommandString[length] != ' '; ++j, ++length) {
+            StringXYQRemoved[length] = CurrentCommandString[j];
+          }
+          // terminating the s1 string
+          StringXYQRemoved[length] = '\0';       
+    }
+        //String2
+        int length, j;
+        // store length of s1 in the length variable
+        length = 0;
+        while (StringThirdRemoved[length] != '\0' && StringThirdRemoved[length] != ' ') {
+        ++length;
+        }
+        // concatenate s2 to s1
+        for (j = 0; StringXYQRemoved[j] != '\0' && StringXYQRemoved[length] != ' '; ++length) {
+         StringThirdRemoved[length] = StringXYQRemoved[j];
+         //printf(""WTFFFF %c \n"",StringXYQRemoved[j]);
+         j+=3;
+        }
+        // terminating the s1 string
+        StringThirdRemoved[length] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", StringXYQRemoved);
+    printf(""Der neue String lautet: %s"", StringThirdRemoved);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int dukfl, char *srjsr[])
+{   
+    for (int luyys = 1; luyys < dukfl; luyys++){
+        char * CurrentCommandString = srjsr[luyys];  
+        int bgtnj = 0;
+        while (CurrentCommandString[bgtnj] != '\0' && CurrentCommandString[bgtnj] != ' ') {
+            if (CurrentCommandString[bgtnj] == 'x' 
+             || CurrentCommandString[bgtnj] == 'y' 
+             || CurrentCommandString[bgtnj] == 'q'
+             || CurrentCommandString[bgtnj] == 'X'
+             || CurrentCommandString[bgtnj] == 'Y' 
+             || CurrentCommandString[bgtnj] == 'Q')
+             {   
+                 int ifbzs = bgtnj;
+                 while (CurrentCommandString[bgtnj] != '\0' && CurrentCommandString[bgtnj] != ' ') {
+                    CurrentCommandString[ifbzs] = CurrentCommandString[ifbzs + 1]; 
+                    ++ifbzs; 
+                 }
+             }
+            ++bgtnj;
+         }
+    }
+    char fahhu[5000];
+    int svdfg = 0;
+    char mkthu[5000];
+    int yxows = 0;
+    for (int luyys = 1; luyys < dukfl; luyys++){
+        char * CurrentCommandString = srjsr[luyys];  
+        int fnbtp, ifbzs;
+          fnbtp = 0;
+          while (fahhu[fnbtp] != '\0' && fahhu[fnbtp] != ' ') {
+            ++fnbtp;
+          }
+          for (ifbzs = 0; CurrentCommandString[ifbzs] != '\0' && CurrentCommandString[fnbtp] != ' '; ++ifbzs, ++fnbtp) {
+            fahhu[fnbtp] = CurrentCommandString[ifbzs];
+          }
+          fahhu[fnbtp] = '\0';       
+    }
+        int fnbtp, ifbzs;
+        fnbtp = 0;
+        while (mkthu[fnbtp] != '\0' && mkthu[fnbtp] != ' ') {
+        ++fnbtp;
+        }
+        for (ifbzs = 0; fahhu[ifbzs] != '\0' && fahhu[fnbtp] != ' '; ++fnbtp) {
+         mkthu[fnbtp] = fahhu[ifbzs];
+         ifbzs+=3;
+        }
+        mkthu[fnbtp] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", fahhu);
+    printf(""Der neue String lautet: %s"", mkthu);
+}",1.0
+"#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}","#include<stdio.h>
+int main(int fcaav, char* argv[]){
+	char ynduu[100]= """";
+	char dapfr[100]="""";
+	int pkyfq=0;
+	for(int zjrdd=1 ;zjrdd<fcaav ;zjrdd++){
+		for (int lkqbz=0; argv[zjrdd][lkqbz] != '\0'; lkqbz++){
+			if(argv[zjrdd][lkqbz]== 'pkyfq' || argv[zjrdd][lkqbz]== 'whvhk' || argv[zjrdd][lkqbz]== 'q' || argv[zjrdd][lkqbz]== 'X' || argv[zjrdd][lkqbz]== 'Y' || argv[zjrdd][lkqbz]== 'Q') continue;
+			else {
+				ynduu[pkyfq]=argv[zjrdd][lkqbz];
+				pkyfq+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", ynduu);
+	int whvhk=0;
+	for(int zjrdd=0; zjrdd<100; zjrdd+=3){
+		dapfr[whvhk]=ynduu[zjrdd];
+		whvhk++;
+	}
+	printf(""Der neue String lautet: %s\n"", dapfr);
+}",1.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}","#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+/*
+int zaehlen(char* str){
+	int counter = 0;
+	while(str[counter] != '\0'){
+		counter++;
+	}
+	return counter;
+}*/
+int main( int argc, char* argv[]){
+	char str[100] = """";
+	for(int i = 1; i<argc; i++){
+		strcat(str, argv[i]);
+	}
+	printf(""%s\n"", str);
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char *argv[])
+{   
+     // char *argv[] is a array of strings, each command line arguments
+    // int argc is the amount of command line arguments
+    //loop through all command line arguements. First command line argument is always taken by default so we start at 1.
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //printf(""Current 2 %c \n"",CurrentCommandString[0]);
+        //int LengthOfString = sizeof(CurrentCommandString) / sizeof(char*);
+        //printf(""Current Size %i \n"",LengthOfString);
+        int i = 0;
+        while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+            if (CurrentCommandString[i] == 'x' 
+             || CurrentCommandString[i] == 'y' 
+             || CurrentCommandString[i] == 'q'
+             || CurrentCommandString[i] == 'X'
+             || CurrentCommandString[i] == 'Y' 
+             || CurrentCommandString[i] == 'Q')
+             {   
+                 int j = i;
+                 while (CurrentCommandString[i] != '\0' && CurrentCommandString[i] != ' ') {
+                    CurrentCommandString[j] = CurrentCommandString[j + 1]; 
+                    ++j; 
+                 }
+             }
+            ++i;
+         }
+        //printf(""x,y,q und X,Y,Q aussortiert TEST 1: %s \n"", argv[kk]);
+    }
+    char StringXYQRemoved[5000];
+    int StringXYQRemovedIndex = 0;
+    char StringThirdRemoved[5000];
+    int StringThirdRemovedIndex = 0;
+    for (int kk = 1; kk < argc; kk++){
+        char * CurrentCommandString = argv[kk];  
+        //String 1 
+        int length, j;
+          // store length of s1 in the length variable
+          length = 0;
+          while (StringXYQRemoved[length] != '\0' && StringXYQRemoved[length] != ' ') {
+            ++length;
+          }
+          // concatenate s2 to s1
+          for (j = 0; CurrentCommandString[j] != '\0' && CurrentCommandString[length] != ' '; ++j, ++length) {
+            StringXYQRemoved[length] = CurrentCommandString[j];
+          }
+          // terminating the s1 string
+          StringXYQRemoved[length] = '\0';       
+    }
+        //String2
+        int length, j;
+        // store length of s1 in the length variable
+        length = 0;
+        while (StringThirdRemoved[length] != '\0' && StringThirdRemoved[length] != ' ') {
+        ++length;
+        }
+        // concatenate s2 to s1
+        for (j = 0; StringXYQRemoved[j] != '\0' && StringXYQRemoved[length] != ' '; ++length) {
+         StringThirdRemoved[length] = StringXYQRemoved[j];
+         //printf(""WTFFFF %c \n"",StringXYQRemoved[j]);
+         j+=3;
+        }
+        // terminating the s1 string
+        StringThirdRemoved[length] = '\0';       
+    printf(""x,y,q und X,Y,Q aussortiert: %s \n"", StringXYQRemoved);
+    printf(""Der neue String lautet: %s"", StringThirdRemoved);
+}",0.0
+"{  
+   for(int i=0; i<zahl && *src!='\0' && *dest!='\0'; i++)
+        *dest = *src;
+      dest++;
+      src++;
+  } 
+{
+    char temp[100] = """";
+    char* ptemp = temp;
+    for(int i=0; str[i]!=0; i++)
+        temp[i] = str[i]; 
+    while(*ptemp != '\0')
+        ptemp++;
+    ptemp--;
+    while(*str!='\0')
+    {
+        *str = *ptemp;       
+        ptemp--;
+        str++;       
+    }
+{  
+      }","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",0.0
+"#include <stdio.h>
+char aussortieren (char buchstabe)
+{if (buchstabe=='x'||buchstabe=='y'||buchstabe=='q'||
+     buchstabe=='X'||buchstabe=='Y'||buchstabe=='Q')
+    return 1;
+else return 0;
+}
+void ersetzen (char*src)
+{char tmp[100]="""";
+ int fw=0;
+ while (src[fw]!='\0')
+    {tmp[fw]=src[fw];fw++;}
+    tmp[fw]='\0';
+    fw=0;
+int fw_mod=0;
+while (tmp[fw]!='\0')
+    {if (fw%3!=0)
+        {fw++;}
+    else 
+        {src[fw_mod]=tmp[fw];
+         fw++;
+         fw_mod++;}
+    }
+src[fw_mod]='\0';
+}
+int main (int argc,char*argv[])
+{char str[100]="""";
+int c=1;
+int lv_c=0;
+int lv_argc=0;
+while (c!=argc)
+    {while (argv[c][lv_argc]!='\0')
+        {if (aussortieren(argv[c][lv_argc])) 
+         lv_argc++;
+         else
+         {str[lv_c]=argv[c][lv_argc];
+          lv_c++;
+          lv_argc++;}}
+    c++;lv_argc=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+ersetzen(str);
+printf (""Der neue String lautet: %s\n"",str);
+}","#include <stdio.h>
+char znpag (char tiueq)
+{if (tiueq=='x'||tiueq=='y'||tiueq=='q'||
+     tiueq=='X'||tiueq=='Y'||tiueq=='Q')
+    lckpg 1;
+else lckpg 0;
+}
+void cyume (char*src)
+{char msjyc[100]="""";
+ int nbosp=0;
+ while (src[nbosp]!='\0')
+    {msjyc[nbosp]=src[nbosp];nbosp++;}
+    msjyc[nbosp]='\0';
+    nbosp=0;
+int spkbk=0;
+while (msjyc[nbosp]!='\0')
+    {if (nbosp%3!=0)
+        {nbosp++;}
+    else 
+        {src[spkbk]=msjyc[nbosp];
+         nbosp++;
+         spkbk++;}
+    }
+src[spkbk]='\0';
+}
+int main (int obhhb,char*argv[])
+{char mxdlw[100]="""";
+int eineq=1;
+int mgwvt=0;
+int qbwgl=0;
+while (eineq!=obhhb)
+    {while (argv[eineq][qbwgl]!='\0')
+        {if (znpag(argv[eineq][qbwgl])) 
+         qbwgl++;
+         else
+         {mxdlw[mgwvt]=argv[eineq][qbwgl];
+          mgwvt++;
+          qbwgl++;}}
+    eineq++;qbwgl=0;}
+printf (""x,y,q und X,Y,Q aussortiert: %s\n"",mxdlw);
+cyume(mxdlw);
+printf (""Der neue String lautet: %s\n"",mxdlw);
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int diqcc, char* argv[52])
+{
+   int elynx = 0;
+   int* p_zahl = &elynx;
+   int fjcbl = 1;
+   int* p_counter = &fjcbl;
+   char hweap[30];
+   for(int romzv = 0; romzv < diqcc-1 ; romzv++)
+   {
+      for(int saplh = 0; argv[fjcbl][saplh] != '\0'; saplh++)
+      {
+         hweap[elynx] = argv[fjcbl][saplh];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   hweap[elynx+1] = '\0';
+   int ajuif = 0;
+   int* p_nummer = &ajuif;
+   char hxqar[25];
+   for(int romzv = 0; ; romzv++)
+   {
+      if((hweap[romzv] != 'x') && (hweap[romzv] != 'y') && (hweap[romzv] != 'q') && (hweap[romzv] != 'X') && (hweap[romzv] != 'Y') && (hweap[romzv] != 'Q'))
+      {
+         hxqar[ajuif] = hweap[romzv];
+         if(hweap[romzv] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   char lmktt[35];
+   for(int romzv = 0; romzv < 57; romzv +=3)
+   {
+      lmktt[romzv/3] = hxqar[romzv];  
+      lmktt[romzv/3+1] = '\0'  ;
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", hxqar, lmktt);
+}",1.0
+"#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}","#include<stdio.h>
+int main(int argc, char* argv[]){
+	char a[100]= """";
+	char b[100]="""";
+	int x=0;
+	for(int i=1 ;i<argc ;i++){
+		for (int j=0; argv[i][j] != '\0'; j++){
+			if(argv[i][j]== 'x' || argv[i][j]== 'y' || argv[i][j]== 'q' || argv[i][j]== 'X' || argv[i][j]== 'Y' || argv[i][j]== 'Q') continue;
+			else {
+				a[x]=argv[i][j];
+				x+=1;
+			}
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", a);
+	int y=0;
+	for(int i=0; i<100; i+=3){
+		b[y]=a[i];
+		y++;
+	}
+	printf(""Der neue String lautet: %s\n"", b);
+}",0.0
+"#include <stdio.h>
+void xyqentfernen(char* str1){
+	int i;
+	int j;
+	for ( i = 0,  j = 0;j<100; ++j){
+	if ((str1[j] != 'x')&&(str1[j] != 'X')&&(str1[j] != 'y')&&(str1[j] != 'Y')&&(str1[j] != 'q')&&(str1[j] != 'Q'))
+	str1[i++] = str1[j];
+	}
+}
+void zsmfuegen(char* str1, char* str2){
+	int j=0;
+	for(;(str2[j])!=('\0');j++){}
+	for (int i=0;str1[i]!='\0';i++){
+		str2[j+i]=str1[i];
+	}	
+;}
+void neuerstring(char* str1,char* str2){
+	for (int i=0;str1[i]!='\0';i++){
+		if((i+3)%3==0)str2[((i+3)/3)-1]=str1[i];
+	}
+}
+int main(int argc,char** argv){
+	if (argc<2) return 0;
+	char zsm[100]="""";
+	char neustr[100]="""";
+	for(int i=1;i<argc;i++) {
+		zsmfuegen(argv[i],zsm);}
+		xyqentfernen(zsm);
+	neuerstring(zsm,neustr);
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",zsm);
+	printf(""Der neue String lautet: %s"",neustr);
+}","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int yogbf, char* argv[52])
+{
+   int ghbqw = 0;
+   int* p_zahl = &ghbqw;
+   int mitzo = 1;
+   int* p_counter = &mitzo;
+   char dqzqy[30];
+   for(int oqfew = 0; oqfew < yogbf-1 ; oqfew++)
+   {
+      for(int fbygu = 0; argv[mitzo][fbygu] != '\0'; fbygu++)
+      {
+         dqzqy[ghbqw] = argv[mitzo][fbygu];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   dqzqy[ghbqw+1] = '\0';
+   int nuwkk = 0;
+   int* p_nummer = &nuwkk;
+   char nrgsa[25];
+   for(int oqfew = 0; ; oqfew++)
+   {
+      if((dqzqy[oqfew] != 'x') && (dqzqy[oqfew] != 'y') && (dqzqy[oqfew] != 'q') && (dqzqy[oqfew] != 'X') && (dqzqy[oqfew] != 'Y') && (dqzqy[oqfew] != 'Q'))
+      {
+         nrgsa[nuwkk] = dqzqy[oqfew];
+         if(dqzqy[oqfew] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   char aswiy[35];
+   for(int oqfew = 0; oqfew < 57; oqfew +=3)
+   {
+      aswiy[oqfew/3] = nrgsa[oqfew];  
+      aswiy[oqfew/3+1] = '\0'  ;
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", nrgsa, aswiy);
+}",1.0
+"#include <stdlib.h>
+#include <stdio.h>
+int Laenge(char *str)
+{
+    int size = 0;
+    for (int j = 0; str[j] != '\0'; j++)
+    {
+        size += 1;
+    }
+    return size;
+}
+int Kopieren(char *dest, char *src)
+{
+    int i = 0;
+    int j = 0;
+    while (src[i] != '\0')
+    {
+        if (src[i] != 'q' && src[i] != 'x' && src[i] != 'y' && src[i] != 'Q' && src[i] != 'X' && src[i] != 'Y')
+        {
+            dest[j++] = src[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int Entfernen(char *Eingabe)
+{
+    int i = 0;
+    int j = 0;
+    while (Eingabe[i] != '\0')
+    {
+        if (i % 3 == 0)
+        {
+            Eingabe[j++] = Eingabe[i++];
+        }
+        else
+        {
+            i++;
+        }
+    }
+    return j;
+}
+int main(int argc, char *argv[])
+{
+    int Gesamtlaenge = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        Gesamtlaenge += Laenge(argv[i]);
+    }
+    char Ausgabe[Gesamtlaenge + 1];
+    char *Ziel = Ausgabe;
+    for (int i = 1; i < argc; i++)
+    {
+        Ziel += Kopieren(Ziel, argv[i]);
+    }
+    *Ziel = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", Ausgabe);
+    Ausgabe[Entfernen(Ausgabe)] = '\0';
+    printf(""Der neue String lautet: %s\n"", Ausgabe);
+}","#include <stdlib.h>
+#include <stdio.h>
+int vkjwt(char *agkuj)
+{
+    int ilfvq = 0;
+    for (int wxtih = 0; agkuj[wxtih] != '\0'; wxtih++)
+    {
+        ilfvq += 1;
+    }
+    return ilfvq;
+}
+int rmjrq(char *ftqvc, char *apgpt)
+{
+    int ohraz = 0;
+    int wxtih = 0;
+    while (apgpt[ohraz] != '\0')
+    {
+        if (apgpt[ohraz] != 'q' && apgpt[ohraz] != 'x' && apgpt[ohraz] != 'y' && apgpt[ohraz] != 'Q' && apgpt[ohraz] != 'X' && apgpt[ohraz] != 'Y')
+        {
+            ftqvc[wxtih++] = apgpt[ohraz++];
+        }
+        else
+        {
+            ohraz++;
+        }
+    }
+    return wxtih;
+}
+int lzois(char *rvpvt)
+{
+    int ohraz = 0;
+    int wxtih = 0;
+    while (rvpvt[ohraz] != '\0')
+    {
+        if (ohraz % 3 == 0)
+        {
+            rvpvt[wxtih++] = rvpvt[ohraz++];
+        }
+        else
+        {
+            ohraz++;
+        }
+    }
+    return wxtih;
+}
+int main(int itapr, char *sjbcb[])
+{
+    int gtiyn = 0;
+    for (int ohraz = 1; ohraz < itapr; ohraz++)
+    {
+        gtiyn += vkjwt(sjbcb[ohraz]);
+    }
+    char vlrpp[gtiyn + 1];
+    char *vpfis = vlrpp;
+    for (int ohraz = 1; ohraz < itapr; ohraz++)
+    {
+        vpfis += rmjrq(vpfis, sjbcb[ohraz]);
+    }
+    *vpfis = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", vlrpp);
+    vlrpp[lzois(vlrpp)] = '\0';
+    printf(""Der neue String lautet: %s\n"", vlrpp);
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}","#include <stdio.h>
+int main(int argc, char* argv[] )
+{  
+	char str[100];
+	char str2[100];
+	int j = 0;
+	for (int i = 0; i < argc -1; i++)
+	{
+		int lange = 0;
+		for (lange; *(*(argv+1+i)+lange) != '\0'; lange++)
+		{
+			str[j] = *(*(argv+1+i)+lange);
+			j++;
+		}
+	}
+	str[j] = '\0';
+	for (int i = 0; i < j+1; i++)
+	{
+		if ((str[i] == 'x') || (str[i] == 'y') || (str[i] == 'q') || (str[i] == 'X') || (str[i] == 'Y') || (str[i] == 'Q'))
+		{
+			while (1)
+			{
+				str[i] = str[i+1];
+				i++;
+				if (str[i] == '\0')
+				{	
+					break;
+				}
+			}
+			j--;
+			i = 0;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",str);
+	for (int i = 0, z = 0; i < ((j/2)-2); i++, z += 3)
+	{
+		str2[i] = str[z];
+	}
+	int lange = 0;
+	for (lange; str[lange] != '\0'; lange++)
+		;
+	str2[lange] = '\0';
+	printf(""Der neue String lautet: %s"",str2);
+}",0.0
+"#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}","	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];}
+}
+{
+	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}",0.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int fvxqc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int dklvu = 0;
+for(int uhvho=1; uhvho < fvxqc; uhvho++){
+	int dqzfu = 0;
+while(*(argv[uhvho]+dqzfu) != '\0'){
+if((*(argv[uhvho]+dqzfu) != 'dklvu') && (*(argv[uhvho]+dqzfu)!= 'siipu') && (*(argv[uhvho]+dqzfu) != 'q')&& (*(argv[uhvho]+dqzfu) != 'X')&& (*(argv[uhvho]+dqzfu) != 'Y')&& (*(argv[uhvho]+dqzfu) != 'Q')){
+			*(compactstring+dklvu) = *(argv[uhvho]+dqzfu);
+			dklvu++;
+	}
+	dqzfu++;
+}
+}
+compactstring = (char*) realloc(compactstring,dklvu+sizeof(char));
+int lnhxn=(dklvu+1)/3;
+char* shortend = (char*) malloc(lnhxn * sizeof(char));
+int siipu = 0;
+for (int uhvho=0;uhvho<dklvu+1;uhvho++){
+if((uhvho%3)==0){
+	*(shortend+siipu) = *(compactstring+uhvho);
+	siipu++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}",1.0
+"{  
+	int position = 0;
+	while(position < zahl && dest[position] != '\0' && src[position] != '\0')		dest[position] = src[position];
+		position ++;
+{
+	int groesse = 0;
+	while(str[groesse] != '\0') groesse++;
+	char kopie[groesse];
+	for(int i = 0; i < groesse; i++) kopie[i] = str[i];
+	for(int i = 0; i < groesse; i++){
+		str[i] = kopie[groesse - 1 - i];
+}
+{  
+      }","{  
+	int cxswf = 0;
+	while(cxswf < zahl && dest[cxswf] != '\0' && src[cxswf] != '\0')		dest[cxswf] = src[cxswf];
+		cxswf ++;
+{
+	int cemiz = 0;
+	while(str[cemiz] != '\0') cemiz++;
+	char dfwuh[cemiz];
+	for(int wvfri = 0; wvfri < cemiz; wvfri++) dfwuh[wvfri] = str[wvfri];
+	for(int wvfri = 0; wvfri < cemiz; wvfri++){
+		str[wvfri] = dfwuh[cemiz - 1 - wvfri];
+}
+{  
+      }",1.0
+"    for (int i = 0;(i < zahl) && (i < 10) && (src[i] != '\0'); i++)
+    {
+        dest[i] = src[i];
+    void umdrehen(char* str )
+{
+    int size;
+    for (int j = 1; str[j] != '\0'; j++)
+    {
+        size = j + 2;
+        char Kopie[size];
+    for (int i = 0; i < (size - 1); i++)
+    {
+        Kopie[size - 2- i] = str[i];
+    }
+    for (int i = 0; i < size; i++)
+    {
+        str[i] = Kopie[i];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }","    for (int tfabi = 0;(tfabi < zahl) && (tfabi < 10) && (src[tfabi] != '\0'); tfabi++)
+    {
+        dest[tfabi] = src[tfabi];
+    void trnfz(char* str )
+{
+    int prxtl;
+    for (int giijf = 1; str[giijf] != '\0'; giijf++)
+    {
+        prxtl = giijf + 2;
+        char rrqrk[prxtl];
+    for (int tfabi = 0; tfabi < (prxtl - 1); tfabi++)
+    {
+        rrqrk[prxtl - 2- tfabi] = str[tfabi];
+    }
+    for (int tfabi = 0; tfabi < prxtl; tfabi++)
+    {
+        str[tfabi] = rrqrk[tfabi];
+    }
+}
+{  
+    ersetzen(test, atoi(argv[1]), argv[2]);
+   }",1.0
+"	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","	for (int cdjdh=0;((cdjdh<zahl)&&((dest[cdjdh])!=('\0')))&&((src[cdjdh])!=('\0'));cdjdh++)
+dest[cdjdh]=src[cdjdh];
+{	char ofgjv[30]="""";
+	int cdjdh=0;
+	for(;(str[cdjdh+1])!=('\0');cdjdh++){	for(int qswev=0;(str[qswev])!=('\0');qswev++) {ofgjv[qswev]=str[cdjdh-qswev];	for(int qswev=0;(str[qswev])!=('\0');qswev++) {str[qswev]=ofgjv[(qswev)];	char flwch[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", flwch );
+	ersetzen( flwch , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", flwch );
+	umdrehen( flwch );
+	printf( ""Rückwärts : %s \n"", flwch );
+}",1.0
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int idx = 0;
+	for(int i = 1; i < argc; i++){
+		int j = 0;
+		while(*(argv[i]+j) != '\0'){
+			if((*(argv[i]+j) != 'x') && (*(argv[i]+j) != 'y') && (*(argv[i]+j) != 'q') && (*(argv[i]+j) != 'X') && (*(argv[i]+j) != 'Y') && (*(argv[i]+j) != 'Q')){
+			*(text_str+idx) = *(argv[i]+j);
+			idx++;
+			}
+			j++;
+		}
+	}
+	text_str = realloc(text_str,idx+1 * sizeof(char));
+	int solution_length = (idx+1) / 3;
+	char* solution = malloc(solution_length * sizeof(char));
+	int count = 0;
+	for(int i = 0; i < idx+1; i++){
+		if((i % 3) == 0){
+			*(solution+count) = *(text_str+i);
+			count++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int ennxf, char* argv[]){
+	char* text_str = malloc(400* sizeof(char));
+	int doeqs = 0;
+	for(int hakfq = 1; hakfq < ennxf; hakfq++){
+		int modmi = 0;
+		while(*(argv[hakfq]+modmi) != '\0'){
+			if((*(argv[hakfq]+modmi) != 'x') && (*(argv[hakfq]+modmi) != 'y') && (*(argv[hakfq]+modmi) != 'q') && (*(argv[hakfq]+modmi) != 'X') && (*(argv[hakfq]+modmi) != 'Y') && (*(argv[hakfq]+modmi) != 'Q')){
+			*(text_str+doeqs) = *(argv[hakfq]+modmi);
+			doeqs++;
+			}
+			modmi++;
+		}
+	}
+	text_str = realloc(text_str,doeqs+1 * sizeof(char));
+	int gmbhd = (doeqs+1) / 3;
+	char* solution = malloc(gmbhd * sizeof(char));
+	int plujp = 0;
+	for(int hakfq = 0; hakfq < doeqs+1; hakfq++){
+		if((hakfq % 3) == 0){
+			*(solution+plujp) = *(text_str+hakfq);
+			plujp++;
+		}
+	}
+	printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", text_str, solution);
+}",1.0
+"{  
+	int position = 0;
+	while(position < zahl && dest[position] != '\0' && src[position] != '\0')		dest[position] = src[position];
+		position ++;
+{
+	int groesse = 0;
+	while(str[groesse] != '\0') groesse++;
+	char kopie[groesse];
+	for(int i = 0; i < groesse; i++) kopie[i] = str[i];
+	for(int i = 0; i < groesse; i++){
+		str[i] = kopie[groesse - 1 - i];
+}
+{  
+      }","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[]){
+char* compactstring = (char*) malloc(400* sizeof(char));
+int x = 0;
+for(int i=1; i < argc; i++){
+	int j = 0;
+while(*(argv[i]+j) != '\0'){
+if((*(argv[i]+j) != 'x') && (*(argv[i]+j)!= 'y') && (*(argv[i]+j) != 'q')&& (*(argv[i]+j) != 'X')&& (*(argv[i]+j) != 'Y')&& (*(argv[i]+j) != 'Q')){
+			*(compactstring+x) = *(argv[i]+j);
+			x++;
+	}
+	j++;
+}
+}
+compactstring = (char*) realloc(compactstring,x+sizeof(char));
+int shortendlength=(x+1)/3;
+char* shortend = (char*) malloc(shortendlength * sizeof(char));
+int y = 0;
+for (int i=0;i<x+1;i++){
+if((i%3)==0){
+	*(shortend+y) = *(compactstring+i);
+	y++;
+}
+}
+printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s\n"", compactstring,shortend);
+}",0.0
+"#include <stdio.h>
+void xyqentfernen(char* str1){
+	int i;
+	int j;
+	for ( i = 0,  j = 0;j<100; ++j){
+	if ((str1[j] != 'x')&&(str1[j] != 'X')&&(str1[j] != 'y')&&(str1[j] != 'Y')&&(str1[j] != 'q')&&(str1[j] != 'Q'))
+	str1[i++] = str1[j];
+	}
+}
+void zsmfuegen(char* str1, char* str2){
+	int j=0;
+	for(;(str2[j])!=('\0');j++){}
+	for (int i=0;str1[i]!='\0';i++){
+		str2[j+i]=str1[i];
+	}	
+;}
+void neuerstring(char* str1,char* str2){
+	for (int i=0;str1[i]!='\0';i++){
+		if((i+3)%3==0)str2[((i+3)/3)-1]=str1[i];
+	}
+}
+int main(int argc,char** argv){
+	if (argc<2) return 0;
+	char zsm[100]="""";
+	char neustr[100]="""";
+	for(int i=1;i<argc;i++) {
+		zsmfuegen(argv[i],zsm);}
+		xyqentfernen(zsm);
+	neuerstring(zsm,neustr);
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",zsm);
+	printf(""Der neue String lautet: %s"",neustr);
+}","	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];}
+}
+{
+	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}",0.0
