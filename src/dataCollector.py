@@ -25,6 +25,7 @@ TRAINING_SIZE = 40
     9. modelle evaluieren und miteinander und mit rudimentären lösungen vergleichen
 """
 
+
 class DataCollector:
     # for interactive console
     # import importlib
@@ -32,9 +33,11 @@ class DataCollector:
     # from plagiate_maker import *
     # importlib.reload(plagiate_maker)
     def __init__(self, csv_file_path="./data/unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten", column="Antwort 10"):
-        df = dataframe_from_csv_for_training(csv_file_path, columns=['answer 1', 'answer 2'])
+        df = dataframe_from_csv_for_training(
+            csv_file_path, columns=['answer 1', 'answer 2'])
         self.pl = Pipeline(df, columns=['answer 1 text', 'answer 2 text'])
-        text1, text2, self.label = (self.pl.df['tokend answer 1'], self.pl.df['tokend answer 2'], self.pl.df['label'])
+        text1, text2, self.label = (
+            self.pl.df['tokend answer 1'], self.pl.df['tokend answer 2'], self.pl.df['label'])
 
         # select random train and test data
         # X_temp, X_test, y_temp, y_test = train_test_split(data[['clean_q1', 'clean_q2']], data['is_duplicate'], test_size=0.2, random_state=42)
@@ -51,10 +54,11 @@ class DataCollector:
 
         # print((type(self.texts), type(self.label)))
         # print((self.texts, type(self.label)))
-        #TODO what is the datatype of each object
-        #TODO! find out which format does model.fit need (which shape)
-        #TODO how to reshape them
-        self.model.model.fit(self.texts, self.label, epochs=NUM_EPOCHS, batch_size=BATCH_SIZE)
+        # TODO what is the datatype of each object
+        # TODO! find out which format does model.fit need (which shape)
+        # TODO how to reshape them
+        self.model.model.fit(self.texts, self.label,
+                             epochs=NUM_EPOCHS, batch_size=BATCH_SIZE)
 
         # df = dataframe_from_csv("./unlabled/SoSe22/PPR [SoSe22] -7. Hausaufgabe - Pflichttest C-Antworten")
         # self.semester = re.search("\[(\S+)\]", csv_file_path).group(1)
@@ -68,11 +72,11 @@ def read_and_store_from_csv(file):
     semester = re.search("\[(\S+)\]", file).group(1)
     ha_number = re.search("-(\d{1,2})", file).group(1)
     for i, row in enumerate(df.values):
-        #TODO always 3 programming tasks?
+        # TODO always 3 programming tasks?
         for j in range(0, 3):
             # "unlabled/SoSe21/PPR [SoSe21]-9. Hausaufgabe - Pflichttest C-Antworten"
             with open(f'unlabled/{semester}/HA{ha_number}C-{j}_{i}.c', 'w') as file:
-                #TODO is task 16. in every homework first programming task?
+                # TODO is task 16. in every homework first programming task?
                 file.write(row[15+j])
 
 
@@ -84,9 +88,9 @@ def dataframe_from_csv_for_training(file, columns):
 
 def dataframe_from_csv_for_prediction(file):
     df = pd.read_csv(f'{file}.csv', delimiter=',')
-    #TODO always 3 programming tasks?
+    # TODO always 3 programming tasks?
     for j in range(0, 3):
-        #TODO is task 16. in every homework first programming task?
+        # TODO is task 16. in every homework first programming task?
         # file.write(row[15+j])
         df = create_text_column_for_predictions(df, index=(15+j))
     return df
@@ -96,7 +100,7 @@ def process_file(file):
     all_text = file.lower()
 
     # remove all non-alphanumeric chars
-    #TODO sonderzeichen sind alle noch drinne
+    # TODO sonderzeichen sind alle noch drinne
     all_text = re.sub(r"#", "", all_text)
     all_text = re.sub(r"[^a-zA-Z0-9]", " ", all_text)
     all_text = re.sub(r"\t", "", all_text)
@@ -161,7 +165,7 @@ def create_text_column_for_predictions(df, index):
     return text_df
 
 
-#TODO catboost anschauen
+# TODO catboost anschauen
 def find_functions(code):
     no_functions = ['if', 'else', 'while', 'for', 'main', 'printf', 'scanf']
     result = []
@@ -213,10 +217,6 @@ def create_plagiate_from_source(file):
         return rename_functions(answer)
 
 
-
-# def rename_variables():
-# def shift_functions():
-
 def get_given_code(file):
     with open(file) as xmlstr:
         soup = BeautifulSoup(xmlstr, 'xml')
@@ -229,7 +229,8 @@ def get_given_code(file):
 
 def get_student_code(answer_file=str):
     with open(answer_file, 'r') as code:
-        result = [x.replace('\n', '').replace('\t', '') for x in code.readlines()]
+        result = [x.replace('\n', '').replace('\t', '')
+                  for x in code.readlines()]
         return result
 
 
@@ -244,20 +245,22 @@ def remove_given_code(answer_file, preload_file):
     return result
 
 
-#TODO remove slightly adjusted printfs and given lines with random variable name ({{ cr_random.product }})
+# TODO remove slightly adjusted printfs and given lines with random variable name ({{ cr_random.product }})
 def check_similarity(elem, list):
     for j in list:
         # print((elem, j))
-        if j == elem or elem=='':
+        if j == elem or elem == '':
             return ''
     return elem
 
 
 def initialize_argparser():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-src', type=str, help='Source file', default='../data/labled/64_hand_labled_pairs')
+    parser.add_argument('-src', type=str, help='Source file',
+                        default='../data/labled/64_hand_labled_pairs')
     # parser.add_argument('-src', type=str, help='Source file', default='./unlabled/SoSe21/HA9C-0_0.c')
-    parser.add_argument('-dest', type=str, help='Destination file', default='./unlabled/SoSe21/HA9C-0.xml')
+    parser.add_argument('-dest', type=str, help='Destination file',
+                        default='./unlabled/SoSe21/HA9C-0.xml')
     return parser.parse_args()
 
 
@@ -279,7 +282,7 @@ def lcs_norm_word(answer_text, source_text):
 
     for i, a in enumerate(answer_list, start=1):
         for j, s in enumerate(source_list, start=1):
-            if(a == s):
+            if (a == s):
                 matrix[i][j] = 1 + matrix[i-1][j-1]
             else:
                 matrix[i][j] = max(matrix[i-1][j], matrix[i][j-1])
@@ -293,7 +296,7 @@ def create_lcs_matrix(df, column):
     for i, row_i in enumerate(df[column]):
         column = []
         for j, row_j in enumerate(df[column]):
-            print((i,j))
+            print((i, j))
             column.append(lcs_norm_word(row_i, row_j))
         matrix.append(column)
     return pd.DataFrame(matrix)
@@ -303,7 +306,6 @@ def plot_correlation(matrix, title):
     plt.matshow(matrix)
     plt.title(title)
     plt.show()
-
 
 
 if __name__ == "__main__":
@@ -318,4 +320,3 @@ if __name__ == "__main__":
     # for i in plagiate:
     #     print(i)
     dc = DataCollector(csv_file_path=args.src)
-

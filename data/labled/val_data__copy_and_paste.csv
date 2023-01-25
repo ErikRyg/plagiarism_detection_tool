@@ -1,0 +1,2462 @@
+code1,code2,label
+"#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}","#include <stdio.h>
+int main(int argc, char *argv[])
+{
+    int u;
+    int f = 0;
+    char neu[20];
+    char nueva[15];
+    int x = 0;
+    for (int i = 1; i < argc; i++)
+    {
+        u = 0;
+        while ((argv[i][u]) != '\0')
+        {
+            if (argv[i][u] != 'x' && argv[i][u] != 'y' && argv[i][u] != 'q' && argv[i][u] != 'X' && argv[i][u] != 'Y' && argv[i][u] != 'Q')
+            {
+                neu[f] = argv[i][u];
+                f++;
+            }
+            u++;
+        }
+    }
+    for (int i = 0; i <= f; i++)
+    {
+        if (x > (i / 3) || i == 0)
+        {
+            if (i == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+            if (((i) % 3) == 0)
+            {
+                nueva[x] = neu[i];
+                x++;
+            }
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: "");
+    for (int i = 0; i < f; i++)
+        if (neu[i] != '\0')
+        {
+            printf(""%c"", neu[i]);
+        }
+    printf(""\n"");
+     printf(""Der neue String lautet: "");
+    for (int i = 1; i < (f / 2)-1; i++)
+            printf(""%c"", nueva[i]);
+    if (neu[0] == 'z')
+        printf(""z"");
+}",1
+"#include <stdio.h>
+#include <malloc.h>
+typedef struct student{","#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef int* IntPointer;
+typedef struct Student{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud);
+void student_ausgeben(Student* p_stud);
+int main()
+{
+    Student stud[5];
+    for(int n=0; n<5;n++){
+    	student_einlesen(&stud[n]);
+	}
+	for(int p=0; p<5;p++){
+    	student_ausgeben(&stud[p]);
+	}
+    return 0;
+}
+void student_einlesen(Student* p_stud)
+{
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"", &p_stud->first_name);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"", &p_stud->last_name);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    printf (""1: "");
+    scanf(""%d"", &p_stud->points[0]);
+    printf (""2: "");
+    scanf(""%d"", &p_stud->points[1]);
+    printf (""3: "");
+    scanf(""%d"", &p_stud->points[2]);
+    printf (""4: "");
+    scanf(""%d"", &p_stud->points[3]);
+    printf (""5: "");
+    scanf(""%d"", &p_stud->points[4]);
+}
+void student_ausgeben(Student* p_stud)
+{
+	int sum=0;
+	for(int n=0;n<5;n++){ sum += p_stud->points[n];}
+	printf(""\nStudent: %s %s"",p_stud->first_name,p_stud->last_name);
+	printf(""\nAnzahl Punkte: %i\n"", sum);
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+  int size_source = 0;
+  for(int i = 0; src[i] != '\0'; i++){
+   size_source = size_source + 1;
+   }
+  int size_dest = 0;
+  for(int i = 0; dest[i] != '\0'; i++){
+   size_dest = size_dest + 1;
+   } 
+  int minimum = zahl;
+  if(size_source <= minimum){
+  minimum = size_source;
+  } 
+  if(size_dest <= minimum){
+  minimum = size_dest;
+  } 
+  for(int i = 0; i<minimum; i++){
+   dest[i] = src[i];
+  }
+}
+void umdrehen( char* str )
+{
+  int size = 0;
+  for(int i = 0; str[i] != '\0'; i++){
+   size = size + 1;
+   }
+  for(int i = 0; i<size/2; i++){
+   char c = str[i];
+   str[i] = str[size - 1 - i];
+   str[size - 1 -i] = c;
+  } 
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+  int size_source = 0;
+  for(int i = 0; src[i] != '\0'; i++){
+   size_source = size_source + 1;
+   }
+  int size_dest = 0;
+  for(int i = 0; dest[i] != '\0'; i++){
+   size_dest = size_dest + 1;
+   } 
+  int minimum = zahl;
+  if(size_source <= minimum){
+  minimum = size_source;
+  } 
+  if(size_dest <= minimum){
+  minimum = size_dest;
+  } 
+  for(int i = 0; i<minimum; i++){
+   dest[i] = src[i];
+  }
+}
+void umdrehen( char* str )
+{
+  int size = 0;
+  for(int i = 0; str[i] != '\0'; i++){
+   size = size + 1;
+   }
+  for(int i = 0; i<size/2; i++){
+   char c = str[i];
+   str[i] = str[size - 1 - i];
+   str[size - 1 -i] = c;
+  } 
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}",1
+"#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",1
+"#include <stdio.h>
+typedef struct student{
+char vorname[21];
+char nachname[21];
+int punkte[5];
+} 
+Student;
+void student_einlesen(Student* p_stud)
+{
+printf(""\nGebe den Vornamen ein: "");
+scanf(""%s"", p_stud->vorname);
+printf(""Gebe nun den Nachnamen ein: "");
+scanf(""%s"", p_stud->nachname);
+printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+for(int i=0; i<5; i++)
+{
+printf(""%i: "", i+1);
+scanf(""%i"", &(p_stud->punkte[i]));
+}
+}
+void student_ausgeben(Student* p_stud)
+{
+int sum = 0;
+for(int i=0; i<5; i++)
+sum += p_stud->punkte[i];
+printf(""\nStudent: %s %s\n"", p_stud->vorname, p_stud->nachname );
+printf(""Anzahl Punkte: %i\n"", sum);
+}
+int main()
+{
+Student st[5];
+for (int i=0; i<5; i++)
+student_einlesen(&st[i]);
+for (int i=0; i<5; i++)
+student_ausgeben(&st[i]);
+return 0;
+}","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+typedef struct student {
+   char first_name[21];
+   char last_name[21];
+   int points[5];
+} Student;
+void readLine( char* strbuffer, unsigned int buffersize )
+{
+  char format[30] = """";
+  sprintf( format, ""%%%u[^\n]%%*c"", buffersize-1 );
+  scanf( format, strbuffer );
+}
+void student_einlesen(Student* p_stud){
+	// Vorname, Nachname:
+	printf(""Gebe den Vornamen ein: "");
+	readLine(p_stud->first_name, 20);
+	printf(""Gebe nun den Nachnamen ein: "");
+	readLine(p_stud->last_name, 20);
+	// Punkte:
+	printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+	for (int i=1; i<=5; i++){
+		printf(""%i: "", i);
+		scanf(""%i"", &p_stud->points[i-1]);
+	}
+	getchar();
+	printf(""\n"");
+}
+void student_ausgeben(Student* p_stud){
+	int summe=0;
+	for (int i=0; i<5;i++){
+		summe += p_stud->points[i];
+	}
+	printf(""Student: %s %s\n"", p_stud->first_name, p_stud->last_name);
+	printf(""Anzahl Punkte: %i\n\n"", summe);
+}
+int main(){
+	Student erster_Student, zweiter_Student, dritter_Student, vierter_Student, fuenfter_Student;
+	Student* Studierende[5] = {&erster_Student, &zweiter_Student, &dritter_Student,	&vierter_Student, &fuenfter_Student};
+	for (int i=0; i<5; i++){
+		student_einlesen(Studierende[i]);
+	}
+	for (int i=0; i<5; i++){
+		student_ausgeben(Studierende[i]);
+	}
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+	if(zahl == 0) return; 
+	int länge;
+	for(int i = 0; dest[i] != '\0'; i++) länge++;
+	for(int i = 0; i <= zahl && i<länge; i++){
+		if(src[i] == '\0') return;
+		dest[i] = src[i];
+	}
+}
+void umdrehen( char* str )
+{
+	int länge;
+	for(int i = 0; str[i] != '\0'; i++) länge++;
+	char copy[länge];
+	for(int i = 0; i<=länge; i++){
+		copy[i] = str[i];
+	}
+	for(int i = 0; i<länge; i++){
+		str[i] = copy[länge-1-i];
+	}
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src){  
+    for (int i = 0; i <=zahl && dest[i] != '\0'; i++){
+        dest[i] = src[i];
+    }
+}
+void umdrehen( char* str ){
+    int z = 0;
+    for(int i = 1; str[i] != '\0'; i++){
+        z = i;
+    }
+    char tmp[z];
+    for(int i = 0; str[i] != '\0'; i++){
+        tmp[i] = str[z-i];
+    }
+    for(int i = 0; str[i] != '\0'; i++){
+        str[i]=tmp[i];
+    }
+}
+int main( int argc, char* argv[] ){  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char** argv)
+{
+    char text[100] = ""lasse roland max ivo"";
+    char temp[100];
+    char NeuString[100];
+    int J = 0;
+    int K = 0;
+    int a = 1;
+    int i;
+    for ( i = 0; *(argv+i) != '\0'; i++)
+    {
+        if (*(argv+i) == ' ' || *(argv+i) == 'x' || *(argv+i) == 'y' || *(argv+i) == 'q'|| *(argv+i) == 'X'|| *(argv+i) == 'Y'|| *(argv+i) == 'Q')
+            a++;
+            continue;
+        temp[J++] = *(argv+i);
+    }
+    temp[J] = 0;
+    printf( ""x,y,q und X,Y,Q aussortiert: %s \n"", temp );
+    for ( i = 0; temp[i] != '\0'; i++)
+    {
+        if (i == 0 || i % 3 == 0)
+        NeuString[K++] = temp[i];
+        continue;
+    }
+    NeuString[K] = 0;
+    printf( ""Der neue String lautet: %s \n"", NeuString);
+}","#include <stdio.h>
+#include <stdlib.h>
+int length(char *p)
+{
+ int i = 0; 
+    while (p[i] != '\0')
+      i++;
+  return i; 
+}
+void ersetzen(char* dest, int zahl, char* src)
+{  
+  int sizeS = length(src);
+  int sizeD = length(dest);
+ /*     char temp[sizeS]; 
+    for (int i = 0; i <= sizeS-1; i++) 
+        temp [i] = src[i];
+  for (int i = 0; i <= zahl-1; i++) {
+    if (i <= sizeD && i <= sizeS) {
+        //dest[i] = temp[i];
+        *dest = temp[i]; 
+    }
+  }*/
+  int i = 1;
+   while(*src && i <= sizeS && i <= sizeD && i <= zahl) {
+    *dest++ = *src++;
+    i++;
+ }
+}
+void swap(char* a, char* b){
+    char c = *a;
+    *a = *b;
+    *b = c;
+}
+void umdrehen( char* str )
+{
+    if (!*str) 
+        return;
+    char* i = str;
+    char* j = i + length(str) - 1;
+    while (i < j) {
+        swap(i, j);
+        i++;
+        j--;
+    }
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}","#include <stdio.h>
+#include <stdlib.h>
+void aussortieren(char* str)
+{
+    int t = 0;
+    char temp[50];
+    for(int i = 0; str[i] != '\0'; i++)
+    {
+        int t = 0;
+        char temp[50];
+        if(str[i] == 'x'|| str[i] == 'y'|| str[i] == 'q');
+        else if(str[i] == 'X'|| str[i] == 'Y'|| str[i] == 'Q');
+        else 
+        {
+            temp[t] = str[i];
+            t++;
+        }
+    }
+    str = &temp;
+}
+char* sortieren(int länge, char* str[])
+{
+    int t = 0;
+    char temp[200];
+    for(int i = 0; i < länge; i++)
+    {
+        for(int a = 0; a != '\0'; a++)
+        {
+            temp[t] = str[i+1][a];
+            t++;
+        }
+    }
+}   
+int main( int argc, char* argv[] )
+{  
+    int length = sizeof(argv) - 1;
+    for(int i = 1; i <= length; i++)
+    {
+        aussortieren(argv[i]);
+    }
+    char zusammen = sortieren(length, argv);
+    printf(""x,y,q und X,Y,Q aussortiert: %s"", zusammen); 
+}",1
+"#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char* argv[] )
+{
+ char erg[100];
+ int len=0;
+ for(int i=0;i<argc-1;i++){
+	 int j=0;
+	 while(argv[i+1][j] != '\0'){
+		 char temp=argv[i+1][j];
+		 if(temp != 'x' && temp != 'y' && temp != 'q'){
+			 if(temp != 'X' && temp != 'Y' && temp != 'Q'){
+			 erg[len]=argv[i+1][j];
+			 len++;
+			 }
+		 }
+		 j++;
+	 }
+erg[len]='\0';
+ }
+ printf(""x,y,q und X,Y,Q aussortiert: %s\n"",erg);
+ char erg2[100];
+ int k=0;
+ int j=0;
+ 	 while(erg[k] != '\0'){
+ 		 if(k % 3==0){
+ 			 erg2[j]=erg[k];
+ 			 j++;
+ 		 }
+ 		 k++;
+ 	 }
+ erg2[len]='\0';
+printf(""Der neue String lautet: %s\n"",erg2);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char* argv[] )
+{
+ char erg[100];
+ int len=0;
+ for(int i=0;i<argc-1;i++){
+	 int j=0;
+	 while(argv[i+1][j] != '\0'){
+		 char temp=argv[i+1][j];
+		 if(temp != 'x' && temp != 'y' && temp != 'q'){
+			 if(temp != 'X' && temp != 'Y' && temp != 'Q'){
+			 erg[len]=argv[i+1][j];
+			 len++;
+			 }
+		 }
+		 j++;
+	 }
+erg[len]='\0';
+ }
+ printf(""x,y,q und X,Y,Q aussortiert: %s\n"",erg);
+ char erg2[100];
+ int k=0;
+ int j=0;
+ 	 while(erg[k] != '\0'){
+ 		 if(k % 3==0){
+ 			 erg2[j]=erg[k];
+ 			 j++;
+ 		 }
+ 		 k++;
+ 	 }
+ erg2[len]='\0';
+printf(""Der neue String lautet: %s\n"",erg2);
+}",1
+"#include <stdio.h>
+typedef struct student {
+    char vorname[21];
+    char nachname[21];
+    int punkte[5];
+}Student;
+void student_einlesen(Student* p_stud){
+    for(int i=0; i<5; i++){
+        printf(""Gebe den Vornamen ein:"");
+        scanf(""%s"", p_stud[i].vorname);
+        printf(""Gebe den Nachnamen ein:"");
+        scanf(""%s"", p_stud[i].nachname);
+        printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+        for(int j =0; j<5;j++){
+            printf(""%i: \n"",j+1);
+            scanf(""%i"", &p_stud[i].punkte[j]);
+        }
+    }
+}
+void student_ausgeben(Student* p_stud){
+    for(int i=0; i<5; i++){
+        int sum = 0;
+        for(int j =0; j<5;j++){
+            sum+= p_stud[i].punkte[j];
+        }
+        printf(""Student: %s %s\n"",p_stud[i].vorname,p_stud[i].nachname);
+        printf(""Anzahl Punkte: %i\n\n"", sum);
+    }
+}
+int main()
+{
+    Student studArray[5];
+    student_einlesen(studArray);
+    student_ausgeben(studArray);
+    return 0;
+}","#include<stdio.h>
+typedef struct student{
+char first_name[20];
+char last_name[20];
+int points[5];
+} Student;
+void student_einlesen(Student* p_stud){
+	printf(""Gebe den Vornamen ein: "");
+	scanf(""%s"",p_stud->first_name);
+	printf(""Gebe nun den Nachnamen ein: "");
+	scanf(""%s"",p_stud->last_name);
+	printf(""Gebe nun nacheinander die 5 Punkte ein: \n"");
+	printf(""1: "");
+	scanf(""%i"",&p_stud->points[0]);
+	printf(""2: "");
+	scanf(""%i"",&p_stud->points[1]);
+	printf(""3: "");
+	scanf(""%i"",&p_stud->points[2]);
+	printf(""4: "");
+	scanf(""%i"",&p_stud->points[3]);
+	printf(""5: \n"");
+	scanf(""%i"",&p_stud->points[4]);
+}
+void student_ausgeben(Student *p_stud){
+	printf(""Student: %s %s\n"",p_stud->first_name,p_stud->last_name);
+	printf(""Anzahl Punkte: %i\n\n"",p_stud->points[0] + p_stud->points[1] + p_stud->points[2] + p_stud->points[3] + p_stud->points[4]);
+}
+int main(){
+	Student studi[5];
+	for(int i = 0; i < 5; i++){
+		student_einlesen(&studi[i]);
+	}
+	for(int i = 0; i < 5; i++){
+		student_ausgeben(&studi[i]);
+	}
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef char Str20[21];
+typedef struct student {
+    Str20 first_name;
+    Str20 last_name;
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud) {
+    for(int i = 0; i < 5; i++){
+        printf(""Gebe den Vornamen ein:\n"");
+        scanf(""%c"", &p_stud[i].first_name);
+        printf(""Gebe nun den Nachnamen ein:\n"");
+        scanf(""%c"", &p_stud[i].last_name);
+        printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+        scanf(""%d"", &p_stud[i].points[0]);
+        scanf(""%d"", &p_stud[i].points[1]);
+        scanf(""%d"", &p_stud[i].points[2]);
+        scanf(""%d"", &p_stud[i].points[3]);
+        scanf(""%d"", &p_stud[i].points[4]);
+    }
+}
+void student_ausgeben(Student* p_stud){
+    for(int i = 0; i < 5; i++) {
+        printf(""Student: %c %c\n"", p_stud[i].first_name, p_stud[i].last_name);
+        int gesPunkte = p_stud[i].points[0] + p_stud[i].points[1] + p_stud[i].points[2] + p_stud[i].points[3] + p_stud[i].points[4];
+        printf(""Anzahl Punkte: %d\n"", gesPunkte);
+    }
+}
+int main()
+{
+    struct Student p_stud[5];
+    for(int i = 0; i < 5; i++) {
+        student_einlesen(&p_stud[i]);
+    }
+    for(int i = 0; i < 5; i++) {
+        student_ausgeben(&p_stud[i]);
+    }
+}","#include <stdio.h>
+typedef struct{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud) {
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"",&p_stud->first_name);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"",&p_stud->last_name);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    for (int i = 0; i < 5; ++i) {
+        printf(""%i: "", i+1);
+        scanf(""%i"", &p_stud->points[i]);
+    }
+    printf(""\n"");
+}
+void student_ausgeben(Student* p_stud) {
+    printf(""Student: %s %s"", p_stud->first_name, p_stud->last_name);
+    int x = 0;
+    for (int i = 0; i < 5; ++i) {
+        x += p_stud->points[i];
+    }
+    printf(""\nAnzahl Punkte: %i\n"", x);
+}
+int main(void){
+    Student erster_student, zweiter_student, dritter_student, vierter_student, fuenfter_student;
+    Student studis[5] = {erster_student, zweiter_student, dritter_student, vierter_student, fuenfter_student};
+    for (int i = 0; i < 5; ++i) {
+        student_einlesen(&studis[i]);
+    }
+    for (int i = 0; i < 5; ++i) {
+        student_ausgeben(&studis[i]);
+        printf(""\n"");
+    }
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+	for(int i = 0; src[i] != '\0' && dest[i] != '\0' && i < zahl; i++){
+		dest[i] = src[i];
+	}
+}
+void umdrehen( char* str)
+{
+	int length_str = 0;
+	for( int i = 0; str[i] != '\0'; i++)
+		length_str = i;
+	char temp_string[length_str];
+	for( int i = 0; i <= length_str; i++)
+		temp_string[i] = str[length_str-i];
+	for( int i = 0; i <= length_str; i++)
+		str[i] = temp_string[i];
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11] = ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test);
+  ersetzen(test , atoi(argv[1]), argv[2]);
+  printf( ""Ersetzt : %s \n"", test);
+  umdrehen( test );	
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+	for(int i = 0; src[i] != '\0' && dest[i] != '\0' && i < zahl; i++){
+		dest[i] = src[i];
+	}
+}
+void umdrehen( char* str)
+{
+	int length_str = 0;
+	for( int i = 0; str[i] != '\0'; i++)
+		length_str = i;
+	char temp_string[length_str];
+	for( int i = 0; i <= length_str; i++)
+		temp_string[i] = str[length_str-i];
+	for( int i = 0; i <= length_str; i++)
+		str[i] = temp_string[i];
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11] = ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test);
+  ersetzen(test , atoi(argv[1]), argv[2]);
+  printf( ""Ersetzt : %s \n"", test);
+  umdrehen( test );	
+  printf( ""Rückwärts : %s \n"", test );
+}",1
+"#include <stdio.h>
+int main(int argc, char** argv){
+    char array [100];
+    char array2 [100];
+    int k = 0;
+    for( int i = 1; i < argc; i++){
+        for(int j = 0; '\0' != argv[i][j]; j++){
+             if(argv[i][j] != 'x' && argv[i][j] && argv[i][j] != 'y' && argv[i][j]!= 'q' && argv[i][j] != 'X' && argv[i][j] != 'Y' && argv[i][j] != 'Q'){ 
+             array[k] = argv[i][j];
+             k++;
+             }
+        }
+    }
+    array[k] = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", array);
+    for(int i = 0; 3 * i < k ; i++){
+        array2[i] = array[3*i];
+    }
+    printf(""Der neue String lautet: %s"", array2);
+}","#include <stdio.h>
+int main(int argc, char** argv){
+    char array [100];
+    char array2 [100];
+    int k = 0;
+    for( int i = 1; i < argc; i++){
+        for(int j = 0; '\0' != argv[i][j]; j++){
+             if(argv[i][j] != 'x' && argv[i][j] && argv[i][j] != 'y' && argv[i][j]!= 'q' && argv[i][j] != 'X' && argv[i][j] != 'Y' && argv[i][j] != 'Q'){ 
+             array[k] = argv[i][j];
+             k++;
+             }
+        }
+    }
+    array[k] = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", array);
+    for(int i = 0; 3 * i < k ; i++){
+        array2[i] = array[3*i];
+    }
+    printf(""Der neue String lautet: %s"", array2);
+}",1
+"#include <stdio.h>
+int findIndexOfMax(int array[],int groesse){
+    int index=0;
+    int max=array[0];
+    int test=0;
+    for (int i=0;i<groesse;i++){
+        if (array[i]==INT_MIN){
+            test++;
+        }
+    }
+    if(test!=groesse){
+        for (int i=1;i<groesse;i++){
+            if (array[i]>=max){
+                max=array[i];
+                index=i;
+            }
+        }
+    return index;
+    }
+    else return UINT_MAX;
+}
+int main() {
+    int array[5];
+    printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+    for (int i=0;i<=4;i++){
+        scanf(""%i"",&array[i]);
+    }
+    for(int i=0;i<=4;i++){
+        int index=findIndexOfMax(array,5);
+        if(index!=UINT_MAX){
+            printf(""Naechstgroesstes: %i\n"",array[index]);
+            array[index]=INT_MIN;
+        }
+        else break;
+    }
+}","#include <stdio.h>
+int findIndexOfMax(int array[],int groesse){
+    int index=0;
+    int max=array[0];
+    int test=0;
+    for (int i=0;i<groesse;i++){
+        if (array[i]==INT_MIN){
+            test++;
+        }
+    }
+    if(test!=groesse){
+        for (int i=1;i<groesse;i++){
+            if (array[i]>=max){
+                max=array[i];
+                index=i;
+            }
+        }
+    return index;
+    }
+    else return UINT_MAX;
+}
+int main() {
+    int array[5];
+    printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+    for (int i=0;i<=4;i++){
+        scanf(""%i"",&array[i]);
+    }
+    for(int i=0;i<=4;i++){
+        int index=findIndexOfMax(array,5);
+        if(index!=UINT_MAX){
+            printf(""Naechstgroesstes: %i\n"",array[index]);
+            array[index]=INT_MIN;
+        }
+        else break;
+    }
+}",1
+"#include <stdio.h>
+void strat( char *str1, char *str2 ){
+	int y = 0;
+	int z = 0;
+	for( int i = 0 ; str1[i] != 0 ; i++ ){
+		y = i+1;	
+	}
+	for( int i = 0 ; str2[i] != 0 ; i++ ){
+		str1[y+i] = str2[i];
+		z = i+1;
+	}
+	str1[y+z] = str2[z];
+}
+void aussortieren( char *str1, char *str2 ){
+	int j = 0;
+	int i; 
+	for( i = 0 ; str1[i] != 0 ; i++){
+		if((str1[i] != 'x') && (str1[i] != 'X') && (str1[i] != 'y') &&
+		(str1[i] != 'Y') && (str1[i] != 'q') && (str1[i] != 'Q')){
+			str2[j] = str1[i];
+			j++;
+		}
+	}
+	str2[j] = 0;
+}	
+void rechnung( char *str1, char *str2 ){
+	int i;
+	int j = 0;
+	for( i = 0 ; str1[i] != 0 ; i++ ){
+		if ((i % 3) == 0){
+			str2[j] = str1[i];
+			j++;
+		}	
+	}
+	str2[j] = 0;
+}
+int main(int argc, char *argv[]){
+	char string[100];
+	char string2[100];
+	for(int i = 0; i < 100; i++)
+	{string[i] = 0x00; string2[i] = 0x00;}
+	//char x;
+	for( int i = 1 ; i < argc ; i++ ){
+		strat( string, argv[i] );
+	}
+	aussortieren( string, string2 );
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", string2);
+	rechnung( string2, string );
+	printf(""Der neue String lautet: %s\n"", string);
+}","#include <stdio.h>
+void strat( char *str1, char *str2 ){
+	int y = 0;
+	int z = 0;
+	for( int i = 0 ; str1[i] != 0 ; i++ ){
+		y = i+1;	
+	}
+	for( int i = 0 ; str2[i] != 0 ; i++ ){
+		str1[y+i] = str2[i];
+		z = i+1;
+	}
+	str1[y+z] = str2[z];
+}
+void aussortieren( char *str1, char *str2 ){
+	int j = 0;
+	int i; 
+	for( i = 0 ; str1[i] != 0 ; i++){
+		if((str1[i] != 'x') && (str1[i] != 'X') && (str1[i] != 'y') &&
+		(str1[i] != 'Y') && (str1[i] != 'q') && (str1[i] != 'Q')){
+			str2[j] = str1[i];
+			j++;
+		}
+	}
+	str2[j] = 0;
+}	
+void rechnung( char *str1, char *str2 ){
+	int i;
+	int j = 0;
+	for( i = 0 ; str1[i] != 0 ; i++ ){
+		if ((i % 3) == 0){
+			str2[j] = str1[i];
+			j++;
+		}	
+	}
+	str2[j] = 0;
+}
+int main(int argc, char *argv[]){
+	char string[100];
+	char string2[100];
+	for(int i = 0; i < 100; i++)
+	{string[i] = 0x00; string2[i] = 0x00;}
+	//char x;
+	for( int i = 1 ; i < argc ; i++ ){
+		strat( string, argv[i] );
+	}
+	aussortieren( string, string2 );
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"", string2);
+	rechnung( string2, string );
+	printf(""Der neue String lautet: %s\n"", string);
+}",1
+"#include <stdio.h>
+typedef struct{
+    char vorname[20];
+    char nachname[20];
+    int punkte[5];
+}Student;
+void student_einlesen(Student* p_stud) {
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"",&p_stud->vorname);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"",&p_stud->nachname);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    for (int i = 0; i < 5; ++i) {
+        printf(""%i: "", i+1);
+        scanf(""%i"", &p_stud->punkte[i]);
+    }
+    printf(""\n"");
+}
+void student_ausgeben(Student* p_stud) {
+    printf(""Student: %s %s\n"", p_stud->vorname, p_stud->nachname);
+    int summe = 0;
+    for (int i = 0; i < 5; ++i) {
+        summe += p_stud->punkte[i];
+    }
+    printf(""Anzahl Punkte: %i\n"", summe);
+}
+int main(void){
+    Student erster_student;
+    Student zweiter_student;
+    Student dritter_student;
+    Student vierter_student;
+    Student fuenfter_student;
+    Student studierende[5] = {erster_student, zweiter_student, dritter_student, vierter_student, fuenfter_student};
+    for (int i = 0; i < 5; ++i) {
+        student_einlesen(&studierende[i]);
+    }
+    for (int i = 0; i < 5; ++i) {
+        student_ausgeben(&studierende[i]);
+        printf(""\n"");
+    }
+}","#include <stdio.h>
+#include <stdlib.h>
+typedef struct student {
+	char first_name[21];
+	char last_name[21];
+	int points[5];
+}Student;
+void student_einlesen(Student* p_stud) {
+		printf(""Gebe den Vornamen ein: "");
+		scanf(""%s"", p_stud->first_name);
+		getchar();
+		printf(""Gebe nun den Nachnamen ein: "");
+		scanf(""%s"", p_stud->last_name);
+		getchar();
+		printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+		for(int y = 0; y < 5; y++) {
+			printf(""%i: "", y+1);
+			scanf(""%i"", &(p_stud->points[y]));
+		}
+	printf(""\n"");
+	}
+void student_ausgeben(Student* p_stud){
+		int summe = 0;
+	for(int b = 0; b < 5; b++){
+			summe += p_stud -> points[b];
+		}
+	printf(""Student: %s %s \nAnzahl Punkte: %i\n\n"", p_stud->first_name, p_stud->last_name, summe);
+	}
+int main() {
+	Student studenten[5];
+	for(int i = 0; i < 5; i++){
+	student_einlesen(&studenten[i]);
+	}
+	for(int i = 0; i < 5; i++)
+	student_ausgeben(&studenten[i]);
+	return 0;
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{
+    int i = 0;
+    while ((i < zahl) && (dest[i] != '\0') && (src[i] != '\0')){
+        dest[i] = src[i];
+        i++;
+    }
+}
+void umdrehen( char* str )
+{
+    int i = 0;
+    int len = 0;
+    while(str[i] != '\0'){
+        len += 1;
+        i += 1;
+    }
+    int left = 0;
+    int right = len - 1;
+    while (left < right){
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+        left++;
+        right--;
+    }
+}
+int main( int argc, char* argv[] )
+{
+    char test[11]= ""0123456789"";
+    printf( ""Das Original ist: %s \n"", test );
+    ersetzen( test , atoi(argv[1]), argv[2] );
+    printf( ""Ersetzt : %s \n"", test );
+    umdrehen( test );
+    printf( ""Rückwärts : %s \n"", test);
+}","#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{
+    int i = 0;
+    while ((i < zahl) && (dest[i] != '\0') && (src[i] != '\0')){
+        dest[i] = src[i];
+        i++;
+    }
+}
+void umdrehen( char* str )
+{
+    int i = 0;
+    int len = 0;
+    while(str[i] != '\0'){
+        len += 1;
+        i += 1;
+    }
+    int left = 0;
+    int right = len - 1;
+    while (left < right){
+        char temp = str[left];
+        str[left] = str[right];
+        str[right] = temp;
+        left++;
+        right--;
+    }
+}
+int main( int argc, char* argv[] )
+{
+    char test[11]= ""0123456789"";
+    printf( ""Das Original ist: %s \n"", test );
+    ersetzen( test , atoi(argv[1]), argv[2] );
+    printf( ""Ersetzt : %s \n"", test );
+    umdrehen( test );
+    printf( ""Rückwärts : %s \n"", test);
+}",1
+"#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef int* IntPointer;
+typedef struct Student{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud);
+void student_ausgeben(Student* p_stud);
+int main()
+{
+    Student stud[5];
+    for(int n=0; n<5;n++){
+    	student_einlesen(&stud[n]);
+	}
+	for(int p=0; p<5;p++){
+    	student_ausgeben(&stud[p]);
+	}
+    return 0;
+}
+void student_einlesen(Student* p_stud)
+{
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"", &p_stud->first_name);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"", &p_stud->last_name);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    printf (""1: "");
+    scanf(""%d"", &p_stud->points[0]);
+    printf (""2: "");
+    scanf(""%d"", &p_stud->points[1]);
+    printf (""3: "");
+    scanf(""%d"", &p_stud->points[2]);
+    printf (""4: "");
+    scanf(""%d"", &p_stud->points[3]);
+    printf (""5: "");
+    scanf(""%d"", &p_stud->points[4]);
+}
+void student_ausgeben(Student* p_stud)
+{
+	int sum=0;
+	for(int n=0;n<5;n++){ sum += p_stud->points[n];}
+	printf(""\nStudent: %s %s"",p_stud->first_name,p_stud->last_name);
+	printf(""\nAnzahl Punkte: %i\n"", sum);
+}","#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef int* IntPointer;
+typedef struct Student{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud);
+void student_ausgeben(Student* p_stud);
+int main()
+{
+    Student stud[5];
+    for(int n=0; n<5;n++){
+    	student_einlesen(&stud[n]);
+	}
+	for(int p=0; p<5;p++){
+    	student_ausgeben(&stud[p]);
+	}
+    return 0;
+}
+void student_einlesen(Student* p_stud)
+{
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"", &p_stud->first_name);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"", &p_stud->last_name);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    printf (""1: "");
+    scanf(""%d"", &p_stud->points[0]);
+    printf (""2: "");
+    scanf(""%d"", &p_stud->points[1]);
+    printf (""3: "");
+    scanf(""%d"", &p_stud->points[2]);
+    printf (""4: "");
+    scanf(""%d"", &p_stud->points[3]);
+    printf (""5: "");
+    scanf(""%d"", &p_stud->points[4]);
+}
+void student_ausgeben(Student* p_stud)
+{
+	int sum=0;
+	for(int n=0;n<5;n++){ sum += p_stud->points[n];}
+	printf(""\nStudent: %s %s"",p_stud->first_name,p_stud->last_name);
+	printf(""\nAnzahl Punkte: %i\n"", sum);
+}",1
+"#include <stdio.h>
+#include <stdlib.h>
+typedef struct student {
+	char first_name[21]; 
+	char last_name[21];
+	unsigned int points[5];
+}Student;
+void student_ausgeben(Student* p_stud){
+	for(int j = 0; j<5; ++j){
+	printf(""Student: %s%s\n"", p_stud[j].first_name, p_stud[j].last_name);
+	int sum = 0;
+	for(int i = 0; i<5; i++){
+		sum += p_stud[j].points[i];
+	}
+	printf(""Anzahl Punkte: %i\n"", sum);
+	}
+}
+void student_einlesen(Student* p_stud){
+	for(int i = 0; i<4; ++i){
+	printf(""Gebe den Vornamen ein:"");
+	fgets(p_stud[i].first_name, 21, stdin);
+	printf(""Gebe nun den Nachnamen ein:""); 
+	fgets(p_stud[i].last_name, 21, stdin);
+	printf(""Gebe nun nacheinander die 5 Punkte ein:"");
+	printf(""1:"");
+	scanf(""%u"", &p_stud[i].points[0]);
+	printf(""2:"");
+	scanf(""%u"", &p_stud[i].points[1]);
+	printf(""3:"");
+	scanf(""%u"", &p_stud[i].points[2]);
+	printf(""4:"");
+	scanf(""%u"", &p_stud[i].points[3]);
+	printf(""5:"");
+	scanf(""%u"", &p_stud[i].points[4]);
+	}
+}
+int main(){
+	Student* students[5];
+	student_einlesen(students);
+	student_ausgeben(students);
+}","#include <stdio.h>
+#include <malloc.h>
+typedef struct student{",0
+"#include <stdio.h>
+#include <stdlib.h>
+int main( int argc, char** argv)
+{
+    char text[100] = ""lasse roland max ivo"";
+    char temp[100];
+    char NeuString[100];
+    int J = 0;
+    int K = 0;
+    int a = 1;
+    int i;
+    for ( i = 0; *(argv+i) != '\0'; i++)
+    {
+        if (*(argv+i) == ' ' || *(argv+i) == 'x' || *(argv+i) == 'y' || *(argv+i) == 'q'|| *(argv+i) == 'X'|| *(argv+i) == 'Y'|| *(argv+i) == 'Q')
+            a++;
+            continue;
+        temp[J++] = *(argv+i);
+    }
+    temp[J] = 0;
+    printf( ""x,y,q und X,Y,Q aussortiert: %s \n"", temp );
+    for ( i = 0; temp[i] != '\0'; i++)
+    {
+        if (i == 0 || i % 3 == 0)
+        NeuString[K++] = temp[i];
+        continue;
+    }
+    NeuString[K] = 0;
+    printf( ""Der neue String lautet: %s \n"", NeuString);
+}","#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char* argv[52])
+{
+   //aneinanderhängen
+   int zahl = 0;
+   int* p_zahl = &zahl;
+   int counter = 1;
+   int* p_counter = &counter;
+   char str[30];
+   for(int i = 0; i < argc-1 ; i++)
+   {
+      for(int j = 0; argv[counter][j] != '\0'; j++)
+      {
+         str[zahl] = argv[counter][j];
+         *p_zahl += 1;
+      }
+      *p_counter += 1;
+   }
+   str[zahl+1] = '\0';
+   int nummer = 0;
+   int* p_nummer = &nummer;
+   char str2[25];
+   for(int i = 0; ; i++)
+   {
+      if((str[i] != 'x') && (str[i] != 'y') && (str[i] != 'q') && (str[i] != 'X') && (str[i] != 'Y') && (str[i] != 'Q'))
+      {
+         str2[nummer] = str[i];
+         if(str[i] == '\0') break;
+         *p_nummer += 1;
+      }
+   }
+   //jedes dritte in str3
+   char str3[35];
+   for(int i = 0; i < 57; i +=3)
+   {
+      //if((str2[i] == '\0')) break;
+      str3[i/3] = str2[i];  
+      str3[i/3+1] = '\0'  ;
+   }
+   //drucken:
+   printf(""x,y,q und X,Y,Q aussortiert: %s\nDer neue String lautet: %s"", str2, str3);
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef struct student{
+	char first_name[21];
+	char last_name[21];
+	int points[5];
+}Student;
+void student_einlesen(Student* p_stud){
+	printf(""Gebe den Vornamen ein: "");
+	scanf(""%s"", p_stud->first_name);
+	printf(""Gebe nun den Nachnamen ein: "");
+	scanf(""%s"", p_stud->last_name);
+	printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+	printf(""1: "");
+	scanf(""%i"", &p_stud->points[0]);
+	printf(""2: "");
+	scanf(""%i"", &p_stud->points[1]);
+	printf(""3: "");
+	scanf(""%i"", &p_stud->points[2]);
+	printf(""4: "");
+	scanf(""%i"", &p_stud->points[3]);
+	printf(""5: "");
+	scanf(""%i"", &p_stud->points[4]);
+	printf(""\n"");
+}
+void student_ausgeben(Student* p_stud){
+	int punkte = 0;
+	for(int i=0; i<5; i++){
+		punkte += p_stud->points[i];
+	} 
+	printf(""Student: %s %s\n"", p_stud->first_name, p_stud->last_name);
+	printf(""Anzahl Punkte: %i\n\n"", punkte);
+}
+int main(){
+	static Student studenten[5];
+	for(int i=0; i<5; i++){
+		student_einlesen(&studenten[i]);
+	}
+	for(int i=0; i<5; i++){
+		student_ausgeben(&studenten[i]);
+	}
+}","#include <stdio.h>
+#include <stdlib.h>
+typedef struct student {
+  char vorname[21]; // one more char for the NULL byte '\0'
+  char nachname[21];
+  int punkte[5];
+} Student;
+static Student students[5];
+void student_einlesen(Student *p_stud) {
+  printf(""Gebe den Vornamen ein: "");
+  scanf(""%s"", p_stud->vorname);
+  printf(""Gebe nun den Nachnamen ein: "");
+  scanf(""%s"", p_stud->nachname);
+  printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+  for (int i = 0; i < 5; ++i) {
+    printf(""%i:"", i + 1);
+    scanf(""%i"", p_stud->punkte + i);
+    if ( i == 4 ) {
+        printf(""\n"");
+    } else {
+        printf("" "");
+    }
+  }
+}
+int sum_points(int *arr, int size) {
+  int sum = 0;
+  for (int i = 0; i < size; ++i)
+    sum += arr[i];
+  return sum;
+}
+void student_ausgeben(Student *p_stud) {
+  int sum = sum_points(p_stud->punkte, 5);
+  printf(""Student: %s "", p_stud->vorname);
+  printf(""%s\n"", p_stud->nachname);
+  printf(""Anzahl Punkte: %i\n"", sum);
+}
+int main() {
+  for (int i = 0; i < 5; ++i) {
+    student_einlesen(students + i);
+  }
+  for (int i = 0; i < 5; ++i) {
+    student_ausgeben(students + i);
+    if ( i < 4 )
+        printf(""\n"");
+  }
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+typedef char Str20[21];
+typedef struct student {
+    Str20 first_name;
+    Str20 last_name;
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud) {
+    for(int i = 0; i < 5; i++){
+        printf(""Gebe den Vornamen ein:\n"");
+        scanf(""%c"", &p_stud[i].first_name);
+        printf(""Gebe nun den Nachnamen ein:\n"");
+        scanf(""%c"", &p_stud[i].last_name);
+        printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+        scanf(""%d"", &p_stud[i].points[0]);
+        scanf(""%d"", &p_stud[i].points[1]);
+        scanf(""%d"", &p_stud[i].points[2]);
+        scanf(""%d"", &p_stud[i].points[3]);
+        scanf(""%d"", &p_stud[i].points[4]);
+    }
+}
+void student_ausgeben(Student* p_stud){
+    for(int i = 0; i < 5; i++) {
+        printf(""Student: %c %c\n"", p_stud[i].first_name, p_stud[i].last_name);
+        int gesPunkte = p_stud[i].points[0] + p_stud[i].points[1] + p_stud[i].points[2] + p_stud[i].points[3] + p_stud[i].points[4];
+        printf(""Anzahl Punkte: %d\n"", gesPunkte);
+    }
+}
+int main()
+{
+    struct Student p_stud[5];
+    for(int i = 0; i < 5; i++) {
+        student_einlesen(&p_stud[i]);
+    }
+    for(int i = 0; i < 5; i++) {
+        student_ausgeben(&p_stud[i]);
+    }
+}","#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <string.h>
+typedef struct student{
+    char first_name[20];
+    char last_name[20];
+    int points;
+} Student;
+void student_einlesen(Student* p_stud){
+    printf(""Gebe den Vornamen ein:"");
+scanf(""%s"", &p_stud->first_name);
+getchar();
+printf("" Gebe nun den Nachnamen ein:"");
+scanf(""%s"", &p_stud->last_name);
+getchar();
+printf("" Gebe nun nacheinander die 5 Punkte ein:\n"");
+int points[5];
+int summe=0;
+for (int i = 0; i<5; i++){
+    printf("" %i:"", (i+1));
+    scanf(""%i"", &points[i]);
+    summe+=points[i];
+    p_stud->points=summe;
+}
+}
+void student_ausgeben(Student* p_stud){
+        printf(""\nStudent: %s %s\n"", p_stud->first_name, p_stud->last_name);
+printf(""Anzahl Punkte: %d\n"", p_stud->points);
+}
+int main() {
+    Student dar;
+    for (int k = 0; k<5; k++){
+   student_einlesen( &dar );
+   student_ausgeben( &dar );
+    }
+}",0
+"#include <stdio.h>
+int main(int argc, char* argv[]) {
+    //char* str[] = {""./[programm]"", ""PPR"", ""macht"", ""Spass!""}; //zum testen
+    //int agc = 4;                                              //zum testen
+    for(int i= 1; i<5; i++){
+    //printf(""%s\n"", str[i]);                                 //test
+    }
+    char string1[100]; string1[99] = '\0';
+    char string2[100]; string2[99] = '\0';
+    char string3[100];
+    for(int i = 0; i < 100; i++){
+        string1[i] = '\0';
+        string2[i] = '\0';
+        string3[i] = '\0';
+    }
+    int pos = 0;
+    for(int i = 1; i<argc; i++){
+        int j = 0;
+        int laenge = 0;
+        while(argv[i][j] != '\0'){
+        laenge++;
+        j++;
+        }
+        //printf(""i=%i - laenge=%i\n"", i, laenge);                //test
+        for(int y = 0; y<laenge; y++){
+            string1[pos] = argv[i][y];
+            pos++;
+        }
+    }
+    //buchstabenloeschen
+    int j = 0;
+    int length = 0;
+    while(string1[j] != '\0'){
+    length++;
+    j++;
+    }
+    //printf(""length: %i\n"", length);                       //test
+    int zaehler = 0;
+    for(int i=0; i<length; i++){
+        if(string1[i] == 'x' || string1[i] == 'y' || string1[i] == 'q'){
+        }
+        else if(string1[i] == 'X' || string1[i] == 'Y' || string1[i] == 'Q'){
+        }
+        else{
+            string2[zaehler] = string1[i];
+            zaehler++;
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", string2);
+    //nur noch jeden 3ten Buchstaben verwenden
+    int countah = 0;
+    for(int i=0; i<=zaehler; i+=3){
+        string3[countah] = string2[i];
+        countah++;
+    }
+    printf(""Der neue String lautet: %s\n"", string3);
+    //string1[0] = str[1][0];                                   //test
+    //printf(""%s\n"", string1);                                  //test
+    //printf(""%s\n"", string2);                                  //test
+    //printf(""%s\n"", string3);                                  //test
+    return 0;
+}","#include <stdio.h>
+int main(int argc, char* argv[]) {
+    //char* str[] = {""./[programm]"", ""PPR"", ""macht"", ""Spass!""}; //zum testen
+    //int agc = 4;                                              //zum testen
+    for(int i= 1; i<5; i++){
+    //printf(""%s\n"", str[i]);                                 //test
+    }
+    char string1[100]; string1[99] = '\0';
+    char string2[100]; string2[99] = '\0';
+    char string3[100];
+    for(int i = 0; i < 100; i++){
+        string1[i] = '\0';
+        string2[i] = '\0';
+        string3[i] = '\0';
+    }
+    int pos = 0;
+    for(int i = 1; i<argc; i++){
+        int j = 0;
+        int laenge = 0;
+        while(argv[i][j] != '\0'){
+        laenge++;
+        j++;
+        }
+        //printf(""i=%i - laenge=%i\n"", i, laenge);                //test
+        for(int y = 0; y<laenge; y++){
+            string1[pos] = argv[i][y];
+            pos++;
+        }
+    }
+    //buchstabenloeschen
+    int j = 0;
+    int length = 0;
+    while(string1[j] != '\0'){
+    length++;
+    j++;
+    }
+    //printf(""length: %i\n"", length);                       //test
+    int zaehler = 0;
+    for(int i=0; i<length; i++){
+        if(string1[i] == 'x' || string1[i] == 'y' || string1[i] == 'q'){
+        }
+        else if(string1[i] == 'X' || string1[i] == 'Y' || string1[i] == 'Q'){
+        }
+        else{
+            string2[zaehler] = string1[i];
+            zaehler++;
+        }
+    }
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", string2);
+    //nur noch jeden 3ten Buchstaben verwenden
+    int countah = 0;
+    for(int i=0; i<=zaehler; i+=3){
+        string3[countah] = string2[i];
+        countah++;
+    }
+    printf(""Der neue String lautet: %s\n"", string3);
+    //string1[0] = str[1][0];                                   //test
+    //printf(""%s\n"", string1);                                  //test
+    //printf(""%s\n"", string2);                                  //test
+    //printf(""%s\n"", string3);                                  //test
+    return 0;
+}",1
+"#include <stdio.h>
+int findIndexOfMax (int array[], int groese)
+{
+     unsigned int indexOfMax = 0;
+    for (int i = 0; i < groese; i++)
+    {
+       if (array[i] > array[indexOfMax] )
+       {
+           indexOfMax = i;
+       }
+    }
+    if (array[indexOfMax] == INT_MIN)
+    {
+        indexOfMax = UINT_MAX;
+    }
+    return indexOfMax;
+}
+int main ()
+{
+    unsigned int index;
+    int array_Groese = 5;
+    int array[array_Groese];
+    printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+    for (int i = 0; i < array_Groese; i++)
+    {
+        scanf(""%d"",&array[i]);
+    }
+    index = findIndexOfMax(array,array_Groese);
+    while ( index != UINT_MAX )
+    {
+        printf(""Naechstgroesstes: %d\n"",array[index]);
+        array[index] = INT_MIN;
+        index = findIndexOfMax(array,array_Groese);
+    }
+    return 0;
+}","#include <stdio.h>
+int findIndexOfMax(int array[], int size){
+    int max=array[0];
+    int index;
+    for (int i = 0; i < size; i++){
+        if (array[i] >= max){
+            max = array[i];
+            index = i;
+        }
+    }
+    if (max == INT_MIN){
+        return UINT_MAX;
+    }
+    else return index;
+}
+int main() {
+    int array[5];
+    printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+    for ( int i = 0; i < 5; i++){
+        scanf(""%d"", &array[i]);
+    }
+    int index;
+    while(1) {
+        index = findIndexOfMax(array,5);
+        if (index == UINT_MAX) break;
+        printf(""Naechstgroesstes: %d\n"", array[index]);
+        array[findIndexOfMax(array, 5)] = INT_MIN;
+    }
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{
+	for (int i=0;((i<zahl)&&((dest[i])!=('\0')))&&((src[i])!=('\0'));i++)
+dest[i]=src[i];
+}
+void umdrehen( char* str )
+{	char temp[30]="""";
+	int i=0;
+	for(;(str[i+1])!=('\0');i++){}
+	for(int j=0;(str[j])!=('\0');j++) {temp[j]=str[i-j];}
+	for(int j=0;(str[j])!=('\0');j++) {str[j]=temp[(j)];}
+}
+int main( int argc, char* argv[] )
+{
+	char test[11]= ""0123456789"";
+	printf( ""Das Original ist: %s \n"", test );
+	ersetzen( test , atoi(argv[1]), argv[2] );
+	printf( ""Ersetzt : %s \n"", test );
+	umdrehen( test );
+	printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+void xyqentfernen(char* str1){
+	int i;
+	int j;
+	for ( i = 0,  j = 0;j<100; ++j){
+	if ((str1[j] != 'x')&&(str1[j] != 'X')&&(str1[j] != 'y')&&(str1[j] != 'Y')&&(str1[j] != 'q')&&(str1[j] != 'Q'))
+	str1[i++] = str1[j];
+	}
+}
+void zsmfuegen(char* str1, char* str2){
+	int j=0;
+	for(;(str2[j])!=('\0');j++){}
+	for (int i=0;str1[i]!='\0';i++){
+		str2[j+i]=str1[i];
+	}	
+;}
+void neuerstring(char* str1,char* str2){
+	for (int i=0;str1[i]!='\0';i++){
+		if((i+3)%3==0)str2[((i+3)/3)-1]=str1[i];
+	}
+}
+int main(int argc,char** argv){
+	if (argc<2) return 0;
+	char zsm[100]="""";
+	char neustr[100]="""";
+	for(int i=1;i<argc;i++) {
+		zsmfuegen(argv[i],zsm);}
+		xyqentfernen(zsm);
+	neuerstring(zsm,neustr);
+	printf(""x,y,q und X,Y,Q aussortiert: %s\n"",zsm);
+	printf(""Der neue String lautet: %s"",neustr);
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+    for(int i= 0; dest[i] != 0; i++){
+        if(i < zahl && src[i] != 0){
+            dest[i] = src[i];
+        }
+    }
+}
+void umdrehen( char* str )
+{
+    char temp[100] = """";
+    int count = 0;
+    for(int i= 0; str[i] != 0; i++){
+       temp[i] = str[i];
+       count++;
+    }
+    for(int i= 0; temp[i] != 0; i++){
+       str[i] = temp[count-i-1];
+    }
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+    for(int i= 0; dest[i] != 0; i++){
+        if(i < zahl && src[i] != 0){
+            dest[i] = src[i];
+        }
+    }
+}
+void umdrehen( char* str )
+{
+    char temp[100] = """";
+    int count = 0;
+    for(int i= 0; str[i] != 0; i++){
+       temp[i] = str[i];
+       count++;
+    }
+    for(int i= 0; temp[i] != 0; i++){
+       str[i] = temp[count-i-1];
+    }
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}",1
+"//Hausaufgabe 7
+//Aufgabe 9
+#include <stdio.h>
+int findIndexOfMax(int array[], int length){
+  int a = INT_MIN;
+  int b;
+  for(int i=0; i<length; i++){
+    if (array[i] >= a){
+      a = array[i];
+      b = i;
+    }
+  }
+  if(array[b] == INT_MIN){
+    return UINT_MAX;
+  }else{
+    return b;
+  }
+}
+int main(){
+  int array[5];
+  printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+  for(int i=0; i<5; i++){
+    scanf(""%i"", &array[i]);
+  }
+  for(int i=0; i<5; i++){
+    int index = findIndexOfMax(array, 5);
+    if(index == UINT_MAX){
+      break;
+    }else{
+      printf(""Naechstgroesstes: %i\n"", array[index]);
+      array[index] = INT_MIN;
+    }
+  }
+}","//Hausaufgabe 7
+//Aufgabe 9
+#include <stdio.h>
+int findIndexOfMax(int array[], int length){
+  int a = INT_MIN;
+  int b;
+  for(int i=0; i<length; i++){
+    if (array[i] >= a){
+      a = array[i];
+      b = i;
+    }
+  }
+  if(array[b] == INT_MIN){
+    return UINT_MAX;
+  }else{
+    return b;
+  }
+}
+int main(){
+  int array[5];
+  printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+  for(int i=0; i<5; i++){
+    scanf(""%i"", &array[i]);
+  }
+  for(int i=0; i<5; i++){
+    int index = findIndexOfMax(array, 5);
+    if(index == UINT_MAX){
+      break;
+    }else{
+      printf(""Naechstgroesstes: %i\n"", array[index]);
+      array[index] = INT_MIN;
+    }
+  }
+}",1
+"//
+//  main.c
+//  HA
+//
+//  Created by Tobias Hengst on 27.06.22.
+//
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct student{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud){
+    printf(""Gebe den Vornamen ein: "");
+    fgets(p_stud -> first_name, 20, stdin);
+    for (int i = 19; i >= 0; i--) {
+        if (p_stud -> first_name[i] == '\n') {
+            p_stud -> first_name[i] = '\0';
+            p_stud -> first_name[i+1] = 0;
+            break;
+        }
+    }
+    printf(""Gebe nun den Nachnamen ein: "");
+    fgets(p_stud -> last_name, 20, stdin);
+    for (int i = 19; i >= 0; i--) {
+        if (p_stud -> last_name[i] == '\n') {
+            p_stud -> last_name[i] = '\0';
+            p_stud -> last_name[i+1] = 0;
+            break;
+        }
+    }
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    for (int i = 0; i < 5; i++) {
+        printf(""%i: "", i+1);
+        scanf(""%i"", &p_stud -> points[i]);
+    }
+    getchar();
+}
+void student_ausgeben(Student* p_stud){
+    printf(""Student: %s %s\n"", p_stud -> first_name, p_stud -> last_name);
+    int summe = 0;
+    for (int i = 0; i < 5; i++) {
+        summe += p_stud -> points[i];
+    }
+    printf(""Anzahl Punkte: %i\n\n"", summe);
+}
+int main(){
+    Student liste[5];
+    for (int i = 0; i < (sizeof(liste)/sizeof(Student)); i++) {
+        student_einlesen(&liste[i]);
+        printf(""\n"");
+    }
+    for (int i = 0; i < (sizeof(liste)/sizeof(Student)); i++) {
+        student_ausgeben(&liste[i]);
+    }
+}","//
+//  main.c
+//  HA
+//
+//  Created by Tobias Hengst on 27.06.22.
+//
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct student{
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+}Student;
+void student_einlesen(Student* p_stud){
+    printf(""Gebe den Vornamen ein: "");
+    fgets(p_stud -> first_name, 20, stdin);
+    for (int i = 19; i >= 0; i--) {
+        if (p_stud -> first_name[i] == '\n') {
+            p_stud -> first_name[i] = '\0';
+            p_stud -> first_name[i+1] = 0;
+            break;
+        }
+    }
+    printf(""Gebe nun den Nachnamen ein: "");
+    fgets(p_stud -> last_name, 20, stdin);
+    for (int i = 19; i >= 0; i--) {
+        if (p_stud -> last_name[i] == '\n') {
+            p_stud -> last_name[i] = '\0';
+            p_stud -> last_name[i+1] = 0;
+            break;
+        }
+    }
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    for (int i = 0; i < 5; i++) {
+        printf(""%i: "", i+1);
+        scanf(""%i"", &p_stud -> points[i]);
+    }
+    getchar();
+}
+void student_ausgeben(Student* p_stud){
+    printf(""Student: %s %s\n"", p_stud -> first_name, p_stud -> last_name);
+    int summe = 0;
+    for (int i = 0; i < 5; i++) {
+        summe += p_stud -> points[i];
+    }
+    printf(""Anzahl Punkte: %i\n\n"", summe);
+}
+int main(){
+    Student liste[5];
+    for (int i = 0; i < (sizeof(liste)/sizeof(Student)); i++) {
+        student_einlesen(&liste[i]);
+        printf(""\n"");
+    }
+    for (int i = 0; i < (sizeof(liste)/sizeof(Student)); i++) {
+        student_ausgeben(&liste[i]);
+    }
+}",1
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+  for(int i=0; i<zahl && *(dest+i) != '\0'  ; i++){
+  *(dest+i) = *(src +i);
+  }
+}
+void umdrehen( char* str )
+{
+  int n=0;
+  for(int i =0; *(str+i) != '\0' ;i++){
+  n++;}
+  n--;
+  for(int i=0; i<=n; i++){
+  char tmp = *(str +i); 
+  *(str + i) = *(str + n );
+  *(str + n) = tmp;
+    n--;
+  }
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+//void ersetzen(char* dest, int zahl, char* src)
+void ersetzen(char* dest, int zahl, char* src){  
+	for (int i = 0; i <=zahl && dest[i] != '\0'; i++){
+		dest[i] = src[i];
+	}
+}
+//void umdrehen( char* str )
+void umdrehen( char* str ){
+	int c = 0;
+	for(int i = 1; str[i] != '\0'; i++){
+		c = i;
+	}
+	char tmp[c];
+	for(int i = 0; str[i] != '\0'; i++){
+		tmp[i] = str[c-i];
+	}
+	for(int i = 0; str[i] != '\0'; i++){
+		str[i]=tmp[i];
+	}
+}
+//int main( int argc, char* argv[] )
+int main( int argc, char* argv[] ){  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}",0
+"#include <stdio.h>
+int main(int argc, char** argv){
+    char array [100];
+    char array2 [100];
+    int k = 0;
+    for( int i = 1; i < argc; i++){
+        for(int j = 0; '\0' != argv[i][j]; j++){
+             if(argv[i][j] != 'x' && argv[i][j] && argv[i][j] != 'y' && argv[i][j]!= 'q' && argv[i][j] != 'X' && argv[i][j] != 'Y' && argv[i][j] != 'Q'){ 
+             array[k] = argv[i][j];
+             k++;
+             }
+        }
+    }
+    array[k] = '\0';
+    printf(""x,y,q und X,Y,Q aussortiert: %s\n"", array);
+    for(int i = 0; 3 * i < k ; i++){
+        array2[i] = array[3*i];
+    }
+    printf(""Der neue String lautet: %s"", array2);
+}","#include <stdio.h>
+int main() {
+   char satz[100], satz2[100];
+   int l, k;
+   fgets(satz, sizeof(satz), stdin);
+   for (int i = 0, j; satz[i] != '\0'; ++i) {
+      while (!(satz[i] >= 'a' && satz[i] <= 'p') && !(satz[i] >= 'r' && satz[i] <= 'w') && !(satz[i] == 'z') && !(satz[i] >= 'A' && satz[i] <= 'P') && !(satz[i] >= 'R' && satz[i] <= 'W') && !(satz[i] == 'Z') && !(satz[i] == '!') && !(satz[i] == '?') && !(satz[i] == '\0')){
+         for (j = i; satz[j] != '\0'; ++j) {
+            satz[j] = satz[j + 1];
+         }
+         satz[j] = '\0';
+      }
+   }
+   printf(""x,y,q und X,Y,Q aussortiert: "");
+   puts(satz);
+     for (int l = 0, k; satz[l] != '\0'; ++l) {
+        satz2[k] == satz[l];
+        k++;
+        l=l+3;
+    }
+    printf(""Der neue String lautet: %s"", satz2);
+    return 0;
+}",0
+"#include <stdio.h>
+int findIndexOfMax(int x[], int groesse){
+int array[] = {INT_MIN,INT_MIN,INT_MIN,INT_MIN,INT_MIN};
+int index = 0;
+	for(int i = 0; i < groesse; i++){
+	if(array[i] > x[i]){
+	array[i] = x[i];
+	index = i;
+		} 
+	} return index;
+}
+int main() {
+printf(""Bitte geben Sie 5 ganze Zahlen ein:"");
+	int array[5];
+	int temp;
+for(int i = 0; i < 5 ; i++ ){	
+	scanf(""%i"" , &array[i]);
+	}
+for(int i = 0; i<5 ; i++){
+	for(int j=0; j<5 ; j++){
+		if(array[i] > array[j]){
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			}
+		}
+	}
+for(int i = 0; i<5 ; i++)	{
+printf("" Naechstgroesstes: %i\n"" , array[i]);
+		}
+}","#include <stdio.h>
+int findIndexOfMax(int array[],int size){
+	int max = INT_MIN;
+	int index = INT_MIN;
+	for (int i = 0;i < size;i++){
+		if (array[i]>max){
+			max = array[i];
+			index = i;
+		}
+	}
+	if (max == INT_MIN) {
+		return UINT_MAX;
+	} else {
+		return index;
+	}
+}
+int main() {
+	printf(""Bitte geben Sie 5 ganze Zahlen ein: "");
+	int array[5];
+	for (int i=0;i<5;i++){
+		scanf(""%i"",&(array[i]));
+	}
+	int index = INT_MIN;
+	while((index = findIndexOfMax(array, 5)) != UINT_MAX) {
+		printf(""Naechstgroesstes: %d\n"", array[index]);
+		array[index] = INT_MIN;
+	}
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+void ersetzen(char* dest, int zahl, char* src)
+{  
+    for (int i=0; i < zahl; i++)
+    {
+        if (dest[i] == '\0' || src[i] == '\0') break;
+        dest[i] =src[i];
+    }
+}
+void umdrehen( char* str )
+{
+    char tmp=0;
+    int strlen= 0;
+    for( ; str[strlen] !='\0'; strlen++ );
+    for( int i= 0; i< strlen /2; i++)
+    {
+        tmp= str[i];
+        str[i] = str[strlen-i-1];
+        str[strlen-i-1] - tmp;
+    }
+}
+int main( int argc, char* argv[] )
+{  
+  char test[11]= ""0123456789"";
+  printf( ""Das Original ist: %s \n"", test );
+  ersetzen( test , atoi(argv[1]), argv[2] );
+  printf( ""Ersetzt : %s \n"", test );
+  umdrehen( test );
+  printf( ""Rückwärts : %s \n"", test );
+}","#include <stdio.h>
+#include <stdlib.h>
+int getStringLength(char x[]) {
+    int i = 0;
+    while(x[i] != NULL) {
+        i++;
+    }
+    return i;
+}
+void ersetzen(char* dest, int zahl, char* src)
+{
+    for (int i = 0; i < zahl && i < getStringLength(src) && i < 10; ++i) {
+        dest[i] = src[i];
+    }
+}
+void umdrehen( char* str )
+{
+    int z = getStringLength(str);
+    char x[z];
+    for (int i = 0; i < z; ++i) {
+        x[i] = str[i];
+    }
+    for (int i = z-1; i >= 0; --i) {
+        str[(z-1)-i]=x[i];
+    }
+}
+int main( int argc, char* argv[] )
+{
+    char test[11]= ""0123456789"";
+    printf( ""Das Original ist: %s \n"", test );
+    ersetzen( test , atoi(argv[1]), argv[2] );
+    printf( ""Ersetzt : %s \n"", test );
+    umdrehen(test);
+    printf( ""Rückwärts : %s \n"", test );
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+const int ANZAHL = 5; // Should be 5
+struct student {
+    char first_name[20];
+    char last_name[20];
+    int points[5];
+};
+typedef struct student Student;
+void student_einlesen(Student* p_stud);
+void student_ausgeben(Student* p_stud);
+int main(void){
+    Student students[ANZAHL];
+    // Einlesen
+    for(int i = 0; i < ANZAHL; i++)
+    {
+        student_einlesen(students + i);
+    }
+    // Ausgeben
+    for(int i = 0; i < ANZAHL; i++)
+    {
+        student_ausgeben(students + i);
+    }
+}
+void student_einlesen(Student* p_stud)
+{
+    // Nutzer einlesen
+    printf(""Gebe den Vornamen ein: "");
+    scanf(""%s"", p_stud->first_name);
+    printf(""Gebe nun den Nachnamen ein: "");
+    scanf(""%s"", p_stud->last_name);
+    printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+    for(int i = 0; i < 5; i++)
+    {
+        printf(""%d: "", i + 1);
+        scanf(""%d"", &(p_stud->points[i]));
+    }
+    printf(""\n"");
+}
+void student_ausgeben(Student *p_stud)
+{
+    printf(""Student: %s %s\n"", p_stud->first_name, p_stud->last_name);
+    int sum = 0;
+    for(int i = 0; i < 5; i++)
+    {
+        sum += *(p_stud->points + i);
+    }
+    printf(""Anzahl Punkte: %d\n"", sum);
+}","#include <stdio.h>
+#include <stdlib.h>
+typedef struct student {
+	char first_name[20];
+	char last_name[20];
+	int points[5];
+}Student;
+void student_einlesen(Student* p_stud){
+	printf(""Gebe den Vornamen ein: "");
+	scanf(""%s"", p_stud -> first_name);
+	printf(""Gebe nun den Nachnamen ein: "");
+	scanf(""%s"", p_stud -> last_name);
+	printf(""Gebe nun nacheinander die 5 Punkte ein:\n"");
+	for(int i = 0; i<5; i++){
+		printf(""%i: "",i+1);
+		scanf(""%i"", &p_stud->points[i]);
+		}	
+	printf(""\n"");	
+}
+void student_ausgeben(Student* p_stud){
+	printf(""Student: %s %s\n"", p_stud->first_name, p_stud -> last_name);
+	int temp = 0;
+	for(int i = 0 ; i <5; i++){
+		temp += p_stud->points[i];
+	}
+printf(""Anzahl Punkte: %i\n"", temp);
+	printf(""\n"");
+}
+int main(){
+	Student array[5];
+	for(int i = 0; i<5; i++){
+	student_einlesen(&array[i]);
+	}
+	for(int i = 0; i<5; i++){
+	student_ausgeben(&array[i]);
+	}
+}",0
+"#include <stdio.h>
+#include <stdlib.h>
+char*  struct student() {
+	char *Student  = (char*) malloc(20*sizeof(char)); 
+	return Student ;
+}
+int main(void){
+	char* p;
+	char vorname = 0;
+	char nachname = 0;
+	p = struct student();
+	for(char i = 0; i != 20; ++i) {
+		p[i] = i;
+	}
+	for(char i = 0; i != 20; ++i) {
+		summe += p[i];
+	}
+	printf(""\nerster_Student: %s %s\n"", erster_Student.vorname, erster_Student.nachname);
+    printf(""Punkte -> %i; %i; %i; %i; %i\n"", erster_Student.punkte[0], erster_Student.punkte[1], erster_Student.punkte[2], erster_Student.punkte[3], erster_Student.punkte[4]);
+}","#include <stdio.h>
+#include <stdlib.h>
+char*  struct student() {
+	char *Student  = (char*) malloc(20*sizeof(char)); 
+	return Student ;
+}
+int main(void){
+	char* p;
+	char vorname = 0;
+	char nachname = 0;
+	p = struct student();
+	for(char i = 0; i != 20; ++i) {
+		p[i] = i;
+	}
+	for(char i = 0; i != 20; ++i) {
+		summe += p[i];
+	}
+	printf(""\nerster_Student: %s %s\n"", erster_Student.vorname, erster_Student.nachname);
+    printf(""Punkte -> %i; %i; %i; %i; %i\n"", erster_Student.punkte[0], erster_Student.punkte[1], erster_Student.punkte[2], erster_Student.punkte[3], erster_Student.punkte[4]);
+}",1
