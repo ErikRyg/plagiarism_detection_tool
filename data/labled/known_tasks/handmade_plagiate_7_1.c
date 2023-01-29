@@ -1,29 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void cipher(char str[], int shift, int maxlength)
-{
-  for (int i = 0; i < maxlength; ++i)
-    shiftChar(&str[i], shift);
-}
-
 void shiftChar(char *p_char, int shift)
 {
-  if ('A' <= *p_char && *p_char <= 'Z')
+  if (!('a' >= *p_char || *p_char >= 'z'))
   {
-    *p_char += shift;
-    if (*p_char > 'Z')
-      *p_char -= 26;
-    if (*p_char < 'A')
-      *p_char += 26;
-  }
-  else if ('a' <= *p_char && *p_char <= 'z')
-  {
-    if (*p_char + shift < 'a')
-      shift += 26;
     if (*p_char + shift > 'z')
       shift -= 26;
+    if (*p_char + shift < 'a')
+      shift += 26;
     *p_char += shift;
+  }
+  else if (!('A' >= *p_char || *p_char >= 'Z'))
+  {
+    *p_char += shift;
+    if (*p_char < 'A')
+      *p_char += 26;
+    if (*p_char > 'Z')
+      *p_char -= 26;
+  }
+}
+
+void cipher(char str[], int shift, int maxlength)
+{
+  int j = 0;
+  while (j < maxlength)
+  {
+    shiftChar(&str[j], shift);
+    ++j;
   }
 }
 

@@ -3,41 +3,47 @@
 
 void shiftChar(char *p_char, int shift)
 {
-  if ('A' <= *p_char && *p_char <= 'Z')
+  if (!('a' >= *p_char || *p_char >= 'z'))
+  {
+    if (*p_char + shift < 'a')
+      shift += 26;
+    else if (*p_char + shift > 'z')
+      shift -= 26;
+    *p_char += shift;
+  }
+  else if (!('A' >= *p_char || *p_char >= 'Z'))
   {
     *p_char += shift;
     if (*p_char > 'Z')
       *p_char -= 26;
-    if (*p_char < 'A')
+    else if (*p_char < 'A')
       *p_char += 26;
-  }
-  else if ('a' <= *p_char && *p_char <= 'z')
-  {
-    if (*p_char + shift < 'a')
-      shift += 26;
-    if (*p_char + shift > 'z')
-      shift -= 26;
-    *p_char += shift;
   }
 }
 
 void cipher(char str[], int shift, int maxlength)
 {
-  for (int i = 0; i < maxlength; ++i)
-    shiftChar(&str[i], shift);
+  int k = 0;
+  do
+  {
+    k = k + 1;
+    shiftChar(&str[k - 1], shift);
+  } while (k < maxlength);
 }
 
 int main()
 {
-  char str[50] = "Froh zu sein bedarf es wenig";
+  char str[50] = "Froh zu sein bedarf es wenig"; // Originaltext
   int shift = 5;
   printf("Original: ");
   printf("%s\n", str);
 
+  // Verschluesseln
   cipher(str, shift, 50);
   printf("Verschluesselt: ");
   printf("%s\n", str);
 
+  // Entschluesseln
   cipher(str, -shift, 50);
   printf("Entschluesselt: ");
   printf("%s\n", str);

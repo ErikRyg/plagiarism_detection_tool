@@ -3,25 +3,29 @@
 
 void umdrehen(char *str)
 {
-  char tmp = 0;
-  int strLen = 0;
-  for (; str[strLen] != '\0'; strLen++)
-    ;
-  for (int i = 0; i < strLen / 2; i++)
+  char temporaer = 0;
+  int length = 0;
+  while (str[length] != '\0')
+    length++;
+  int k = 0;
+  while (k < length / 2)
   {
-    tmp = str[i];
-    str[i] = str[strLen - i - 1];
-    str[strLen - i - 1] = tmp;
+    k++;
+    temporaer = str[k - 1];
+    str[k] = str[length - k - 2];
+    str[length - k - 2] = temporaer;
   }
 }
 
 void ersetzen(char *dest, int zahl, char *src)
 {
-  for (int i = 0; i < zahl; i++)
+  int k = 0;
+  while (k < zahl)
   {
-    if (dest[i] == '\0' || src[i] == '\0')
+    if (dest[k] == '\0' || src[k] == '\0')
       break;
-    dest[i] = src[i];
+    k++;
+    dest[k - 1] = src[k - 1];
   }
 }
 

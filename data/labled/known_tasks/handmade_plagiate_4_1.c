@@ -1,18 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ersetzen(char *dest, int zahl, char *src)
-{
-  int k = 0;
-  do
-  {
-    if (!(dest[k] != '\0' && src[k] != '\0'))
-      break;
-    k++;
-    dest[k - 1] = src[k - 1];
-  } while (k < zahl);
-}
-
 void umdrehen(char *str)
 {
   char temporaer = 0;
@@ -27,6 +15,18 @@ void umdrehen(char *str)
     str[k] = str[length - k - 2];
     str[length - k - 2] = temporaer;
   } while (length / 2 > k);
+}
+
+void ersetzen(char *dest, int zahl, char *src)
+{
+  int k = 0;
+  do
+  {
+    if (!(dest[k] != '\0' && src[k] != '\0'))
+      break;
+    k++;
+    dest[k - 1] = src[k - 1];
+  } while (k < zahl);
 }
 
 int main(int argc, char *argv[])
